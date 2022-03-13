@@ -23,6 +23,18 @@ const RecommendProducts = () => {
           <img src={heels} alt="deal-heels" class="product-img" />
         </div>
       </section>
+      <section class="banner-section">
+        <div class="banner-detail">
+          <span>EVERYDAY</span>
+          <span>ESSENTIALS</span>
+          <a href="./pages/product.html">
+            <button>
+              SHOP NOW
+              <i class="fa-solid fa-right-long"></i>
+            </button>
+          </a>
+        </div>
+      </section>
     </div>
   );
 };

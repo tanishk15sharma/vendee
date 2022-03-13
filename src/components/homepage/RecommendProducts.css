@@ -1,0 +1,31 @@
+/* product-deal */
+
+.product-section {
+  margin: 1rem;
+  margin-top: 3rem;
+}
+
+.product-title {
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+
+.product-container {
+  /* margin: 2rem; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* flex-shrink: 2; */
+}
+
+.product-img {
+  /* width: 13.8rem; */
+  width: 18.8%;
+  height: auto;
+  padding: 0;
+  cursor: pointer;
+}

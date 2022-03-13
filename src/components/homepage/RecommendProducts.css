@@ -1,0 +1,79 @@
+/* product-deal */
+
+.deal-section {
+  margin: 1rem;
+  margin-top: 3rem;
+}
+
+.deal-title {
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+
+.deal-container {
+  /* margin: 2rem; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* flex-shrink: 2; */
+}
+
+.product-img {
+  /* width: 13.8rem; */
+  width: 18.8%;
+  height: auto;
+  padding: 0;
+  cursor: pointer;
+}
+/* Banner - section */
+
+.banner-section {
+  margin: 0 auto;
+  min-width: 89.6%;
+  min-height: 55vh;
+  width: 96.5%;
+  margin-bottom: 5rem;
+
+  /* banner-bg-responsive */
+  background-image: url("../../assets/recommendedproduct-images/banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+}
+
+.banner-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 4.2rem;
+  padding-top: 4.5rem;
+}
+
+.banner-detail span {
+  font-size: 3.5rem;
+}
+
+.banner-detail button {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  background-color: var(--background-color);
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.banner-detail button:hover {
+  opacity: 0.9;
+}
+
+.fa-right-long {
+  font-size: 1rem;
+  margin-left: 0.6rem;
+}

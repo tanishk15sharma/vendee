@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  padding: 2.2rem 5rem 5rem 5rem;
+  justify-content: space-between;
+  background-color: var(--background-color);
+}
+
+.footer-detail {
+  color: var(--primary-color);
+
+  font-size: 0.8rem;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 2px;
+}
+
+.footer-detail span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.footer-link {
+  background-color: var(--secondary-color);
+  display: block;
+  border-radius: 50%;
+  margin-bottom: 0.3rem;
+  transition: all 0.3s;
+}
+
+.footer-link:hover {
+  background-color: var(--primary-color);
+}
+.footer-icon {
+  font-size: 1.4rem;
+  color: var(--background-color);
+  padding: 0.5rem;
+}

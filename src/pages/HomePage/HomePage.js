@@ -1,14 +1,14 @@
 import React from "react";
 import { HeaderSection } from "../../components/homepage/Header";
-import { CarouselContainer } from "../../components/homepage/Carousel";
 import { RecommendProducts } from "../../components/homepage/RecommendProducts";
+import { Footer } from "../../components/homepage/Footer";
 
 const HomePage = () => {
   return (
     <div>
       <HeaderSection />
-      <CarouselContainer />
       <RecommendProducts />
+      <Footer />
     </div>
   );
 };

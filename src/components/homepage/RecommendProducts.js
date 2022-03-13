@@ -9,9 +9,9 @@ import heels from "../../assets/recommendedproduct-images/-Heels.webp";
 const RecommendProducts = () => {
   return (
     <div>
-      <section class="product-section">
-        <span class="product-title">DEALS Of The Day</span>
-        <div class="product-container">
+      <section class="deal-section">
+        <span class="deal-title">DEALS Of The Day</span>
+        <div class="deal-container">
           <img src={sportsShoes} alt="deal-shoes" class="product-img" />
 
           <img src={homeDecor} alt="deal-decor" class="product-img" />

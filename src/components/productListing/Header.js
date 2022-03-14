@@ -20,8 +20,8 @@ const HeaderSection = () => {
         <p class="logo-name">
           <span class="logo-v">V</span>endee
         </p>
-        <i class="fa-solid fa-shoe-prints foot-icon"></i>
-        <i class="fa-solid fa-shoe-prints"></i>
+        {/* <i class="fa-solid fa-shoe-prints foot-icon"></i>
+        <i class="fa-solid fa-shoe-prints"></i> */}
       </div>
       <div class="nav-icons-div">
         <div class="nav-icon-div">

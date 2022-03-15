@@ -8,4 +8,10 @@ const getSortedProducts = (products, sortBy) => {
   return products;
 };
 
-export { getSortedProducts };
+const getFilteredProducts = (products, stockBoolean, deliveryBoolean) => {
+  return products
+    .filter((product) => (stockBoolean ? true : product.inStock))
+    .filter((product) => (deliveryBoolean ? product.fastDelivery : true));
+};
+
+export { getSortedProducts, getFilteredProducts };

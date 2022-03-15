@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductsContainer.css";
 import { useProductsFilters } from "../../contexts/filter-context";
-import { getSortedProducts } from "../../utilities/filters-utils";
+import {
+  getSortedProducts,
+  getFilteredProducts,
+} from "../../utilities/filters-utils";
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
@@ -19,14 +22,21 @@ const ProductsContainer = () => {
   }, []);
 
   const { state } = useProductsFilters();
-  const { sortBy } = state;
+  const { sortBy, includeOutOfStock, fastDelivery } = state;
   // console.log(state);
   const sortedProducts = getSortedProducts(products, sortBy);
+
+  const filteredProducts = getFilteredProducts(
+    sortedProducts,
+    includeOutOfStock,
+    fastDelivery
+  );
+
   return (
     <div className="product-wrapper">
       {load
         ? "loading"
-        : sortedProducts.map((product) => (
+        : filteredProducts.map((product) => (
             <div className="product-card" key={product.id}>
               <div className="product-img-div">
                 <img src={product.image} alt="tshirt" />

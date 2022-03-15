@@ -3,7 +3,7 @@ import { useProductsFilters } from "../../contexts/filter-context";
 import "./ProductsFilters.css";
 
 const ProductsFilters = () => {
-  const { dispatch } = useProductsFilters();
+  const { state, dispatch } = useProductsFilters();
   return (
     <div className="filter-container">
       <div className="filter-nav">
@@ -44,7 +44,32 @@ const ProductsFilters = () => {
           </li>
         </section>
         <hr />
-
+        <section className="filter-section">
+          <p className="filter-title">Availability</p>
+          <li className="filter-list">
+            <label htmlFor="stock">
+              <input
+                type="checkbox"
+                id="stock"
+                checked={state.includeOutOfStock}
+                onChange={() => dispatch({ type: "TOGGLE_STOCK" })}
+              />
+              Include Out of Stock
+            </label>
+          </li>
+          <li className="filter-list">
+            <label htmlFor="delivery">
+              <input
+                type="checkbox"
+                id="delivery"
+                checked={state.fastDelivery}
+                onChange={() => dispatch({ type: "TOGGLE_DELIVERY" })}
+              />
+              Fast Delivery Only
+            </label>
+          </li>
+        </section>
+        <hr />
         <section className="filter-section">
           <p className="filter-title">Brands</p>
           <li className="filter-list">

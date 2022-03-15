@@ -22,7 +22,7 @@ const ProductsContainer = () => {
   }, []);
 
   const { state } = useProductsFilters();
-  const { sortBy, includeOutOfStock, fastDelivery, category } = state;
+  const { sortBy, includeOutOfStock, fastDelivery, category, brands } = state;
   // console.log(state);
   const sortedProducts = getSortedProducts(products, sortBy);
 
@@ -30,9 +30,10 @@ const ProductsContainer = () => {
     sortedProducts,
     includeOutOfStock,
     fastDelivery,
-    category
+    category,
+    brands
   );
-  console.log(state);
+  // console.log(state);
   return (
     <div className="product-wrapper">
       {load

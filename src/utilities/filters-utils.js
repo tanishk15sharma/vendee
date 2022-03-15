@@ -12,13 +12,18 @@ const getFilteredProducts = (
   products,
   stockBoolean,
   deliveryBoolean,
-  categoryObj
+  categoryObj,
+  brandsObj
 ) => {
   return products
     .filter((product) => (stockBoolean ? true : product.inStock))
     .filter((product) => (deliveryBoolean ? product.fastDelivery : true))
-    .filter((product) => categoryObj[product.categories]);
+    .filter((product) => categoryObj[product.categories])
+    .filter((product) => brandsObj[product.brand]);
 
+  // if (products.brands === "hrx") {
+  //   return brandsObj.hrx;
+  // }
   // //men aya
   // if (products.categories === "men") {
   //   return categoryObj.men;

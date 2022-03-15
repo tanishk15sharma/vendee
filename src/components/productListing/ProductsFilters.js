@@ -87,38 +87,67 @@ const ProductsFilters = () => {
         <section className="filter-section">
           <p className="filter-title">Brands</p>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="checkbox" />
+            <label htmlFor="roadster">
+              <input
+                type="checkbox"
+                id="roadster"
+                onChange={() =>
+                  dispatch({ type: "BRANDS", payload: "roadster" })
+                }
+              />
               Roadster
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="checkbox" />
+            <label htmlFor="levis">
+              <input
+                type="checkbox"
+                id="levis"
+                onChange={() => dispatch({ type: "BRANDS", payload: "levis" })}
+              />
               Levis
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="checkbox" />
+            <label htmlFor="hrx">
+              <input
+                type="checkbox"
+                id="hrx"
+                onChange={() => dispatch({ type: "BRANDS", payload: "hrx" })}
+              />
               HRX
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="checkbox" />
+            <label htmlFor="nike">
+              <input
+                type="checkbox"
+                id="nike"
+                onChange={() => dispatch({ type: "BRANDS", payload: "nike" })}
+              />
               Nike
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="checkbox" />
+            <label htmlFor="nautica">
+              <input
+                type="checkbox"
+                id="nautica"
+                onChange={() =>
+                  dispatch({ type: "BRANDS", payload: "nautica" })
+                }
+              />
               Nautica
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="checkbox" />H & M
+            <label htmlFor="hnm">
+              <input
+                type="checkbox"
+                id="hnm"
+                onChange={() => dispatch({ type: "BRANDS", payload: "hnm" })}
+              />
+              H&M
             </label>
           </li>
         </section>

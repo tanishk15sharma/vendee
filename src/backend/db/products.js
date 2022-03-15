@@ -22,7 +22,8 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
+    image:
+      "/Products-images/-Men-Green-Slim-Fit-Solid-Casual-Shirt-358156645-1.webp",
     brand: "Levis",
     name: "Grey Plain Shirt",
     discoutPrice: 1200,
@@ -35,7 +36,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
+    image: "/Products-images/Leather-Jacket1.webp",
     brand: "H&M",
     name: "Brown Leather Jacket",
     discoutPrice: 3999,
@@ -48,7 +49,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
+    image: "/Products-images/Nautica-Men-Tshirts-1.webp",
     brand: "Nautica",
     name: "Red Plain Kolor Neck",
     discoutPrice: 999,
@@ -61,7 +62,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
+    image: "/Products-images/-Women-Kurta-Sets2-1.webp",
     brand: "Nautica",
     name: "Yellow Printed Long Suit",
     discoutPrice: 2700,
@@ -74,8 +75,8 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
-    brand: "Roadster",
+    image: "/Products-images/women-kurti-nautrica.webp",
+    brand: "Nautica",
     name: "Yellow Silk Design Kurta",
     discoutPrice: 1199,
     actualPrice: 1500,
@@ -87,7 +88,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
+    image: "/Products-images/womne-top-hrx.webp",
     brand: "H&M",
     name: "Black Cotton Shrug",
     discoutPrice: 999,
@@ -100,12 +101,12 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
-    brand: "Nautica",
+    image: "/Products-images/long-cote-Women.webp",
+    brand: "Roadster",
     name: "Dark Blue long Jacket",
-    discoutPrice: 700,
-    actualPrice: 900,
-    discout: 40,
+    discoutPrice: 5999,
+    actualPrice: 6999,
+    discout: 10,
     inStock: true,
     fastDelivery: true,
     ratings: 4.5,

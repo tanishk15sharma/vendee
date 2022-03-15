@@ -9,28 +9,32 @@ import heels from "../../assets/recommendedproduct-images/-Heels.webp";
 const RecommendProducts = () => {
   return (
     <div>
-      <section class="deal-section">
-        <span class="deal-title">DEALS Of The Day</span>
-        <div class="deal-container">
-          <img src={sportsShoes} alt="deal-shoes" class="product-img" />
+      <section className="deal-section">
+        <span className="deal-title">DEALS Of The Day</span>
+        <div className="deal-container">
+          <img src={sportsShoes} alt="deal-shoes" className="product-img" />
 
-          <img src={homeDecor} alt="deal-decor" class="product-img" />
+          <img src={homeDecor} alt="deal-decor" className="product-img" />
 
-          <img src={jewellery} alt="deal-jewellery" class="product-img" />
+          <img src={jewellery} alt="deal-jewellery" className="product-img" />
 
-          <img src={trendingStyles} alt="deal-treading" class="product-img" />
+          <img
+            src={trendingStyles}
+            alt="deal-treading"
+            className="product-img"
+          />
 
-          <img src={heels} alt="deal-heels" class="product-img" />
+          <img src={heels} alt="deal-heels" className="product-img" />
         </div>
       </section>
-      <section class="banner-section">
-        <div class="banner-detail">
+      <section className="banner-section">
+        <div className="banner-detail">
           <span>EVERYDAY</span>
           <span>ESSENTIALS</span>
           <a href="./pages/product.html">
             <button>
               SHOP NOW
-              <i class="fa-solid fa-right-long"></i>
+              <i className="fa-solid fa-right-long"></i>
             </button>
           </a>
         </div>

@@ -20,29 +20,28 @@ const ProductsContainer = () => {
     })();
   }, []);
 
-  console.log(products);
   return (
     <div className="product-wrapper">
       {load
         ? "loading"
         : products.map((product) => (
-            <div class="product-card">
-              <div class="product-img-div">
+            <div className="product-card" key={product.id}>
+              <div className="product-img-div">
                 <img src={product.image} alt="tshirt" />
               </div>
-              <div class="product-detail">
-                <div class="product-brand">
-                  {product.brand} <i class="fa-solid fa-heart"></i>
+              <div className="product-detail">
+                <div className="product-brand">
+                  {product.brand} <i className="fa-solid fa-heart"></i>
                 </div>
-                <p class="product-info">{product.name} </p>
-                <div class="product-price">
+                <p className="product-info">{product.name} </p>
+                <div className="product-price">
                   <span>Rs. {product.discoutPrice} </span>
                   <span>Rs. {product.actualPrice} </span>
                   <span> ({product.discout}% OFF)</span>
                 </div>
-                <div class="product-size-div">
-                  <div class="product-size-title">Add size</div>
-                  <div class="product-size">
+                <div className="product-size-div">
+                  <div className="product-size-title">Add size</div>
+                  <div className="product-size">
                     <span>XS</span>
                     <span>S</span>
                     <span>M</span>
@@ -51,7 +50,7 @@ const ProductsContainer = () => {
                   </div>
                 </div>
               </div>
-              <button class="product-btn">ADD TO CART</button>
+              <button className="product-btn">ADD TO CART</button>
             </div>
           ))}
     </div>

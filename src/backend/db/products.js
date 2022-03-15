@@ -25,7 +25,7 @@ export const products = [
     image:
       "/Products-images/-Men-Green-Slim-Fit-Solid-Casual-Shirt-358156645-1.webp",
     brand: "Levis",
-    name: "Grey Plain Shirt",
+    name: "Green Plain Shirt",
     discoutPrice: 1200,
     actualPrice: 2000,
     discout: 20,

@@ -2,6 +2,11 @@ const initialState = {
   includeOutOfStock: true,
   fastDelivery: false,
   sortBy: null,
+  category: {
+    men: true,
+    women: true,
+    kids: true,
+  },
 };
 
 const filtersReducer = (state, action) => {
@@ -12,6 +17,14 @@ const filtersReducer = (state, action) => {
       return { ...state, includeOutOfStock: !state.includeOutOfStock };
     case "TOGGLE_DELIVERY":
       return { ...state, fastDelivery: !state.fastDelivery };
+    case "CATEGORY":
+      return {
+        ...state,
+        category: {
+          ...state.category,
+          [action.payload]: !state.category[action.payload],
+        },
+      };
     default:
       return state;
   }

@@ -61,7 +61,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "Women",
+    categories: "women",
     image: "/Products-images/-Women-Kurta-Sets2-1.webp",
     brand: "Nautica",
     name: "Yellow Printed Long Suit",
@@ -74,7 +74,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "Women",
+    categories: "women",
     image: "/Products-images/women-kurti-nautrica.webp",
     brand: "Nautica",
     name: "Yellow Silk Design Kurta",
@@ -87,7 +87,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "Women",
+    categories: "women",
     image: "/Products-images/womne-top-hrx.webp",
     brand: "H&M",
     name: "Black Cotton Shrug",
@@ -100,7 +100,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "Women",
+    categories: "women",
     image: "/Products-images/long-cote-Women.webp",
     brand: "Roadster",
     name: "Dark Blue long Jacket",

@@ -26,20 +26,34 @@ const ProductsFilters = () => {
           <p className="filter-title">Category</p>
           <li className="filter-list">
             <label htmlFor="">
-              <input type="checkbox" />
-              Regular
+              <input
+                checked={state.category.men}
+                type="checkbox"
+                onChange={() => dispatch({ type: "CATEGORY", payload: "men" })}
+              />
+              Men
             </label>
           </li>
           <li className="filter-list">
             <label htmlFor="">
-              <input type="checkbox" />
-              Mens
+              <input
+                checked={state.category.women}
+                type="checkbox"
+                onChange={() =>
+                  dispatch({ type: "CATEGORY", payload: "women" })
+                }
+              />
+              Women
             </label>
           </li>
           <li className="filter-list">
             <label htmlFor="">
-              <input type="checkbox" />
-              Womens
+              <input
+                checked={state.category.kids}
+                type="checkbox"
+                onChange={() => dispatch({ type: "CATEGORY", payload: "kids" })}
+              />
+              Kids
             </label>
           </li>
         </section>

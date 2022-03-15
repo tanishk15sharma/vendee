@@ -8,10 +8,25 @@ const getSortedProducts = (products, sortBy) => {
   return products;
 };
 
-const getFilteredProducts = (products, stockBoolean, deliveryBoolean) => {
+const getFilteredProducts = (
+  products,
+  stockBoolean,
+  deliveryBoolean,
+  categoryObj
+) => {
   return products
     .filter((product) => (stockBoolean ? true : product.inStock))
-    .filter((product) => (deliveryBoolean ? product.fastDelivery : true));
+    .filter((product) => (deliveryBoolean ? product.fastDelivery : true))
+    .filter((product) => categoryObj[product.categories]);
+
+  // //men aya
+  // if (products.categories === "men") {
+  //   return categoryObj.men;
+  // } else if (products.categories === "women") {
+  //   return categoryObj.women;
+  // }
+
+  // true =  filter
 };
 
 export { getSortedProducts, getFilteredProducts };

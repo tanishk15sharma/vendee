@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import tshirt from "../../assets/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp";
 import axios from "axios";
 import "./ProductsContainer.css";
-// import carouselImg3 from "../../assets/carousel-images/Carousel3.webp";
 
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
@@ -11,7 +9,6 @@ const ProductsContainer = () => {
     (async () => {
       try {
         let response = await axios.get("/api/products");
-        console.log(response.data.products);
         setProducts(response.data.products);
         setLoad(false);
       } catch (err) {

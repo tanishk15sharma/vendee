@@ -1,7 +1,9 @@
 import React from "react";
+import { useProductsFilters } from "../../contexts/filter-context";
 import "./ProductsFilters.css";
 
 const ProductsFilters = () => {
+  const { dispatch } = useProductsFilters();
   return (
     <div className="filter-container">
       <div className="filter-nav">
@@ -111,14 +113,28 @@ const ProductsFilters = () => {
         <section className="filter-section">
           <p className="filter-title">Sort By</p>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="radio" />
+            <label htmlFor="low">
+              <input
+                type="radio"
+                name="sort"
+                id="low"
+                onChange={() =>
+                  dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })
+                }
+              />
               Price- low to high
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="radio" />
+            <label htmlFor="high">
+              <input
+                type="radio"
+                name="sort"
+                id="high"
+                onChange={() =>
+                  dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })
+                }
+              />
               Price- high to low
             </label>
           </li>

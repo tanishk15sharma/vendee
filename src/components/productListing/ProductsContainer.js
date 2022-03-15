@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductsContainer.css";
-
+import { useProductsFilters } from "../../contexts/filter-context";
+import { getSortedProducts } from "../../utilities/filters-utils";
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
@@ -17,11 +18,15 @@ const ProductsContainer = () => {
     })();
   }, []);
 
+  const { state } = useProductsFilters();
+  const { sortBy } = state;
+  // console.log(state);
+  const sortedProducts = getSortedProducts(products, sortBy);
   return (
     <div className="product-wrapper">
       {load
         ? "loading"
-        : products.map((product) => (
+        : sortedProducts.map((product) => (
             <div className="product-card" key={product.id}>
               <div className="product-img-div">
                 <img src={product.image} alt="tshirt" />

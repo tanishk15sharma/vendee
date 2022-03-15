@@ -1,0 +1,8 @@
+main {
+  display: flex;
+  gap: 1rem;
+  /* justify-content: center; */
+  margin: 2rem;
+  margin-bottom: 0;
+  /* border: 1px solid saddlebrown; */
+}

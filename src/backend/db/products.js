@@ -1,5 +1,4 @@
 import { v4 as uuid } from "uuid";
-import tshirt from "../../assets/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp";
 
 /**
  * Product Database can be added here.
@@ -10,7 +9,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "HRX",
     name: "Yellow Printed Round Neck",
     discoutPrice: 700,
@@ -23,7 +22,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "Levis",
     name: "Grey Plain Shirt",
     discoutPrice: 1200,
@@ -36,7 +35,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "H&M",
     name: "Brown Leather Jacket",
     discoutPrice: 3999,
@@ -49,7 +48,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "men",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "Nautica",
     name: "Red Plain Kolor Neck",
     discoutPrice: 999,
@@ -62,7 +61,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "Nautica",
     name: "Yellow Printed Long Suit",
     discoutPrice: 2700,
@@ -75,7 +74,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "Roadster",
     name: "Yellow Silk Design Kurta",
     discoutPrice: 1199,
@@ -88,7 +87,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "H&M",
     name: "Black Cotton Shrug",
     discoutPrice: 999,
@@ -101,7 +100,7 @@ export const products = [
   {
     _id: uuid(),
     categories: "Women",
-    image: { tshirt },
+    image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "Nautica",
     name: "Dark Blue long Jacket",
     discoutPrice: 700,

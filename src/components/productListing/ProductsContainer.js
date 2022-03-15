@@ -28,7 +28,7 @@ const ProductsContainer = () => {
         : products.map((product) => (
             <div class="product-card">
               <div class="product-img-div">
-                <img src={tshirt} alt="tshirt" />
+                <img src={product.image} alt="tshirt" />
               </div>
               <div class="product-detail">
                 <div class="product-brand">

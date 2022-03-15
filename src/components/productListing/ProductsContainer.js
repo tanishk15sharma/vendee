@@ -27,7 +27,10 @@ const ProductsContainer = () => {
         : products.map((product) => (
             <div className="product-card" key={product.id}>
               <div className="product-img-div">
-                <img src={product.image} alt="tshirt" />
+                <img
+                  src={window.location.origin + product.image}
+                  alt="tshirt"
+                />
               </div>
               <div className="product-detail">
                 <div className="product-brand">

@@ -12,14 +12,16 @@ const getFilteredProducts = (
   products,
   stockBoolean,
   deliveryBoolean,
-  categoryObj,
-  brandsObj
+  categoryObj
 ) => {
+  // let brandFilter = Object.values(brandsObj).forEach((val) =>
+  //   val ? console.log("true hai") : console.log("false hai") toh products return kardoo simple
+  // );
+
   return products
     .filter((product) => (stockBoolean ? true : product.inStock))
     .filter((product) => (deliveryBoolean ? product.fastDelivery : true))
-    .filter((product) => categoryObj[product.categories])
-    .filter((product) => brandsObj[product.brand]);
+    .filter((product) => categoryObj[product.categories]);
 
   // if (products.brands === "hrx") {
   //   return brandsObj.hrx;
@@ -33,5 +35,5 @@ const getFilteredProducts = (
 
   // true =  filter
 };
-
-export { getSortedProducts, getFilteredProducts };
+const getBrandedProducts = (products, brandName) => {};
+export { getSortedProducts, getFilteredProducts, getBrandedProducts };

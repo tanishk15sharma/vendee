@@ -4,6 +4,18 @@ import "./ProductsFilters.css";
 
 const ProductsFilters = () => {
   const { state, dispatch } = useProductsFilters();
+
+  const brandClickHandler = (event) => {
+    let checked = event.target.checked;
+    let brandValue = event.target.value;
+    console.log(brandValue);
+    if (checked) {
+      return { type: "ADD_BRAND", payload: brandValue };
+    } else {
+      return { type: "REMOVE_BRAND", payload: brandValue };
+    }
+  };
+
   return (
     <div className="filter-container">
       <div className="filter-nav">
@@ -91,9 +103,8 @@ const ProductsFilters = () => {
               <input
                 type="checkbox"
                 id="roadster"
-                onChange={() =>
-                  dispatch({ type: "BRANDS", payload: "roadster" })
-                }
+                value="Roadster"
+                onChange={(event) => dispatch(brandClickHandler(event))}
               />
               Roadster
             </label>
@@ -103,7 +114,8 @@ const ProductsFilters = () => {
               <input
                 type="checkbox"
                 id="levis"
-                onChange={() => dispatch({ type: "BRANDS", payload: "levis" })}
+                value="Levis"
+                onChange={(event) => dispatch(brandClickHandler(event))}
               />
               Levis
             </label>
@@ -113,7 +125,8 @@ const ProductsFilters = () => {
               <input
                 type="checkbox"
                 id="hrx"
-                onChange={() => dispatch({ type: "BRANDS", payload: "hrx" })}
+                value="HRX"
+                onChange={(event) => dispatch(brandClickHandler(event))}
               />
               HRX
             </label>
@@ -123,7 +136,8 @@ const ProductsFilters = () => {
               <input
                 type="checkbox"
                 id="nike"
-                onChange={() => dispatch({ type: "BRANDS", payload: "nike" })}
+                value="Nike"
+                onChange={(event) => dispatch(brandClickHandler(event))}
               />
               Nike
             </label>
@@ -133,9 +147,8 @@ const ProductsFilters = () => {
               <input
                 type="checkbox"
                 id="nautica"
-                onChange={() =>
-                  dispatch({ type: "BRANDS", payload: "nautica" })
-                }
+                value="Nautica"
+                onChange={(event) => dispatch(brandClickHandler(event))}
               />
               Nautica
             </label>
@@ -145,7 +158,8 @@ const ProductsFilters = () => {
               <input
                 type="checkbox"
                 id="hnm"
-                onChange={() => dispatch({ type: "BRANDS", payload: "hnm" })}
+                value="H&M"
+                onChange={(event) => dispatch(brandClickHandler(event))}
               />
               H&M
             </label>

@@ -7,14 +7,7 @@ const initialState = {
     women: true,
     kids: true,
   },
-  brands: {
-    roadster: true,
-    levis: true,
-    hrx: true,
-    nike: true,
-    nautica: true,
-    hnm: true,
-  },
+  brands: [],
 };
 
 const filtersReducer = (state, action) => {
@@ -34,13 +27,7 @@ const filtersReducer = (state, action) => {
         },
       };
     case "BRANDS":
-      return {
-        ...state,
-        brands: {
-          ...state.brands,
-          [action.payload]: !state.brands[action.payload],
-        },
-      };
+      return { ...state };
     default:
       return state;
   }

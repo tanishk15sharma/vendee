@@ -20,7 +20,12 @@ const ProductsFilters = () => {
     <div className="filter-container">
       <div className="filter-nav">
         <h3>Filter</h3>
-        <button className="clear-btn">Clear All</button>
+        <button
+          className="clear-btn"
+          onClick={() => dispatch({ type: "CLEAR_ALL" })}
+        >
+          Clear All
+        </button>
       </div>
       <hr />
       <ul>
@@ -35,7 +40,7 @@ const ProductsFilters = () => {
             min={500}
             max={8000}
             step={200}
-            defaultValue={4999}
+            defaultValue={6000}
             onChange={(e) =>
               dispatch({ type: "RANGE", payload: e.target.value })
             }

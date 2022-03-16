@@ -9,7 +9,7 @@ const initialState = {
   },
   brands: [],
   rating: null,
-  range: 0,
+  range: 6000,
 };
 
 const filtersReducer = (state, action) => {
@@ -38,6 +38,20 @@ const filtersReducer = (state, action) => {
           ...state.category,
           [action.payload]: !state.category[action.payload],
         },
+      };
+    case "CLEAR_ALL":
+      return {
+        includeOutOfStock: true,
+        fastDelivery: false,
+        sortBy: null,
+        category: {
+          men: true,
+          women: true,
+          kids: true,
+        },
+        brands: [],
+        rating: null,
+        range: 6000,
       };
     default:
       return state;

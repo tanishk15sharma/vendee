@@ -5,7 +5,6 @@ import { useProductsFilters } from "../../contexts/filter-context";
 import {
   getSortedProducts,
   getFilteredProducts,
-  getBrandedProducts,
 } from "../../utilities/filters-utils";
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
@@ -31,11 +30,12 @@ const ProductsContainer = () => {
     sortedProducts,
     includeOutOfStock,
     fastDelivery,
-    category
+    category,
+    brands
   );
 
-  const filteredBrands = getBrandedProducts(filteredProducts, brands);
-  console.log(state);
+  // const filteredBrands = getBrandedProducts(filteredProducts, brands);
+  // console.log(state);
   return (
     <div className="product-wrapper">
       {load

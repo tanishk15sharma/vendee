@@ -8,7 +8,7 @@ const ProductsFilters = () => {
   const brandClickHandler = (event) => {
     let checked = event.target.checked;
     let brandValue = event.target.value;
-    console.log(brandValue);
+    // console.log(brandValue);
     if (checked) {
       return { type: "ADD_BRAND", payload: brandValue };
     } else {

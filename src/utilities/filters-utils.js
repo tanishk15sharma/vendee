@@ -14,7 +14,8 @@ const getFilteredProducts = (
   deliveryBoolean,
   categoryObj,
   brands,
-  rating
+  rating,
+  range
 ) => {
   console.log(rating);
   return products
@@ -22,6 +23,7 @@ const getFilteredProducts = (
     .filter((product) => (deliveryBoolean ? product.fastDelivery : true))
     .filter((product) => categoryObj[product.categories])
     .filter((product) => (rating === null ? true : rating < product.ratings))
+    .filter((product) => product.discountPrice <= range)
     .filter((product) =>
       brands.length === 0
         ? true

@@ -27,10 +27,19 @@ const ProductsFilters = () => {
         <section className="filter-section">
           <p className="filter-title">Price</p>
           <div className="price-range">
-            <span>100</span>
-            <span>1000</span>
+            <span>500</span>
+            <span>10000</span>
           </div>
-          <input type="range" />
+          <input
+            type="range"
+            min={500}
+            max={8000}
+            step={200}
+            defaultValue={4999}
+            onChange={(e) =>
+              dispatch({ type: "RANGE", payload: e.target.value })
+            }
+          />
         </section>
         <hr />
 

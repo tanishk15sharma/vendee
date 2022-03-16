@@ -23,9 +23,16 @@ const ProductsContainer = () => {
   }, []);
 
   const { state } = useProductsFilters();
-  const { sortBy, includeOutOfStock, fastDelivery, category, brands, rating } =
-    state;
-  // console.log(state);
+  const {
+    sortBy,
+    includeOutOfStock,
+    fastDelivery,
+    category,
+    brands,
+    rating,
+    range,
+  } = state;
+  console.log(state);
   const sortedProducts = getSortedProducts(products, sortBy);
 
   const filteredProducts = getFilteredProducts(
@@ -34,7 +41,8 @@ const ProductsContainer = () => {
     fastDelivery,
     category,
     brands,
-    rating
+    rating,
+    range
   );
 
   return (
@@ -52,7 +60,7 @@ const ProductsContainer = () => {
                 </div>
                 <p className="product-info">{product.name} </p>
                 <div className="product-price">
-                  <span>Rs. {product.discoutPrice} </span>
+                  <span>Rs. {product.discountPrice} </span>
                   <span>Rs. {product.actualPrice} </span>
                   <span> ({product.discout}% OFF)</span>
                 </div>

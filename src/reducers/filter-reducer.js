@@ -9,6 +9,7 @@ const initialState = {
   },
   brands: [],
   rating: null,
+  range: 0,
 };
 
 const filtersReducer = (state, action) => {
@@ -28,6 +29,8 @@ const filtersReducer = (state, action) => {
       };
     case "RATING":
       return { ...state, rating: action.payload };
+    case "RANGE":
+      return { ...state, range: action.payload };
     case "CATEGORY":
       return {
         ...state,

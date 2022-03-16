@@ -14,7 +14,10 @@ const CartItems = () => {
             <img class="cart-item-img" src={product.image} alt="first tshirt" />
           </div>
           <div class="card-content">
-            <h4 class="card-title">{product.name}</h4>
+            <div>
+              <h2>{product.brand}</h2>
+              <h4 class="card-title">{product.name}</h4>
+            </div>
             <div class="product-price">
               <span>Rs. {product.discountPrice} </span>
               <span> Rs. {product.actualPrice}</span>
@@ -27,6 +30,7 @@ const CartItems = () => {
                 onClick={() =>
                   cartDispatch({ type: "DECREASE_QUANTITY", payload: product })
                 }
+                disabled={product.quantity === 1}
               >
                 <i class="px-1 fa-solid fa-circle-minus"></i>
               </button>

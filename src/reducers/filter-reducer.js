@@ -8,6 +8,7 @@ const initialState = {
     kids: true,
   },
   brands: [],
+  rating: null,
 };
 
 const filtersReducer = (state, action) => {
@@ -18,6 +19,15 @@ const filtersReducer = (state, action) => {
       return { ...state, includeOutOfStock: !state.includeOutOfStock };
     case "TOGGLE_DELIVERY":
       return { ...state, fastDelivery: !state.fastDelivery };
+    case "ADD_BRAND":
+      return { ...state, brands: [...state.brands, action.payload] };
+    case "REMOVE_BRAND":
+      return {
+        ...state,
+        brands: state.brands.filter((brand) => brand !== action.payload),
+      };
+    case "RATING":
+      return { ...state, rating: action.payload };
     case "CATEGORY":
       return {
         ...state,
@@ -25,13 +35,6 @@ const filtersReducer = (state, action) => {
           ...state.category,
           [action.payload]: !state.category[action.payload],
         },
-      };
-    case "ADD_BRAND":
-      return { ...state, brands: [...state.brands, action.payload] };
-    case "REMOVE_BRAND":
-      return {
-        ...state,
-        brands: state.brands.filter((brand) => brand !== action.payload),
       };
     default:
       return state;

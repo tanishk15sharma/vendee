@@ -170,23 +170,47 @@ const ProductsFilters = () => {
         <section className="filter-section">
           <p className="filter-title">Rating</p>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="radio" />4 stars & above
+            <label htmlFor="4star">
+              <input
+                type="radio"
+                name="rating"
+                id="4star"
+                onChange={() => dispatch({ type: "RATING", payload: "4" })}
+              />
+              4 stars & above
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="radio" />3 stars & above
+            <label htmlFor="3star">
+              <input
+                type="radio"
+                name="rating"
+                id="3star"
+                onChange={() => dispatch({ type: "RATING", payload: "3" })}
+              />
+              3 stars & above
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="radio" />2 stars & above
+            <label htmlFor="2star">
+              <input
+                type="radio"
+                name="rating"
+                id="2star"
+                onChange={() => dispatch({ type: "RATING", payload: "2" })}
+              />
+              2 stars & above
             </label>
           </li>
           <li className="filter-list">
-            <label htmlFor="">
-              <input type="radio" />1 stars & above
+            <label htmlFor="1star">
+              <input
+                type="radio"
+                name="rating"
+                id="1star"
+                onChange={() => dispatch({ type: "RATING", payload: "1" })}
+              />
+              1 stars & above
             </label>
           </li>
         </section>

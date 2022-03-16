@@ -14,6 +14,7 @@ const ProductsContainer = () => {
       try {
         let response = await axios.get("/api/products");
         setProducts(response.data.products);
+        console.log(response.data.products);
         setLoad(false);
       } catch (err) {
         console.log(err);
@@ -22,7 +23,8 @@ const ProductsContainer = () => {
   }, []);
 
   const { state } = useProductsFilters();
-  const { sortBy, includeOutOfStock, fastDelivery, category, brands } = state;
+  const { sortBy, includeOutOfStock, fastDelivery, category, brands, rating } =
+    state;
   // console.log(state);
   const sortedProducts = getSortedProducts(products, sortBy);
 
@@ -31,11 +33,10 @@ const ProductsContainer = () => {
     includeOutOfStock,
     fastDelivery,
     category,
-    brands
+    brands,
+    rating
   );
 
-  // const filteredBrands = getBrandedProducts(filteredProducts, brands);
-  // console.log(state);
   return (
     <div className="product-wrapper">
       {load

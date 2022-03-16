@@ -1,15 +1,12 @@
 import "./CartItems.css";
-
+import img from "../../assets/recommendedproduct-images/-Heels.webp";
+// import { img } from "";
 const CartItems = () => {
   return (
     <div class="items">
       <div class="cart-item">
         <div class="cover-img">
-          <img
-            class="cart-item-img"
-            src="../assets/products-img/Nautica-Men-Tshirts-1.webp"
-            alt="first tshirt"
-          />
+          <img class="cart-item-img" src={img} alt="first tshirt" />
         </div>
         <div class="card-content">
           <h4 class="card-title">Men Tshirt</h4>

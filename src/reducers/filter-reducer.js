@@ -26,8 +26,13 @@ const filtersReducer = (state, action) => {
           [action.payload]: !state.category[action.payload],
         },
       };
-    case "BRANDS":
-      return { ...state };
+    case "ADD_BRAND":
+      return { ...state, brands: [...state.brands, action.payload] };
+    case "REMOVE_BRAND":
+      return {
+        ...state,
+        brands: state.brands.filter((brand) => brand !== action.payload),
+      };
     default:
       return state;
   }

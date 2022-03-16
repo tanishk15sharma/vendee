@@ -35,7 +35,7 @@ const ProductsContainer = () => {
   );
 
   const filteredBrands = getBrandedProducts(filteredProducts, brands);
-  // console.log(state);
+  console.log(state);
   return (
     <div className="product-wrapper">
       {load

@@ -22,21 +22,23 @@ const CartItems = () => {
             </div>
             <p>
               Quantity:
-              <span
-                onClick={() =>
-                  cartDispatch({ type: "INCREASE_QUANTITY", payload: product })
-                }
-              >
-                <i class="px-1 fa-solid fa-circle-minus"></i>
-              </span>
-              {product.quantity}
-              <span
+              <button
+                className="btn-qty"
                 onClick={() =>
                   cartDispatch({ type: "DECREASE_QUANTITY", payload: product })
                 }
               >
+                <i class="px-1 fa-solid fa-circle-minus"></i>
+              </button>
+              {product.quantity}
+              <button
+                className="btn-qty"
+                onClick={() =>
+                  cartDispatch({ type: "INCREASE_QUANTITY", payload: product })
+                }
+              >
                 <i class="fa-solid fa-circle-plus"></i>
-              </span>
+              </button>
             </p>
             <button
               class="btn"

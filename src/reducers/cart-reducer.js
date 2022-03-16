@@ -14,6 +14,12 @@ const cartReducer = (state, action) => {
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
+    case "DECREASE_QUANTITY":
+      return state.map((item) =>
+        item._id === action.payload._id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
     case "REMOVE_PRODUCT":
       return state.filter((item) => item._id !== action.payload._id);
     default:

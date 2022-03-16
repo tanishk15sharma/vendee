@@ -1,4 +1,4 @@
-import "./Header.css";
+// import "./Header.css";
 import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";

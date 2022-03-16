@@ -3,6 +3,7 @@ import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
+import { Link } from "react-router-dom";
 
 const HeaderSection = () => {
   return (
@@ -41,10 +42,12 @@ const HeaderSection = () => {
           </div>
         </a>
         <a href="./pages/cart.html">
-          <div className="nav-icon-div">
-            <img src={cartIcon} alt="cart-icon" />
-            <span>Cart</span>
-          </div>
+          <Link to="/cart">
+            <div className="nav-icon-div">
+              <img src={cartIcon} alt="cart-icon" />
+              <span>Cart</span>
+            </div>
+          </Link>
         </a>
       </div>
     </nav>

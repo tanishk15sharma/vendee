@@ -1,9 +1,9 @@
 const getSortedProducts = (products, sortBy) => {
   if (sortBy === "HIGH_TO_LOW") {
-    return [...products].sort((a, b) => b.discoutPrice - a.discoutPrice);
+    return [...products].sort((a, b) => b.discountPrice - a.discountPrice);
   }
   if (sortBy === "LOW_TO_HIGH") {
-    return [...products].sort((a, b) => a.discoutPrice - b.discoutPrice);
+    return [...products].sort((a, b) => a.discountPrice - b.discountPrice);
   }
   return products;
 };

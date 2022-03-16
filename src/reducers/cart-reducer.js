@@ -1,0 +1,3 @@
+const cartReducer = () => {};
+
+export { cartReducer };

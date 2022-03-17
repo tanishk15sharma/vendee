@@ -1,6 +1,4 @@
-import searchIcon from "../../assets/nav-icons/search.svg";
-import likeIcon from "../../assets/nav-icons/heart.svg";
-import loginIcon from "../../assets/nav-icons/user-plus.svg";
+import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 
 const HeaderSection = () => {
   return (
@@ -22,25 +20,14 @@ const HeaderSection = () => {
         <i className="fa-solid fa-shoe-prints"></i>
       </div>
       <div className="nav-icons-div">
-        <div className="nav-icon-div">
-          <img src={searchIcon} />
-          <span>Search</span>
-        </div>
-        <a href="../pages/login.html">
+        <a href="./cart.html">
           <div className="nav-icon-div">
-            <img src={loginIcon} alt="user-icon" />
-            <span>Log in</span>
-          </div>
-        </a>
-        <a href="./wishlist.html">
-          <div className="nav-icon-div">
-            <img src={likeIcon} alt="wishlist-icon" />
-            <span>Wishlist</span>
+            <img src={cartIcon} />
+            <span>Cart</span>
           </div>
         </a>
       </div>
     </nav>
   );
 };
-
 export { HeaderSection };

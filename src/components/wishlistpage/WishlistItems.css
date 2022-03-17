@@ -1,0 +1,23 @@
+.product-img-div {
+  position: relative;
+}
+
+.fa-xmark {
+  color: #9ca3af;
+  position: absolute;
+  font-size: 1.3rem;
+  top: 2%;
+  right: 4%;
+  padding: 0.2rem 0.4rem;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.fa-xmark:hover {
+  color: #4b5563;
+}
+
+.product-img {
+  width: 100%;
+}

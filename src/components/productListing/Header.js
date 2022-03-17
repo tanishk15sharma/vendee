@@ -1,4 +1,3 @@
-// import "./Header.css";
 import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
@@ -36,10 +35,12 @@ const HeaderSection = () => {
           </div>
         </a>
         <a href="./pages/wishlist.html">
-          <div className="nav-icon-div">
-            <img src={likeIcon} alt="wishlist-icon" />
-            <span>Wishlist</span>
-          </div>
+          <Link to="/wishlist">
+            <div className="nav-icon-div">
+              <img src={likeIcon} alt="wishlist-icon" />
+              <span>Wishlist</span>
+            </div>
+          </Link>
         </a>
         <a href="./pages/cart.html">
           <Link to="/cart">

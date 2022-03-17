@@ -3,25 +3,25 @@ import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 const HeaderSection = () => {
   return (
     <nav>
-      <div class="nav-route">
-        <a href="../index.html" class="nav-text">
+      <div className="nav-route">
+        <a href="../index.html" className="nav-text">
           Home
         </a>
-        <a href="../pages/product.html" class="nav-text">
+        <a href="../pages/product.html" className="nav-text">
           Products
         </a>
       </div>
-      <div class="logo-div">
-        <i class="fa-solid fa-bars"></i>
-        <p class="logo-name">
-          <span class="logo-v">V</span>endee
+      <div className="logo-div">
+        <i className="fa-solid fa-bars"></i>
+        <p className="logo-name">
+          <span className="logo-v">V</span>endee
         </p>
-        <i class="fa-solid fa-shoe-prints foot-icon"></i>
-        <i class="fa-solid fa-shoe-prints"></i>
+        <i className="fa-solid fa-shoe-prints foot-icon"></i>
+        <i className="fa-solid fa-shoe-prints"></i>
       </div>
-      <div class="nav-icons-div">
+      <div className="nav-icons-div">
         <a href="./cart.html">
-          <div class="nav-icon-div">
+          <div className="nav-icon-div">
             <img src={cartIcon} />
             <span>Cart</span>
           </div>

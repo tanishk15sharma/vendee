@@ -8,16 +8,25 @@ const CartPriceDetails = () => {
     (sum, curr) => sum + curr.quantity * curr.discountPrice,
     0
   );
+  let price = cartState.reduce(
+    (sum, curr) => sum + curr.quantity * curr.actualPrice,
+    0
+  );
+
+  let discountPrice = cartState.reduce(
+    (sum, curr) => sum + curr.quantity * curr.discount,
+    0
+  );
   return (
     <div class="price-details-container">
       <p class="price-details-title bold">PRICE DETAILS</p>
       <hr />
       <ul class="price-list">
         <li class="price-item">
-          Price (items) <span>&#8377; 1999</span>
+          Price (items) <span>&#8377; {price}</span>
         </li>
         <li class="price-item">
-          Discount <span>- &#8377; 1000</span>
+          Discount <span>- &#8377; {discountPrice}%</span>
         </li>
         <li class="price-item">
           Delivery Charges <span>&#8377; 0</span>

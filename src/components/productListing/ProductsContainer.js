@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductsContainer.css";
+import { useCart } from "../../contexts/cart-context";
 import { useProductsFilters } from "../../contexts/filter-context";
 import {
   getSortedProducts,
@@ -9,6 +10,8 @@ import {
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
+  const { state } = useProductsFilters();
+  const { cartDispatch } = useCart();
   useEffect(() => {
     (async () => {
       try {
@@ -22,7 +25,6 @@ const ProductsContainer = () => {
     })();
   }, []);
 
-  const { state } = useProductsFilters();
   const {
     sortBy,
     includeOutOfStock,
@@ -78,7 +80,14 @@ const ProductsContainer = () => {
                   </div>
                 </div>
               </div>
-              <button className="product-btn">ADD TO CART</button>
+              <button
+                className="product-btn"
+                onClick={() =>
+                  cartDispatch({ type: "ADD_TO_CART", payload: product })
+                }
+              >
+                ADD TO CART
+              </button>
             </div>
           ))}
     </div>

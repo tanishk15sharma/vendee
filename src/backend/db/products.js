@@ -14,7 +14,7 @@ export const products = [
     name: "Yellow Printed Round Neck",
     discountPrice: 700,
     actualPrice: 900,
-    discount: 40,
+    discount: 20,
     inStock: true,
     fastDelivery: false,
     ratings: 4.5,

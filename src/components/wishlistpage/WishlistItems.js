@@ -1,5 +1,4 @@
 import "./WishlistItems.css";
-import heels from "../../assets/recommendedproduct-images/-Heels.webp";
 import { useWishlist } from "../../contexts/wishlist-context";
 
 const WishlistItems = () => {

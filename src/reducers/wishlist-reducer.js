@@ -1,0 +1,3 @@
+const wishlistReducer = () => {};
+
+export { wishlistReducer };

@@ -10,12 +10,22 @@ const WishlistItems = () => {
       {wishlistState.map((product) => (
         <div className="product-card">
           <div className="product-img-div">
-            <i className="fa-solid fa-xmark"></i>
+            <div
+              onClick={() =>
+                wishlistDispatch({
+                  type: "REMOVE_FROM_WISHIST",
+                  payload: product,
+                })
+              }
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </div>
             <img src={product.image} alt="tshirt" className="product-img" />
           </div>
           <div className="product-detail">
             <div className="product-brand">
-              {product.brand} <i className="fa-solid fa-heart"></i>
+              {product.brand}
+              <i className="fa-solid fa-heart"></i>
             </div>
             <p className="product-info">{product.name}</p>
             <div className="product-price">

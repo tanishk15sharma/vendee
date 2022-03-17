@@ -69,7 +69,7 @@ const ProductsContainer = () => {
             <div className="product-detail">
               <div className="product-brand">
                 {product.brand}
-                <button
+                <div
                   onClick={() =>
                     wishlistDispatch({
                       type: "ADD_TO_WISHLIST",
@@ -78,7 +78,7 @@ const ProductsContainer = () => {
                   }
                 >
                   <i className="fa-solid fa-heart"></i>
-                </button>
+                </div>
               </div>
               <p className="product-info">{product.name} </p>
               <div className="product-price">

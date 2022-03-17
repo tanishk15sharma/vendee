@@ -1,8 +1,11 @@
 import "./WishlistItems.css";
 import { useWishlist } from "../../contexts/wishlist-context";
+import { useCart } from "../../contexts/cart-context";
 
 const WishlistItems = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
+  const { cartDispatch } = useCart();
+
   console.log(wishlistState);
   if (wishlistState.length === 0) {
     return <h1>No items in Wishlist.</h1>;
@@ -46,7 +49,14 @@ const WishlistItems = () => {
               </div>
             </div>
           </div>
-          <button className="product-btn">ADD TO CART</button>
+          <button
+            className="product-btn"
+            onClick={() =>
+              cartDispatch({ type: "ADD_TO_CART", payload: product })
+            }
+          >
+            ADD TO CART
+          </button>
         </div>
       ))}
     </>

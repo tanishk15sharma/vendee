@@ -72,7 +72,7 @@ const ProductsContainer = () => {
               <div className="product-price">
                 <span>Rs. {product.discountPrice} </span>
                 <span>Rs. {product.actualPrice} </span>
-                <span> ({product.discout}% OFF)</span>
+                <span> ({product.discount}% OFF)</span>
               </div>
               <div className="product-size-div">
                 <div className="product-size-title">Add size</div>

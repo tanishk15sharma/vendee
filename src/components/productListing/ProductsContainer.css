@@ -23,3 +23,7 @@
 .fa-star {
   color: var(--action-color);
 }
+.loading-img {
+  margin: auto;
+  padding-left: 80%;
+}

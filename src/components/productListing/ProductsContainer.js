@@ -7,6 +7,8 @@ import {
   getSortedProducts,
   getFilteredProducts,
 } from "../../utilities/filters-utils";
+import loaderGif from "../../assets/loaderg.gif";
+
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
@@ -49,47 +51,51 @@ const ProductsContainer = () => {
 
   return (
     <div className="product-wrapper">
-      {load
-        ? "loading"
-        : filteredProducts.map((product) => (
-            <div className="product-card" key={product.id}>
-              <div className="product-img-div">
-                <img src={product.image} alt="tshirt" />
-                <span className="product-rating">
-                  4.5 <i class="fa-solid fa-star"></i>
-                </span>
-              </div>
-              <div className="product-detail">
-                <div className="product-brand">
-                  {product.brand} <i className="fa-solid fa-heart"></i>
-                </div>
-                <p className="product-info">{product.name} </p>
-                <div className="product-price">
-                  <span>Rs. {product.discountPrice} </span>
-                  <span>Rs. {product.actualPrice} </span>
-                  <span> ({product.discout}% OFF)</span>
-                </div>
-                <div className="product-size-div">
-                  <div className="product-size-title">Add size</div>
-                  <div className="product-size">
-                    <span>XS</span>
-                    <span>S</span>
-                    <span>M</span>
-                    <span>L</span>
-                    <span>XL</span>
-                  </div>
-                </div>
-              </div>
-              <button
-                className="product-btn"
-                onClick={() =>
-                  cartDispatch({ type: "ADD_TO_CART", payload: product })
-                }
-              >
-                ADD TO CART
-              </button>
+      {load ? (
+        <div className="loading-img">
+          <img src={loaderGif} alt="loading gif" />
+        </div>
+      ) : (
+        filteredProducts.map((product) => (
+          <div className="product-card" key={product.id}>
+            <div className="product-img-div">
+              <img src={product.image} alt="tshirt" />
+              <span className="product-rating">
+                4.5 <i class="fa-solid fa-star"></i>
+              </span>
             </div>
-          ))}
+            <div className="product-detail">
+              <div className="product-brand">
+                {product.brand} <i className="fa-solid fa-heart"></i>
+              </div>
+              <p className="product-info">{product.name} </p>
+              <div className="product-price">
+                <span>Rs. {product.discountPrice} </span>
+                <span>Rs. {product.actualPrice} </span>
+                <span> ({product.discout}% OFF)</span>
+              </div>
+              <div className="product-size-div">
+                <div className="product-size-title">Add size</div>
+                <div className="product-size">
+                  <span>XS</span>
+                  <span>S</span>
+                  <span>M</span>
+                  <span>L</span>
+                  <span>XL</span>
+                </div>
+              </div>
+            </div>
+            <button
+              className="product-btn"
+              onClick={() =>
+                cartDispatch({ type: "ADD_TO_CART", payload: product })
+              }
+            >
+              ADD TO CART
+            </button>
+          </div>
+        ))
+      )}
     </div>
   );
 };

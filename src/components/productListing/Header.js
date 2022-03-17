@@ -8,12 +8,13 @@ const HeaderSection = () => {
   return (
     <nav>
       <div className="nav-route">
-        <a href="./index.html" className="nav-text">
+        <Link to="/" className="nav-text">
           Home
-        </a>
-        <a href="./pages/product.html" className="nav-text">
+        </Link>
+
+        <Link to="/products" className="nav-text">
           Products
-        </a>
+        </Link>
       </div>
       <div className="logo-div">
         <i className="fa-solid fa-bars"></i>
@@ -34,22 +35,20 @@ const HeaderSection = () => {
             <span>Log in</span>
           </div>
         </a>
-        <a href="./pages/wishlist.html">
-          <Link to="/wishlist">
-            <div className="nav-icon-div">
-              <img src={likeIcon} alt="wishlist-icon" />
-              <span>Wishlist</span>
-            </div>
-          </Link>
-        </a>
-        <a href="./pages/cart.html">
-          <Link to="/cart">
-            <div className="nav-icon-div">
-              <img src={cartIcon} alt="cart-icon" />
-              <span>Cart</span>
-            </div>
-          </Link>
-        </a>
+
+        <Link to="/wishlist">
+          <div className="nav-icon-div">
+            <img src={likeIcon} alt="wishlist-icon" />
+            <span>Wishlist</span>
+          </div>
+        </Link>
+
+        <Link to="/cart">
+          <div className="nav-icon-div">
+            <img src={cartIcon} alt="cart-icon" />
+            <span>Cart</span>
+          </div>
+        </Link>
       </div>
     </nav>
   );

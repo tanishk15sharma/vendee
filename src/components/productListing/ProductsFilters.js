@@ -119,6 +119,7 @@ const ProductsFilters = () => {
                 id="roadster"
                 value="Roadster"
                 onChange={(event) => dispatch(brandClickHandler(event))}
+                checked={state.brands.some((item) => item === "Roadster")}
               />
               Roadster
             </label>

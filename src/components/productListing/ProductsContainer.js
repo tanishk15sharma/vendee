@@ -38,7 +38,7 @@ const ProductsContainer = () => {
     rating,
     range,
   } = state;
-  console.log(state);
+
   const sortedProducts = getSortedProducts(products, sortBy);
 
   const filteredProducts = getFilteredProducts(

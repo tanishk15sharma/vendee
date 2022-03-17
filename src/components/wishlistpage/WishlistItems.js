@@ -6,7 +6,7 @@ const WishlistItems = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   console.log(wishlistState);
   return (
-    <div className="list-cover">
+    <>
       {wishlistState.map((product) => (
         <div className="product-card">
           <div className="product-img-div">
@@ -47,7 +47,7 @@ const WishlistItems = () => {
           <button className="product-btn">ADD TO CART</button>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

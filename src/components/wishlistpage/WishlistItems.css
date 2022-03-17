@@ -17,13 +17,7 @@
 .fa-xmark:hover {
   color: #4b5563;
 }
-.wishlist-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1rem 4rem;
-}
+
 .product-img {
   width: 100%;
 }

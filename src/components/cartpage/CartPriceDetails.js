@@ -4,6 +4,10 @@ import { useCart } from "../../contexts/cart-context";
 const CartPriceDetails = () => {
   const { cartState } = useCart();
 
+  if (cartState.length === 0) {
+    return <h2>no items in cart</h2>;
+  }
+
   let totalAmount = cartState.reduce(
     (sum, curr) => sum + curr.quantity * curr.discountPrice,
     0

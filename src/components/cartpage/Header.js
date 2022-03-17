@@ -1,17 +1,18 @@
 import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
-
+import { Link } from "react-router-dom";
 const HeaderSection = () => {
   return (
     <nav>
       <div className="nav-route">
-        <a href="../index.html" className="nav-text">
+        <Link to="/" className="nav-text">
           Home
-        </a>
-        <a href="../pages/product.html" className="nav-text">
+        </Link>
+
+        <Link to="/products" className="nav-text">
           Products
-        </a>
+        </Link>
       </div>
       <div className="logo-div">
         <i className="fa-solid fa-bars"></i>
@@ -32,12 +33,12 @@ const HeaderSection = () => {
             <span>Log in</span>
           </div>
         </a>
-        <a href="./wishlist.html">
+        <Link to="/wishlist">
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
             <span>Wishlist</span>
           </div>
-        </a>
+        </Link>
       </div>
     </nav>
   );

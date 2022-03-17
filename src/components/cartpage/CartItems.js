@@ -2,9 +2,11 @@ import "./CartItems.css";
 // import img from "../../assets/recommendedproduct-images/-Heels.webp";
 // import { img } from "";
 import { useCart } from "../../contexts/cart-context";
+import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartItems = () => {
   const { cartState, cartDispatch } = useCart();
+  const { wishlistDispatch } = useWishlist();
   console.log(cartState);
   return (
     <div className="items">
@@ -56,7 +58,15 @@ const CartItems = () => {
             >
               Remove from Cart
             </button>
-            <button className="btn">Move to wishlist</button>
+
+            <button
+              className="btn"
+              onClick={() =>
+                wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: product })
+              }
+            >
+              Move to wishlist
+            </button>
           </div>
         </div>
       ))}

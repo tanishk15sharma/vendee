@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductsContainer.css";
 import { useCart } from "../../contexts/cart-context";
+import { useWishlist } from "../../contexts/wishlist-context";
 import { useProductsFilters } from "../../contexts/filter-context";
 import {
   getSortedProducts,
@@ -14,6 +15,7 @@ const ProductsContainer = () => {
   const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
   const { cartDispatch } = useCart();
+  const { wishlistDispatch } = useWishlist();
   useEffect(() => {
     (async () => {
       try {
@@ -66,7 +68,17 @@ const ProductsContainer = () => {
             </div>
             <div className="product-detail">
               <div className="product-brand">
-                {product.brand} <i className="fa-solid fa-heart"></i>
+                {product.brand}
+                <button
+                  onClick={() =>
+                    wishlistDispatch({
+                      type: "ADD_TO_WISHLIST",
+                      payload: product,
+                    })
+                  }
+                >
+                  <i className="fa-solid fa-heart"></i>
+                </button>
               </div>
               <p className="product-info">{product.name} </p>
               <div className="product-price">

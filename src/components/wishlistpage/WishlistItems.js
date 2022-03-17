@@ -5,6 +5,9 @@ import { useWishlist } from "../../contexts/wishlist-context";
 const WishlistItems = () => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   console.log(wishlistState);
+  if (wishlistState.length === 0) {
+    return <h1>No items in Wishlist.</h1>;
+  }
   return (
     <>
       {wishlistState.map((product) => (
@@ -29,9 +32,9 @@ const WishlistItems = () => {
             </div>
             <p className="product-info">{product.name}</p>
             <div className="product-price">
-              <span>Rs. {product.discountPrice}</span>
-              <span>Rs. {product.actualPrice}</span>
-              <span>({product.discount}% OFF)</span>
+              <span>Rs. {product.discountPrice} </span>
+              <span>Rs. {product.actualPrice} </span>
+              <span> ({product.discount}% OFF)</span>
             </div>
             <div className="product-size-div">
               <div className="product-size-title">Add size</div>

@@ -5,7 +5,7 @@ const CartPriceDetails = () => {
   const { cartState } = useCart();
 
   if (cartState.length === 0) {
-    return <h2>no items in cart</h2>;
+    return <h2>No items in cart</h2>;
   }
 
   let totalAmount = cartState.reduce(

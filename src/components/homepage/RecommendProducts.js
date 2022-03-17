@@ -12,19 +12,31 @@ const RecommendProducts = () => {
       <section className="deal-section">
         <span className="deal-title">DEALS Of The Day</span>
         <div className="deal-container">
-          <img src={sportsShoes} alt="deal-shoes" className="product-img" />
+          <img
+            src={sportsShoes}
+            alt="deal-shoes"
+            className="recommendation-img"
+          />
 
-          <img src={homeDecor} alt="deal-decor" className="product-img" />
+          <img
+            src={homeDecor}
+            alt="deal-decor"
+            className="recommendation-img"
+          />
 
-          <img src={jewellery} alt="deal-jewellery" className="product-img" />
+          <img
+            src={jewellery}
+            alt="deal-jewellery"
+            className="recommendation-img"
+          />
 
           <img
             src={trendingStyles}
             alt="deal-treading"
-            className="product-img"
+            className="recommendation-img"
           />
 
-          <img src={heels} alt="deal-heels" className="product-img" />
+          <img src={heels} alt="deal-heels" className="recommendation-img" />
         </div>
       </section>
       <section className="banner-section">

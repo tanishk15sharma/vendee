@@ -14,7 +14,7 @@ const CartItems = () => {
             <img
               className="cart-item-img"
               src={product.image}
-              alt="first tshirt"
+              alt="product img"
             />
           </div>
           <div className="card-content">

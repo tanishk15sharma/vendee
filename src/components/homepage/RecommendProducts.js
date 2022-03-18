@@ -5,6 +5,7 @@ import homeDecor from "../../assets/recommendedproduct-images/Home-Decor.webp";
 import jewellery from "../../assets/recommendedproduct-images/Jewellery-1-.webp";
 import trendingStyles from "../../assets/recommendedproduct-images/-Trending-Styles.webp";
 import heels from "../../assets/recommendedproduct-images/-Heels.webp";
+import nike from "../../assets/recommendedproduct-images/1.webp";
 import { Link } from "react-router-dom";
 
 const RecommendProducts = () => {
@@ -39,6 +40,12 @@ const RecommendProducts = () => {
             />
 
             <img src={heels} alt="deal-heels" className="recommendation-img" />
+
+            <img
+              src={nike}
+              alt="nike-deals"
+              class="recommendation-img display-hide"
+            />
           </div>
         </Link>
       </section>

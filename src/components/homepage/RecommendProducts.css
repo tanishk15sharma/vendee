@@ -10,20 +10,18 @@
   color: var(--secondary-color);
   font-size: 2rem;
   letter-spacing: 0.2rem;
+  margin-left: 0.4rem;
 }
 
 .deal-container {
-  /* margin: 2rem; */
   text-align: center;
   display: flex;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  /* flex-shrink: 2; */
 }
 
 .recommendation-img {
-  /* width: 13.8rem; */
   width: 18.8%;
   height: auto;
   padding: 0;
@@ -76,4 +74,7 @@
 .fa-right-long {
   font-size: 1rem;
   margin-left: 0.6rem;
+}
+.display-hide {
+  display: none;
 }

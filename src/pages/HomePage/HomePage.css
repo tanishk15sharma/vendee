@@ -1,0 +1,110 @@
+/* responsive */
+/* minlaptops and big tables */
+
+@media (max-width: 1098px) {
+  html {
+    font-size: 80%;
+  }
+  .nav-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 877px) {
+  .recommendation-img {
+    width: 32%;
+  }
+  html {
+    font-size: 68%;
+  }
+  .display-hide {
+    display: inline;
+  }
+  .banner-detail {
+    font-size: 3rem;
+    margin-right: 4rem;
+  }
+}
+
+/* mobile devices */
+@media (max-width: 564px) {
+  nav {
+    padding: 1rem 1.2rem;
+    /* margin-top: 1rem; */
+  }
+  .head-link:nth-child(1),
+  .head-link:nth-child(3) {
+    display: none;
+  }
+  .logo-div i {
+    display: none;
+  }
+  .logo-name {
+    display: inline;
+  }
+
+  .logo-div .fa-bars {
+    display: inline;
+    font-size: 2.6rem;
+    margin-right: 0.5rem;
+  }
+  /* hamburger-style */
+
+  .nav-route {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 2rem;
+    width: 40%;
+    height: calc(100vh - 3rem);
+    top: 8.6%;
+    left: 0;
+    z-index: 3;
+    background-color: var(--primary-color);
+    transition: all 0.7s;
+    transform: translateX(-400px);
+  }
+  .nav-text {
+    font-size: 2rem;
+  }
+
+  .recommendation-img {
+    width: 48%;
+  }
+  .banner-section {
+    min-height: 40vh;
+  }
+  .banner-detail {
+    margin-right: 2.4rem;
+  }
+  .banner-detail span {
+    font-size: 2.6rem;
+  }
+}
+
+/* smallest devices */
+@media (max-width: 460px) {
+  .nav-icons-div {
+    gap: 1.2rem;
+  }
+
+  .hero-img {
+    height: 25vh;
+  }
+  .banner-section {
+    min-height: 30vh;
+  }
+  .banner-detail {
+    margin-right: 1.6rem;
+  }
+  .banner-detail span {
+    font-size: 2rem;
+  }
+  .banner-detail button {
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--background-color);
+  }
+}

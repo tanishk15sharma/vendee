@@ -2,7 +2,6 @@ header {
   background-color: var(--background-color);
   display: flex;
   justify-content: space-around;
-  padding: 0.3rem;
 }
 .head-link {
   color: var(--primary-color);
@@ -19,7 +18,7 @@ nav {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 1rem 3rem;
+  padding: 1rem 3rem 0.4rem 3rem;
   align-items: baseline;
   box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
   position: sticky;
@@ -30,7 +29,8 @@ nav {
 
 .nav-icons-div {
   display: flex;
-  gap: 1.8rem;
+  gap: 1.6rem;
+  justify-content: baseline;
 }
 
 .nav-icon-div {

@@ -6,3 +6,94 @@ main {
   margin-bottom: 0;
   /* border: 1px solid saddlebrown; */
 }
+
+.btn-filter {
+  position: fixed;
+  width: 80%;
+  padding: 0.6rem 1rem;
+  letter-spacing: 5px;
+  bottom: 0%;
+  left: 10%;
+  border: none;
+  border-bottom: 1px solid var(--background-color);
+  z-index: 5;
+  display: none;
+}
+/* media for responsive UI  */
+@media (max-width: 768px) {
+  main {
+    margin: 1rem;
+  }
+  nav {
+    /* border: 1px solid red; */
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+  .product-wrapper {
+    gap: 0.4rem;
+  }
+  .logo-div .fa-bars {
+    display: inline;
+    font-size: 2.6rem;
+
+    margin-right: 0.5rem;
+  }
+
+  .logo-name {
+    display: inline;
+  }
+
+  /* hamburger */
+  .nav-route {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 1rem 2rem;
+    width: 30%;
+    height: calc(100vh - 4.5rem);
+    top: 4.5rem;
+    left: 0;
+    z-index: 3;
+    background-color: var(--primary-color);
+    transform: translateX(-400px);
+  }
+  .nav-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 645px) {
+  main {
+    margin: 0.5rem;
+  }
+  .nav-route {
+    padding: 1rem;
+    width: 40%;
+  }
+  .product-wrapper {
+    gap: 0.2rem;
+  }
+  nav {
+    padding: 0.8rem;
+  }
+
+  .filter-container {
+    position: fixed;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: white;
+    transform: translateY(810px);
+    transition: all 0.5s ease-in;
+    z-index: 5;
+  }
+  .btn-filter {
+    display: inline-block;
+  }
+  .logo-name {
+    font-size: 2rem;
+  }
+}

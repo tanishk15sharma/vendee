@@ -2,8 +2,8 @@
   display: grid;
   flex-grow: 1;
   width: 80%;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.4rem;
   align-items: start;
   margin-bottom: 2rem;
 }

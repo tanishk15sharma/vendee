@@ -1,5 +1,5 @@
-import React from "react";
-import { HeaderSection } from "../../components/productListing/Header";
+import React, { useState } from "react";
+import { HeaderSection } from "../../components/productListing/Productheader";
 import { ProductsContainer } from "../../components/productListing/ProductsContainer";
 import { ProductsFilters } from "../../components/productListing/ProductsFilters";
 import "./ProductsPage.css";

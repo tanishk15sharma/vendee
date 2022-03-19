@@ -1,10 +1,10 @@
 import "./Header.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
-import { Link } from "react-router-dom";
 const HeaderSection = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
 

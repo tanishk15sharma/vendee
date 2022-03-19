@@ -1,13 +1,22 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
-import { Link } from "react-router-dom";
+import "./Productheader.css";
 
 const HeaderSection = () => {
+  const [toggleHamburger, setToggleHamburger] = useState(false);
+
   return (
     <nav>
-      <div className="nav-route">
+      <div
+        className="nav-route"
+        style={{
+          transform: toggleHamburger && "translateX(0)",
+        }}
+      >
         <Link to="/" className="nav-text">
           Home
         </Link>
@@ -17,7 +26,10 @@ const HeaderSection = () => {
         </Link>
       </div>
       <div className="logo-div">
-        <i className="fa-solid fa-bars"></i>
+        <i
+          className="fa-solid fa-bars"
+          onClick={() => setToggleHamburger((val) => !val)}
+        ></i>
         <p className="logo-name">
           <span className="logo-v">V</span>endee
         </p>

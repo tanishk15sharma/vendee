@@ -14,14 +14,14 @@ const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
-  const { cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
+
   useEffect(() => {
     (async () => {
       try {
         let response = await axios.get("/api/products");
         setProducts(response.data.products);
-        console.log(response.data.products);
         setLoad(false);
       } catch (err) {
         console.log(err);
@@ -77,7 +77,7 @@ const ProductsContainer = () => {
                     })
                   }
                 >
-                  <i className="fa-solid fa-heart"></i>
+                  <i className="far fa-heart"></i>
                 </div>
               </div>
               <p className="product-info">{product.name} </p>

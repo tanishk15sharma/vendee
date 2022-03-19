@@ -20,7 +20,13 @@
   padding: 2px;
   border-radius: 2px;
 }
-
+.fa-heart {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.fa-heart:hover {
+  border: var(--action-color);
+}
 .fa-star {
   color: var(--action-color);
 }

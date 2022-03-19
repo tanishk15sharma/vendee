@@ -5,7 +5,7 @@ import "./ProductsFilters.css";
 const ProductsFilters = () => {
   const [toggleFilterBtn, setToggleFilterBtn] = useState(false);
   const { state, dispatch } = useProductsFilters();
-
+  const [count, setCount] = useState(0);
   const brandClickHandler = (event) => {
     let checked = event.target.checked;
     let brandValue = event.target.value;
@@ -48,6 +48,7 @@ const ProductsFilters = () => {
               max={8000}
               step={200}
               defaultValue={6000}
+              onChange={() => setCount((val) => console.log(Number(val + 1)))}
               onMouseUp={(e) =>
                 dispatch({ type: "RANGE", payload: e.target.value })
               }
@@ -130,7 +131,7 @@ const ProductsFilters = () => {
                   id="roadster"
                   value="Roadster"
                   onChange={(event) => dispatch(brandClickHandler(event))}
-                  checked={state.brands.some((item) => item === "Roadster")}
+                  checked={state.brands.includes("Roadster")}
                 />
                 Roadster
               </label>
@@ -142,6 +143,7 @@ const ProductsFilters = () => {
                   id="levis"
                   value="Levis"
                   onChange={(event) => dispatch(brandClickHandler(event))}
+                  checked={state.brands.includes("Levis")}
                 />
                 Levis
               </label>
@@ -153,6 +155,7 @@ const ProductsFilters = () => {
                   id="hrx"
                   value="HRX"
                   onChange={(event) => dispatch(brandClickHandler(event))}
+                  checked={state.brands.includes("HRX")}
                 />
                 HRX
               </label>
@@ -164,6 +167,7 @@ const ProductsFilters = () => {
                   id="nike"
                   value="Nike"
                   onChange={(event) => dispatch(brandClickHandler(event))}
+                  checked={state.brands.includes("Nike")}
                 />
                 Nike
               </label>
@@ -175,6 +179,7 @@ const ProductsFilters = () => {
                   id="nautica"
                   value="Nautica"
                   onChange={(event) => dispatch(brandClickHandler(event))}
+                  checked={state.brands.includes("Nautica")}
                 />
                 Nautica
               </label>
@@ -186,6 +191,7 @@ const ProductsFilters = () => {
                   id="hnm"
                   value="H&M"
                   onChange={(event) => dispatch(brandClickHandler(event))}
+                  checked={state.brands.includes("H&M")}
                 />
                 H&M
               </label>
@@ -201,6 +207,7 @@ const ProductsFilters = () => {
                   type="radio"
                   name="rating"
                   id="4star"
+                  checked={state.rating === "4"}
                   onChange={() => dispatch({ type: "RATING", payload: "4" })}
                 />
                 4 stars & above
@@ -212,6 +219,7 @@ const ProductsFilters = () => {
                   type="radio"
                   name="rating"
                   id="3star"
+                  checked={state.rating === "3"}
                   onChange={() => dispatch({ type: "RATING", payload: "3" })}
                 />
                 3 stars & above
@@ -223,6 +231,7 @@ const ProductsFilters = () => {
                   type="radio"
                   name="rating"
                   id="2star"
+                  checked={state.rating === "2"}
                   onChange={() => dispatch({ type: "RATING", payload: "2" })}
                 />
                 2 stars & above
@@ -234,6 +243,7 @@ const ProductsFilters = () => {
                   type="radio"
                   name="rating"
                   id="1star"
+                  checked={state.rating === "1"}
                   onChange={() => dispatch({ type: "RATING", payload: "1" })}
                 />
                 1 stars & above
@@ -250,6 +260,7 @@ const ProductsFilters = () => {
                   type="radio"
                   name="sort"
                   id="low"
+                  checked={state.sortBy === "LOW_TO_HIGH"}
                   onChange={() =>
                     dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })
                   }
@@ -263,6 +274,7 @@ const ProductsFilters = () => {
                   type="radio"
                   name="sort"
                   id="high"
+                  checked={state.sortBy === "HIGH_TO_LOW"}
                   onChange={() =>
                     dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })
                   }
@@ -278,7 +290,7 @@ const ProductsFilters = () => {
         class="btn-filter"
         onClick={() => setToggleFilterBtn((val) => !val)}
       >
-        <i class="fa-solid fa-filter"></i> FILTER
+        <i className="fa-solid fa-filter"></i> FILTER
       </button>
     </>
   );

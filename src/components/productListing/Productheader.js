@@ -4,11 +4,16 @@ import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
+import { useCart } from "../../contexts/cart-context";
+import { useWishlist } from "../../contexts/wishlist-context";
+
 import "./Productheader.css";
 
 const HeaderSection = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
+  const { cartState } = useCart();
+  const { wishlistState } = useWishlist();
 
   return (
     <nav>
@@ -63,7 +68,10 @@ const HeaderSection = () => {
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
             <span>
-              Wishlist <span className="icon-counter wishlist-pt">0</span>
+              Wishlist
+              <span className="icon-counter wishlist-pt">
+                {wishlistState.length}
+              </span>
             </span>
           </div>
         </Link>
@@ -73,7 +81,7 @@ const HeaderSection = () => {
             <img src={cartIcon} alt="cart-icon" />
             <span>
               Cart
-              <span className="icon-counter cart-pt">0</span>
+              <span className="icon-counter cart-pt">{cartState.length}</span>
             </span>
           </div>
         </Link>

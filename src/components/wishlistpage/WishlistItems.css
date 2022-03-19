@@ -21,3 +21,11 @@
 .product-img {
   width: 100%;
 }
+
+.fa-heart {
+  cursor: pointer;
+  color: var(--background-color);
+}
+.fa-heart:hover {
+  color: var(--action-color);
+}

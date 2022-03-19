@@ -30,7 +30,7 @@ const WishlistItems = () => {
           <div className="product-detail">
             <div className="product-brand">
               {product.brand}
-              <i className="fa-solid fa-heart"></i>
+              <i className="far fa-heart"></i>
             </div>
             <p className="product-info">{product.name}</p>
             <div className="product-price">

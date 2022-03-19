@@ -5,8 +5,13 @@ import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
+import { useCart } from "../../contexts/cart-context";
+
 const HeaderSection = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
+  const { cartState } = useCart();
+
+  console.log(cartState.length);
 
   return (
     <>

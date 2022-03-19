@@ -17,7 +17,6 @@ const getFilteredProducts = (
   rating,
   range
 ) => {
-  console.log(rating);
   return products
     .filter((product) => (stockBoolean ? true : product.inStock))
     .filter((product) => (deliveryBoolean ? product.fastDelivery : true))

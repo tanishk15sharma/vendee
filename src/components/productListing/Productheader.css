@@ -48,11 +48,10 @@ nav {
 }
 .search-bar {
   position: absolute;
-
+  display: none;
   right: -3%;
   bottom: 9%;
   border-radius: 2px;
-  display: none;
   padding: 0.8rem 9rem 0.8rem 0.5rem;
   background-color: #f5f5f6;
   border: none;
@@ -66,7 +65,6 @@ nav {
 
 .icon-counter {
   position: absolute;
-
   background-color: var(--action-color);
   padding: 2px 6px;
   border-radius: 20%;

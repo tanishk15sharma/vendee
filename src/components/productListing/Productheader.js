@@ -8,6 +8,7 @@ import "./Productheader.css";
 
 const HeaderSection = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
+  const [toggleSearch, setToggleSearch] = useState(false);
 
   return (
     <nav>
@@ -38,8 +39,18 @@ const HeaderSection = () => {
       </div>
       <div className="nav-icons-div">
         <div className="nav-icon-div">
-          <img src={searchIcon} />
+          <img
+            src={searchIcon}
+            alt="search-icon"
+            className="index"
+            onClick={() => setToggleSearch((val) => !val)}
+          />
           <span>Search</span>
+          <input
+            className="search-bar "
+            placeholder="Search"
+            style={{ display: toggleSearch && "inline" }}
+          />
         </div>
         <a href="./pages/login.html">
           <div className="nav-icon-div">
@@ -51,14 +62,19 @@ const HeaderSection = () => {
         <Link to="/wishlist">
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
-            <span>Wishlist</span>
+            <span>
+              Wishlist <span className="icon-counter wishlist-pt">0</span>
+            </span>
           </div>
         </Link>
 
         <Link to="/cart">
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
-            <span>Cart</span>
+            <span>
+              Cart
+              <span className="icon-counter cart-pt">0</span>
+            </span>
           </div>
         </Link>
       </div>

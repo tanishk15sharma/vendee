@@ -48,7 +48,7 @@ const ProductsFilters = () => {
               max={8000}
               step={200}
               defaultValue={6000}
-              onChange={(e) =>
+              onMouseUp={(e) =>
                 dispatch({ type: "RANGE", payload: e.target.value })
               }
             />

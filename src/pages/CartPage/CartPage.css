@@ -2,3 +2,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 720px) {
+  .cart-container {
+    flex-direction: column;
+  }
+}

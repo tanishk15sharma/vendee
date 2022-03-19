@@ -23,6 +23,10 @@ main {
   main {
     margin: 1rem;
   }
+
+  .foot-icon {
+    margin: 0;
+  }
   nav {
     /* border: 1px solid red; */
     padding: 1rem 2rem 0.5rem 2rem;
@@ -64,6 +68,9 @@ main {
 @media (max-width: 645px) {
   main {
     margin: 0.5rem;
+  }
+  .deal-section {
+    margin: 0.8rem;
   }
   .nav-route {
     padding: 1rem;

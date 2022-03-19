@@ -2,8 +2,8 @@
   display: grid;
   flex-grow: 1;
   width: 80%;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0.7rem;
   align-items: start;
   margin-bottom: 2rem;
 }
@@ -26,4 +26,8 @@
 .loading-img {
   margin: auto;
   padding-left: 80%;
+}
+.product-price span:nth-child(1) {
+  font-size: 1rem;
+  font-weight: 500;
 }

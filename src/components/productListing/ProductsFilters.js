@@ -59,25 +59,27 @@ const ProductsFilters = () => {
           <section className="filter-section">
             <p className="filter-title">Category</p>
             <li className="filter-list">
-              <label htmlFor="">
+              <label htmlFor="men">
                 <input
                   checked={state.category.men}
                   type="checkbox"
                   onChange={() =>
                     dispatch({ type: "CATEGORY", payload: "men" })
                   }
+                  id="men"
                 />
                 Men
               </label>
             </li>
             <li className="filter-list">
-              <label htmlFor="">
+              <label htmlFor="women">
                 <input
                   checked={state.category.women}
                   type="checkbox"
                   onChange={() =>
                     dispatch({ type: "CATEGORY", payload: "women" })
                   }
+                  id="women"
                 />
                 Women
               </label>

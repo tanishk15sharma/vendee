@@ -58,3 +58,8 @@ input:nth-child(3) {
 html {
   background-color: #fdf4f3;
 } */
+.bg {
+  background-color: #fdf4f3;
+  margin: 0;
+  height: 100vh;
+}

@@ -1,9 +1,11 @@
 import "./Login.css";
+// one context n reduce for login n singup
+// on login btn or sing up btn = function in which I will create a post request and send it to backend
 
 const Login = () => {
   return (
-    <main className="center">
-      <div class="login-container">
+    <main className="bg">
+      <div class="login-container center">
         <h1 class="login-title">Login</h1>
         {/* <!-- <label for="address">Email address</label> --> */}
         <input type="text" placeholder="Email" />

@@ -57,12 +57,12 @@ const HeaderSection = () => {
             style={{ display: toggleSearch && "inline" }}
           />
         </div>
-        <a href="./pages/login.html">
+        <Link to="/login">
           <div className="nav-icon-div">
             <img src={loginIcon} alt="user-icon" />
             <span>Log in</span>
           </div>
-        </a>
+        </Link>
 
         <Link to="/wishlist">
           <div className="nav-icon-div">

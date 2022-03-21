@@ -11,7 +11,6 @@ const Login = () => {
   const inputHandler = (e) => {
     setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
-  // console.log(userData);
 
   const postLoginDetails = async ({ email, password }) => {
     authDispatch({ type: "USER_LOAD" });
@@ -30,7 +29,7 @@ const Login = () => {
     <main className="bg">
       <div class="login-container center">
         <h1 class="login-title">Login</h1>
-        {/* <label for="address">Email address</label> */}
+
         <input
           type="text"
           placeholder="Email"
@@ -38,7 +37,7 @@ const Login = () => {
           value={userData.email}
           onChange={inputHandler}
         />
-        {/* <!-- <label for="passowrd">Password</label> --> */}
+
         <input
           type="text"
           placeholder="Password"

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../../contexts/auth-context";
 
 const SignUp = () => {
-  const { authState, authDispatch } = useAuth();
+  const { authDispatch } = useAuth();
 
   const [userInfo, setUserInfo] = useState({
     firstname: "",
@@ -31,17 +31,12 @@ const SignUp = () => {
     } catch (err) {
       console.log(err);
     }
-    // console.log(authState);
   };
-
-  useEffect(() => {
-    console.log(authState);
-  });
 
   return (
     <main className="center">
-      <form class="login-container" onSubmit={postSignUpDetails}>
-        <h1 class="login-title">Sign up</h1>
+      <form className="login-container" onSubmit={postSignUpDetails}>
+        <h1 className="login-title">Sign up</h1>
         <input
           type="text"
           placeholder="First Name"
@@ -77,14 +72,14 @@ const SignUp = () => {
           value={userInfo.password}
           onChange={inputHandler}
         />
-        <div class="signup-options">
+        <div className="signup-options">
           <div>
             <input type="checkbox" />
 
-            <label for="remember-me">I accept all Terms & Conditions</label>
+            <label htmlFor="remember-me">I accept all Terms & Conditions</label>
           </div>
         </div>
-        <button class="login-btn" type="submit">
+        <button className="login-btn" type="submit">
           Creat New Account
         </button>
       </form>

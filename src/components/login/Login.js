@@ -2,6 +2,7 @@ import "./Login.css";
 import { useState } from "react";
 import { useAuth } from "../../contexts/auth-context";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [userData, setUserData] = useState({ email: "", password: "" });
@@ -10,7 +11,8 @@ const Login = () => {
   const inputHandler = (e) => {
     setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
-  console.log(userData);
+  // console.log(userData);
+
   const postLoginDetails = async ({ email, password }) => {
     authDispatch({ type: "USER_LOAD" });
     try {
@@ -55,10 +57,10 @@ const Login = () => {
         <button class="login-btn" onClick={() => postLoginDetails(userData)}>
           {authState.loading && "loading"} Login
         </button>
-        <a href="./signup.html" class="login-route">
+        <Link to="/signup">
           Create New Account
           <i class="fa-solid fa-greater-than"></i>
-        </a>
+        </Link>
       </div>
     </main>
   );

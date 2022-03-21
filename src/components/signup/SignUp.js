@@ -1,8 +1,11 @@
 import "./SignUp.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useAuth } from "../../contexts/auth-context";
 
 const SignUp = () => {
+  const { authState, authDispatch } = useAuth();
+
   const [userInfo, setUserInfo] = useState({
     firstname: "",
     secondname: "",
@@ -18,13 +21,23 @@ const SignUp = () => {
   };
   const postSignUpDetails = async (e) => {
     e.preventDefault();
+    authDispatch({ type: "USER_LOAD" });
+
     try {
-      const response = await axios.post("/api/auth/signup", userInfo);
-      console.log(response);
+      const { data } = await axios.post("/api/auth/signup", userInfo);
+      authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.createdUser });
+      console.log(data);
+      localStorage.setItem("token", data.encodedToken);
     } catch (err) {
       console.log(err);
     }
+    // console.log(authState);
   };
+
+  useEffect(() => {
+    console.log(authState);
+  });
+
   return (
     <main className="center">
       <form class="login-container" onSubmit={postSignUpDetails}>

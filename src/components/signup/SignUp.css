@@ -1,14 +1,6 @@
-input:nth-child(4) {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  width: 100%;
-}
-input:nth-child(5) {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  width: 100%;
-}
-input:nth-child(6) {
+.login-container input:nth-child(4),
+.login-container input:nth-child(5),
+.login-container input:nth-child(6) {
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
   width: 100%;

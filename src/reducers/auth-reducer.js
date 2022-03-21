@@ -7,7 +7,7 @@ const authReducer = (state, action) => {
         ...state,
         loading: false,
         isAuth: true,
-        userInfo: [action.payload],
+        userInfo: action.payload,
       };
 
     case "USER_LOAD_FALIUR":

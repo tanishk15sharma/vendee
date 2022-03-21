@@ -14,7 +14,7 @@ const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
-  const { cartState, cartDispatch } = useCart();
+  const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
 
   useEffect(() => {

@@ -52,7 +52,7 @@ const HeaderSection = () => {
           />
           <span>Search</span>
           <input
-            className="search-bar "
+            className="search-bar-i"
             placeholder="Search"
             style={{ display: toggleSearch && "inline" }}
           />

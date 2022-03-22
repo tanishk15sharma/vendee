@@ -149,9 +149,10 @@ const SignUp = () => {
               name="terms"
               value={signUpData.terms}
               onChange={inputHandler}
+              id="terms"
             />
 
-            <label htmlFor="remember-me">I accept all Terms & Conditions</label>
+            <label htmlFor="terms">I accept all Terms & Conditions</label>
           </div>
           {signUpErrors.terms && (
             <span className="err-msg">

@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/auth-context";
 import { validSignUp } from "../../utilities/auth";
 
 const SignUp = () => {
-  const { authDispatch } = useAuth();
+  const { authState, authDispatch } = useAuth();
 
   const [signUpData, setSignUpData] = useState({
     firstName: "",

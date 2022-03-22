@@ -1,11 +1,19 @@
+import searchIcon from "../../assets/nav-icons/search.svg";
+import likeIcon from "../../assets/nav-icons/heart.svg";
+import loginIcon from "../../assets/nav-icons/user-plus.svg";
+import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
+import { Link } from "react-router-dom";
+import { useState } from "react-dom";
+import "./nav.css";
 const Nav = () => {
+  //   const [toggleHamburger, setToggleHamburger] = useState(false);
   return (
     <nav>
       <div
         className="nav-route"
-        style={{
-          transform: toggleHamburger && "translateX(0)",
-        }}
+        // style={{
+        //   transform: toggleHamburger && "translateX(0)",
+        // }}
       >
         <Link to="/" className="nav-text">
           Home
@@ -31,12 +39,12 @@ const Nav = () => {
           <img src={searchIcon} />
           <span>Search</span>
         </div>
-        <a href="./pages/login.html">
+        <Link to="/login">
           <div className="nav-icon-div">
             <img src={loginIcon} alt="user-icon" />
             <span>Log in</span>
           </div>
-        </a>
+        </Link>
 
         <Link to="/wishlist">
           <div className="nav-icon-div">

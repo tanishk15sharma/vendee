@@ -63,3 +63,6 @@ html {
   margin: 0;
   height: 100vh;
 }
+.fa-circle-exclamation {
+  color: #ef4444;
+}

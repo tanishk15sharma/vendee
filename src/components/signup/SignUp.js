@@ -2,29 +2,56 @@ import "./SignUp.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth-context";
+import { validSignUp } from "../../utilities/auth";
 
 const SignUp = () => {
   const { authDispatch } = useAuth();
 
-  const [userInfo, setUserInfo] = useState({
-    firstname: "",
-    secondname: "",
+  const [signUpData, setSignUpData] = useState({
+    firstName: "",
+    lastName: "",
     mobile: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    terms: false,
+  });
+
+  const [signUpErrors, setSignUpErrors] = useState({
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    terms: "",
   });
 
   const inputHandler = (e) => {
-    e.preventDefault();
-
-    setUserInfo((data) => ({ ...data, [e.target.name]: e.target.value }));
+    if (e.target.value === "checkbox") {
+      setSignUpData((signUpData) => ({
+        ...signUpData,
+        [e.target.id]: e.target.checked,
+      }));
+    }
+    setSignUpData((data) => ({ ...data, [e.target.name]: e.target.value }));
+    setSignUpErrors((errData) => ({
+      ...errData,
+      [e.target.name]: "",
+    }));
   };
-  const postSignUpDetails = async (e) => {
-    e.preventDefault();
-    authDispatch({ type: "USER_LOAD" });
 
+  console.log(signUpData);
+  const postSignUpDetails = async (e) => {
     try {
-      const { data } = await axios.post("/api/auth/signup", userInfo);
+      e.preventDefault();
+      const { isValid, errors } = validSignUp(signUpData, signUpErrors);
+      if (!isValid) {
+        setSignUpErrors(errors);
+        return;
+      }
+      authDispatch({ type: "USER_LOAD" });
+      const { data } = await axios.post("/api/auth/signup", signUpData);
       authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.createdUser });
       console.log(data);
       localStorage.setItem("token", data.encodedToken);
@@ -40,47 +67,103 @@ const SignUp = () => {
         <input
           type="text"
           placeholder="First Name"
-          name="firstname"
-          value={userInfo.firstname}
+          name="firstName"
+          value={signUpData.firstName}
           onChange={inputHandler}
         />
+        {signUpErrors.firstName && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {signUpErrors.firstName}
+          </span>
+        )}
         <input
           type="text"
-          placeholder="Second Name"
-          name="secondname"
-          value={userInfo.secondname}
+          placeholder="Last Name"
+          name="lastName"
+          value={signUpData.lastName}
           onChange={inputHandler}
         />
+        {signUpErrors.lastName && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {signUpErrors.lastName}
+          </span>
+        )}
         <input
           type="text"
           placeholder="Mobile"
           name="mobile"
-          value={userInfo.mobile}
+          value={signUpData.mobile}
           onChange={inputHandler}
         />
+        {signUpErrors.mobile && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {signUpErrors.mobile}
+          </span>
+        )}
         <input
           type="text"
           placeholder="Email"
           name="email"
-          value={userInfo.email}
+          value={signUpData.email}
           onChange={inputHandler}
         />
+        {signUpErrors.email && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {signUpErrors.email}
+          </span>
+        )}
         <input
           type="text"
-          placeholder="Password`"
+          placeholder="Password"
           name="password"
-          value={userInfo.password}
+          value={signUpData.password}
           onChange={inputHandler}
         />
+        {signUpErrors.password && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {signUpErrors.password}
+          </span>
+        )}
+        <input
+          type="text"
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          value={signUpData.confirmPassword}
+          onChange={inputHandler}
+        />
+
+        {signUpErrors.confirmPassword && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {signUpErrors.confirmPassword}
+          </span>
+        )}
+
         <div className="signup-options">
           <div>
-            <input type="checkbox" />
-
-            <label htmlFor="remember-me">I accept all Terms & Conditions</label>
+            <input
+              type="checkbox"
+              name="terms"
+              value={signUpData.terms}
+              onChange={inputHandler}
+              id="terms"
+            />
+            <label htmlFor="terms">I accept all Terms & Conditions</label>
           </div>
+          {signUpErrors.terms && (
+            <span className="err-msg">
+              <i className="fa-solid fa-circle-exclamation"></i>
+              {signUpErrors.terms}
+            </span>
+          )}
         </div>
         <button className="login-btn" type="submit">
-          Creat New Account
+          {authState.loading && "loading"} Creat New Account
         </button>
       </form>
     </main>

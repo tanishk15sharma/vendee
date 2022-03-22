@@ -3,21 +3,24 @@ import { useState } from "react";
 import { useAuth } from "../../contexts/auth-context";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-const Login = () => {
-  const [userData, setUserData] = useState({ email: "", password: "" });
+import { validLogin } from "../../utilities/auth";
+const UserLogin = () => {
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
   const { authState, authDispatch } = useAuth();
-
+  const [loginErrors, setLoginErrors] = useState({
+    email: "",
+    password: "",
+  });
   const inputHandler = (e) => {
-    setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
+    setLoginData((data) => ({ ...data, [e.target.name]: e.target.value }));
+    setLoginErrors((loginErr) => ({ ...loginErr, [e.target.name]: "" }));
   };
 
-  const postLoginDetails = async ({ email, password }) => {
-    authDispatch({ type: "USER_LOAD" });
+  const postLoginDetails = async (email, password) => {
     try {
-      console.log(email, password);
-      let { data } = await axios.post("/api/auth/login", { email, password });
-      authDispatch({ type: "USER_LOAD_SUCCESS", payload: data });
+      authDispatch({ type: "USER_LOAD" });
+      const { data } = await axios.post("/api/auth/login", { email, password });
+      authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.foundUser });
       console.log(data);
       localStorage.setItem("token", data.encodedToken);
     } catch (err) {
@@ -25,43 +28,67 @@ const Login = () => {
     }
   };
   console.log(authState);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { isValid, errors } = validLogin(loginData, loginErrors);
+    if (!isValid) {
+      setLoginErrors(errors);
+      return;
+    }
+    postLoginDetails(loginData.email, loginData.password);
+  };
+
   return (
-    <main className="bg">
-      <div class="login-container center">
-        <h1 class="login-title">Login</h1>
+    <form className="bg" onSubmit={handleSubmit}>
+      <div className="login-container center">
+        <h1 className="login-title">Login</h1>
 
         <input
           type="text"
           placeholder="Email"
           name="email"
-          value={userData.email}
+          value={loginData.email}
           onChange={inputHandler}
         />
+
+        {loginErrors.email && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {loginErrors.email}
+          </span>
+        )}
 
         <input
           type="text"
           placeholder="Password"
           name="password"
-          value={userData.password}
+          value={loginData.password}
           onChange={inputHandler}
         />
-        <div class="login-options">
+        {loginErrors.password && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {loginErrors.password}
+          </span>
+        )}
+
+        <div className="login-options">
           <div>
             <input type="checkbox" />
 
-            <label for="remember-me">Remember me</label>
+            <label htmlFor="remember-me">Remember me</label>
           </div>
           <a href="#">Forget Password</a>
         </div>
-        <button class="login-btn" onClick={() => postLoginDetails(userData)}>
+        <button className="login-btn">
           {authState.loading && "loading"} Login
         </button>
         <Link to="/signup">
           Create New Account
-          <i class="fa-solid fa-greater-than"></i>
+          <i className="fa-solid fa-greater-than"></i>
         </Link>
       </div>
-    </main>
+    </form>
   );
 };
-export { Login };
+export { UserLogin };

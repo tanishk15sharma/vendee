@@ -1,12 +1,4 @@
-import searchIcon from "../../assets/nav-icons/search.svg";
-import likeIcon from "../../assets/nav-icons/heart.svg";
-import loginIcon from "../../assets/nav-icons/user-plus.svg";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
-const HeaderSection = () => {
-  const [toggleHamburger, setToggleHamburger] = useState(false);
-
+const Nav = () => {
   return (
     <nav>
       <div
@@ -39,21 +31,28 @@ const HeaderSection = () => {
           <img src={searchIcon} />
           <span>Search</span>
         </div>
-        <a href="../pages/login.html">
+        <a href="./pages/login.html">
           <div className="nav-icon-div">
             <img src={loginIcon} alt="user-icon" />
             <span>Log in</span>
           </div>
         </a>
+
         <Link to="/wishlist">
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
             <span>Wishlist</span>
           </div>
         </Link>
+
+        <Link to="/cart">
+          <div className="nav-icon-div">
+            <img src={cartIcon} alt="cart-icon" />
+            <span>Cart</span>
+          </div>
+        </Link>
       </div>
     </nav>
   );
 };
-
-export { HeaderSection };
+export { Nav };

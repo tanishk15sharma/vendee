@@ -11,7 +11,7 @@ nav {
   background-color: var(--primary-color);
 }
 
-.nav-route {
+.nav-menu {
   transition: all 0.7s;
 }
 
@@ -65,4 +65,65 @@ nav {
 
 .nav-text:hover {
   color: var(--action-color);
+}
+
+/* media for responsive UI  */
+@media (max-width: 768px) {
+  .foot-icon {
+    margin: 0;
+  }
+  nav {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+
+  .logo-div .fa-bars {
+    display: inline;
+    font-size: 2.4rem;
+    margin-right: 0.5rem;
+  }
+
+  .logo-name {
+    display: inline;
+  }
+
+  /* mobile devices */
+  /* hamburger */
+  .nav-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 1rem 2rem;
+    width: 30%;
+    height: calc(100vh - 4.5rem);
+    top: 4rem;
+    left: 0;
+    z-index: 3;
+    background-color: var(--primary-color);
+    transform: translateX(-400px);
+  }
+  .nav-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 645px) {
+  .nav-menu {
+    padding: 1rem;
+    width: 40%;
+  }
+
+  nav {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .logo-name {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .nav-icons-div {
+    gap: 1.2rem;
+  }
 }

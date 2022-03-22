@@ -3,17 +3,17 @@ import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react-dom";
+import { useState } from "react";
 import "./nav.css";
 const Nav = () => {
-  //   const [toggleHamburger, setToggleHamburger] = useState(false);
+  const [toggleHamburger, setToggleHamburger] = useState(false);
   return (
     <nav>
       <div
-        className="nav-route"
-        // style={{
-        //   transform: toggleHamburger && "translateX(0)",
-        // }}
+        className="nav-menu"
+        style={{
+          transform: toggleHamburger && "translateX(0)",
+        }}
       >
         <Link to="/" className="nav-text">
           Home

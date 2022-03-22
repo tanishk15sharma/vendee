@@ -1,24 +1,16 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
-import { useCart } from "../../contexts/cart-context";
-import { useWishlist } from "../../contexts/wishlist-context";
-
-import "./Productheader.css";
-
-const HeaderSection = () => {
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import "./nav.css";
+const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
-  const [toggleSearch, setToggleSearch] = useState(false);
-  const { cartState } = useCart();
-  const { wishlistState } = useWishlist();
-
   return (
     <nav>
       <div
-        className="nav-route"
+        className="nav-menu"
         style={{
           transform: toggleHamburger && "translateX(0)",
         }}
@@ -39,23 +31,13 @@ const HeaderSection = () => {
         <p className="logo-name">
           <span className="logo-v">V</span>endee
         </p>
-        {/* <i className="fa-solid fa-shoe-prints foot-icon"></i>
-        <i className="fa-solid fa-shoe-prints"></i> */}
+        <i className="fa-solid fa-shoe-prints foot-icon"></i>
+        <i className="fa-solid fa-shoe-prints"></i>
       </div>
       <div className="nav-icons-div">
         <div className="nav-icon-div">
-          <img
-            src={searchIcon}
-            alt="search-icon"
-            className="index"
-            onClick={() => setToggleSearch((val) => !val)}
-          />
+          <img src={searchIcon} />
           <span>Search</span>
-          <input
-            className="search-bar-i"
-            placeholder="Search"
-            style={{ display: toggleSearch && "inline" }}
-          />
         </div>
         <Link to="/login">
           <div className="nav-icon-div">
@@ -67,27 +49,18 @@ const HeaderSection = () => {
         <Link to="/wishlist">
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
-            <span>
-              Wishlist
-              <span className="icon-counter wishlist-pt">
-                {wishlistState.length}
-              </span>
-            </span>
+            <span>Wishlist</span>
           </div>
         </Link>
 
         <Link to="/cart">
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
-            <span>
-              Cart
-              <span className="icon-counter cart-pt">{cartState.length}</span>
-            </span>
+            <span>Cart</span>
           </div>
         </Link>
       </div>
     </nav>
   );
 };
-
-export { HeaderSection };
+export { Nav };

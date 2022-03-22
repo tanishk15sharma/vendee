@@ -44,7 +44,7 @@ const RecommendProducts = () => {
             <img
               src={nike}
               alt="nike-deals"
-              class="recommendation-img display-hide"
+              className="recommendation-img display-hide"
             />
           </div>
         </Link>

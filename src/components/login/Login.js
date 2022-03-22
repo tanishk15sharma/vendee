@@ -50,12 +50,14 @@ const UserLogin = () => {
           value={loginData.email}
           onChange={inputHandler}
         />
+
         {loginErrors.email && (
           <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>
             {loginErrors.email}
           </span>
         )}
+
         <input
           type="text"
           placeholder="Password"

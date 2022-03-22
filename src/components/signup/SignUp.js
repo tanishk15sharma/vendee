@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/auth-context";
 import { validSignUp } from "../../utilities/auth";
 
 const SignUp = () => {
-  const { authState, authDispatch } = useAuth();
+  const { authDispatch } = useAuth();
 
   const [signUpData, setSignUpData] = useState({
     firstName: "",
@@ -136,12 +136,14 @@ const SignUp = () => {
           value={signUpData.confirmPassword}
           onChange={inputHandler}
         />
+
         {signUpErrors.confirmPassword && (
           <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>
             {signUpErrors.confirmPassword}
           </span>
         )}
+
         <div className="signup-options">
           <div>
             <input
@@ -151,7 +153,6 @@ const SignUp = () => {
               onChange={inputHandler}
               id="terms"
             />
-
             <label htmlFor="terms">I accept all Terms & Conditions</label>
           </div>
           {signUpErrors.terms && (

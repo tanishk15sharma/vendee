@@ -33,7 +33,7 @@ const validLogin = ({ email, password }, initialErrors) => {
 };
 
 const validSignUp = (
-  { firstName, lastName, mobile, email, password, confirmPassword },
+  { firstName, lastName, mobile, email, password, confirmPassword, terms },
   initialErrors
 ) => {
   if (!firstName)
@@ -104,7 +104,14 @@ const validSignUp = (
         confirmPassword: "Password does not match",
       },
     };
-
+  if (!terms)
+    return {
+      isValid: false,
+      errors: {
+        ...initialErrors,
+        terms: "Accept Terms & Conditions",
+      },
+    };
   return {
     isValid: true,
     errors: {

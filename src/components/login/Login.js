@@ -52,7 +52,7 @@ const UserLogin = () => {
         />
         {loginErrors.email && (
           <span className="err-msg">
-            <i className="fa-solid fa-circle-exclamation"></i>{" "}
+            <i className="fa-solid fa-circle-exclamation"></i>
             {loginErrors.email}
           </span>
         )}
@@ -65,7 +65,7 @@ const UserLogin = () => {
         />
         {loginErrors.password && (
           <span className="err-msg">
-            <i className="fa-solid fa-circle-exclamation"></i>{" "}
+            <i className="fa-solid fa-circle-exclamation"></i>
             {loginErrors.password}
           </span>
         )}

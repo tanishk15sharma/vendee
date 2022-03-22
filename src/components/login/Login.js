@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { validLogin } from "../../utilities/auth";
 const UserLogin = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const { authDispatch } = useAuth();
+  const { authState, authDispatch } = useAuth();
   const [loginErrors, setLoginErrors] = useState({
     email: "",
     password: "",
@@ -20,14 +20,14 @@ const UserLogin = () => {
     try {
       authDispatch({ type: "USER_LOAD" });
       const { data } = await axios.post("/api/auth/login", { email, password });
-      authDispatch({ type: "USER_LOAD_SUCCESS", payload: data });
+      authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.foundUser });
       console.log(data);
       localStorage.setItem("token", data.encodedToken);
     } catch (err) {
       console.log(err);
     }
   };
-
+  console.log(authState);
   const handleSubmit = (e) => {
     e.preventDefault();
     const { isValid, errors } = validLogin(loginData, loginErrors);
@@ -51,10 +51,10 @@ const UserLogin = () => {
           onChange={inputHandler}
         />
         {loginErrors.email && (
-          <p>
+          <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>{" "}
             {loginErrors.email}
-          </p>
+          </span>
         )}
         <input
           type="text"
@@ -63,7 +63,12 @@ const UserLogin = () => {
           value={loginData.password}
           onChange={inputHandler}
         />
-        {loginErrors.password && loginErrors.password}
+        {loginErrors.password && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>{" "}
+            {loginErrors.password}
+          </span>
+        )}
 
         <div className="login-options">
           <div>
@@ -73,7 +78,9 @@ const UserLogin = () => {
           </div>
           <a href="#">Forget Password</a>
         </div>
-        <button className="login-btn">Login</button>
+        <button className="login-btn">
+          {authState.loading && "loading"} Login
+        </button>
         <Link to="/signup">
           Create New Account
           <i className="fa-solid fa-greater-than"></i>

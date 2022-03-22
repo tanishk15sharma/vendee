@@ -16,7 +16,6 @@ const SignUp = () => {
 
   const inputHandler = (e) => {
     e.preventDefault();
-
     setUserInfo((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
   const postSignUpDetails = async (e) => {

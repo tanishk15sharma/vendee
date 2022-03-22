@@ -63,6 +63,9 @@ html {
   margin: 0;
   height: 100vh;
 }
+.err-msg {
+  align-self: flex-start;
+}
 .fa-circle-exclamation {
   color: #ef4444;
 }

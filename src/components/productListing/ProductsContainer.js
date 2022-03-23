@@ -9,14 +9,20 @@ import {
   getFilteredProducts,
 } from "../../utilities/filters-utils";
 import loaderGif from "../../assets/loaderg.gif";
-import { addToWishlist } from "../../utilities/wishlist-utils";
+import {
+  addToWishlist,
+  getToken,
+  removeFromWishlist,
+} from "../../utilities/wishlist-utils";
+import { useNavigate } from "react-router-dom";
 
 const ProductsContainer = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
   const { cartDispatch } = useCart();
-  const { setWishList } = useWishlist();
+  const { wishList, setWishList } = useWishlist();
 
   useEffect(() => {
     (async () => {
@@ -70,8 +76,25 @@ const ProductsContainer = () => {
             <div className="product-detail">
               <div className="product-brand">
                 {product.brand}
-                <div onClick={() => addToWishlist(product, setWishList)}>
-                  <i className="far fa-heart"></i>
+                <div>
+                  {wishList.find((item) => item._id === product._id) ? (
+                    <i
+                      className="fas fa-heart action-cl"
+                      style={{ color: "#ff715b" }}
+                      onClick={() =>
+                        removeFromWishlist(product._id, setWishList)
+                      }
+                    ></i>
+                  ) : (
+                    <i
+                      className="far fa-heart"
+                      onClick={() => {
+                        getToken()
+                          ? addToWishlist(product, setWishList)
+                          : navigate("/login");
+                      }}
+                    ></i>
+                  )}
                 </div>
               </div>
               <p className="product-info">{product.name} </p>

@@ -23,7 +23,7 @@ const removeFromWishlist = async (id, setWishlist) => {
   try {
     const { data } = await axios.delete(`/api/user/wishlist/${id}`, {
       headers: {
-        authorization: encodedToken,
+        authorization: getToken(),
       },
     });
 

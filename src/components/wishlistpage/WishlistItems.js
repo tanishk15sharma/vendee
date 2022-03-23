@@ -1,9 +1,9 @@
 import "./WishlistItems.css";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
-
+import { removeFromWishlist } from "../../utilities/wishlist-utils";
 const WishlistItems = () => {
-  const { wishList, wishlistDispatch } = useWishlist();
+  const { wishList, setWishList } = useWishlist();
   const { cartDispatch } = useCart();
 
   console.log(wishList);
@@ -13,16 +13,9 @@ const WishlistItems = () => {
   return (
     <>
       {wishList.map((product) => (
-        <div className="product-card">
+        <div className="product-card" key={product._id}>
           <div className="product-img-div">
-            <div
-              onClick={() =>
-                wishlistDispatch({
-                  type: "REMOVE_FROM_WISHIST",
-                  payload: product,
-                })
-              }
-            >
+            <div onClick={() => removeFromWishlist(product._id, setWishList)}>
               <i className="fa-solid fa-xmark"></i>
             </div>
             <img src={product.image} alt="tshirt" className="product-img" />

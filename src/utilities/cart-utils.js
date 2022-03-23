@@ -18,4 +18,18 @@ const addToCart = async (product, setCart) => {
   }
 };
 
-export { addToCart };
+const removeFromCart = async (id, setCart) => {
+  console.log(id);
+  try {
+    const { data } = await axios.delete(`/api/user/cart/${id}`, {
+      headers: {
+        authorization: getToken(),
+      },
+    });
+    setCart(data.cart);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { addToCart, removeFromCart };

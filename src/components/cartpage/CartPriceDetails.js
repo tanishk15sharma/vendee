@@ -2,23 +2,20 @@ import "./CartPriceDetails.css";
 import { useCart } from "../../contexts/cart-context";
 
 const CartPriceDetails = () => {
-  const { cartState } = useCart();
+  const { cart } = useCart();
 
-  if (cartState.length === 0) {
+  if (cart.length === 0) {
     return <h2>No items in cart</h2>;
   }
 
-  let totalAmount = cartState.reduce(
-    (sum, curr) => sum + curr.quantity * curr.discountPrice,
+  let totalAmount = cart.reduce(
+    (sum, curr) => sum + curr.qty * curr.discountPrice,
     0
   );
-  let price = cartState.reduce(
-    (sum, curr) => sum + curr.quantity * curr.actualPrice,
-    0
-  );
+  let price = cart.reduce((sum, curr) => sum + curr.qty * curr.actualPrice, 0);
 
-  let discountPrice = cartState.reduce(
-    (sum, curr) => sum + curr.quantity * curr.discount,
+  let discountPrice = cart.reduce(
+    (sum, curr) => sum + curr.qty * curr.discount,
     0
   );
   return (

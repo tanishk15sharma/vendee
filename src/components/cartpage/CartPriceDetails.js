@@ -1,5 +1,6 @@
 import "./CartPriceDetails.css";
 import { useCart } from "../../contexts/cart-context";
+import { checkoutDetails } from "../../utilities/cart-utils";
 
 const CartPriceDetails = () => {
   const { cart } = useCart();
@@ -7,17 +8,8 @@ const CartPriceDetails = () => {
   if (cart.length === 0) {
     return <h2>No items in cart</h2>;
   }
+  const { totalAmount, price, discountPrice } = checkoutDetails(cart);
 
-  let totalAmount = cart.reduce(
-    (sum, curr) => sum + curr.qty * curr.discountPrice,
-    0
-  );
-  let price = cart.reduce((sum, curr) => sum + curr.qty * curr.actualPrice, 0);
-
-  let discountPrice = cart.reduce(
-    (sum, curr) => sum + curr.qty * curr.discount,
-    0
-  );
   return (
     <div className="price-details-container">
       <p className="price-details-title bold">PRICE DETAILS</p>

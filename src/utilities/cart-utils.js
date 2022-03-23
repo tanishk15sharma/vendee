@@ -53,4 +53,20 @@ const ChangeCartQty = async (id, setCart, actionType) => {
   }
 };
 
-export { addToCart, removeFromCart, ChangeCartQty };
+// for price Details
+const checkoutDetails = (cart) => {
+  let totalAmount = cart.reduce(
+    (sum, curr) => sum + curr.qty * curr.discountPrice,
+    0
+  );
+  let price = cart.reduce((sum, curr) => sum + curr.qty * curr.actualPrice, 0);
+
+  let discountPrice = cart.reduce(
+    (sum, curr) => sum + curr.qty * curr.discount,
+    0
+  );
+
+  return { totalAmount, price, discountPrice };
+};
+
+export { addToCart, removeFromCart, ChangeCartQty, checkoutDetails };

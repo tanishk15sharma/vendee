@@ -1,13 +1,9 @@
 import "./CartItems.css";
-// import img from "../../assets/recommendedproduct-images/-Heels.webp";
-// import { img } from "";
 import { useCart } from "../../contexts/cart-context";
 import { removeFromCart, ChangeCartQty } from "../../utilities/cart-utils";
-import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartItems = () => {
   const { cart, setCart } = useCart();
-  // const { wishlistDispatch } = useWishlist();
   console.log(cart);
 
   return (
@@ -50,9 +46,6 @@ const CartItems = () => {
             </p>
             <button
               className="btn"
-              // onClick={() =>
-              //   cartDispatch({ type: "REMOVE_PRODUCT", payload: product })
-              // }
               onClick={() => removeFromCart(product._id, setCart)}
             >
               Remove from Cart

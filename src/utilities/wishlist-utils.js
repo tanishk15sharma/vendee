@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const encodedToken = localStorage.getItem("token");
+const getToken = () => localStorage.getItem("token");
+
 const addToWishlist = async (product, setWishlist) => {
   try {
     const { data } = await axios.post(
@@ -8,7 +9,7 @@ const addToWishlist = async (product, setWishlist) => {
       { product },
       {
         headers: {
-          authorization: encodedToken,
+          authorization: getToken(),
         },
       }
     );
@@ -32,4 +33,4 @@ const removeFromWishlist = async (id, setWishlist) => {
   }
 };
 
-export { addToWishlist, removeFromWishlist };
+export { addToWishlist, removeFromWishlist, getToken };

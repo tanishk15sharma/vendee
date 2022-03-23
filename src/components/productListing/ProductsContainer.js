@@ -64,7 +64,7 @@ const ProductsContainer = () => {
             <div className="product-img-div">
               <img src={product.image} alt="tshirt" />
               <span className="product-rating">
-                {product.ratings} <i class="fa-solid fa-star"></i>
+                {product.ratings} <i className="fa-solid fa-star"></i>
               </span>
             </div>
             <div className="product-detail">

@@ -5,8 +5,11 @@ import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./nav.css";
+import { useWishlist } from "../../contexts/wishlist-context";
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
+  const { wishList } = useWishlist();
+
   return (
     <nav>
       <div
@@ -49,7 +52,9 @@ const Nav = () => {
         <Link to="/wishlist">
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
-            <span>Wishlist</span>
+            <span className="relative">
+              Wishlist <span className="icon-counter">{wishList.length}</span>
+            </span>
           </div>
         </Link>
 

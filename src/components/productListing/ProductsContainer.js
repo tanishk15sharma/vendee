@@ -9,13 +9,14 @@ import {
   getFilteredProducts,
 } from "../../utilities/filters-utils";
 import loaderGif from "../../assets/loaderg.gif";
+import { addToWishlist } from "../../utilities/wishlist-utils";
 
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
   const { cartDispatch } = useCart();
-  const { wishlistDispatch } = useWishlist();
+  const { setWishList } = useWishlist();
 
   useEffect(() => {
     (async () => {
@@ -69,14 +70,7 @@ const ProductsContainer = () => {
             <div className="product-detail">
               <div className="product-brand">
                 {product.brand}
-                <div
-                  onClick={() =>
-                    wishlistDispatch({
-                      type: "ADD_TO_WISHLIST",
-                      payload: product,
-                    })
-                  }
-                >
+                <div onClick={() => addToWishlist(product, setWishList)}>
                   <i className="far fa-heart"></i>
                 </div>
               </div>

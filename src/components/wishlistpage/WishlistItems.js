@@ -3,16 +3,16 @@ import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 
 const WishlistItems = () => {
-  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishList, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
 
-  console.log(wishlistState);
-  if (wishlistState.length === 0) {
+  console.log(wishList);
+  if (wishList.length === 0) {
     return <h1>No items in Wishlist.</h1>;
   }
   return (
     <>
-      {wishlistState.map((product) => (
+      {wishList.map((product) => (
         <div className="product-card">
           <div className="product-img-div">
             <div

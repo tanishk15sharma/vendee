@@ -1,9 +1,12 @@
 import "./CartItems.css";
 import { useCart } from "../../contexts/cart-context";
 import { removeFromCart, ChangeCartQty } from "../../utilities/cart-utils";
+import { addToWishlist } from "../../utilities/wishlist-utils";
+import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartItems = () => {
   const { cart, setCart } = useCart();
+  const { setWishList } = useWishlist();
   console.log(cart);
 
   return (
@@ -51,7 +54,12 @@ const CartItems = () => {
               Remove from Cart
             </button>
 
-            <button className="btn">Move to wishlist</button>
+            <button
+              className="btn"
+              onClick={() => addToWishlist(product, setWishList)}
+            >
+              Move to wishlist
+            </button>
           </div>
         </div>
       ))}

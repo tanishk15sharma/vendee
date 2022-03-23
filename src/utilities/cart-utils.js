@@ -32,4 +32,25 @@ const removeFromCart = async (id, setCart) => {
   }
 };
 
-export { addToCart, removeFromCart };
+const ChangeCartQty = async (id, setCart, actionType) => {
+  try {
+    const { data } = await axios.post(
+      `/api/user/cart/${id}`,
+      {
+        action: {
+          type: actionType,
+        },
+      },
+      {
+        headers: {
+          authorization: getToken(),
+        },
+      }
+    );
+    setCart(data.cart);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { addToCart, removeFromCart, ChangeCartQty };

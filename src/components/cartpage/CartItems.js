@@ -2,7 +2,7 @@ import "./CartItems.css";
 // import img from "../../assets/recommendedproduct-images/-Heels.webp";
 // import { img } from "";
 import { useCart } from "../../contexts/cart-context";
-import { removeFromCart } from "../../utilities/cart-utils";
+import { removeFromCart, ChangeCartQty } from "../../utilities/cart-utils";
 import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartItems = () => {
@@ -35,19 +35,15 @@ const CartItems = () => {
               Quantity:
               <button
                 className="btn-qty"
-                // onClick={() =>
-                //   cartDispatch({ type: "DECREASE_QUANTITY", payload: product })
-                // }
-                disabled={product.quantity === 1}
+                disabled={product.qty === 1}
+                onClick={() => ChangeCartQty(product._id, setCart, "decrement")}
               >
                 <i className="px-1 fa-solid fa-circle-minus"></i>
               </button>
-              {product.quantity}
+              {product.qty}
               <button
                 className="btn-qty"
-                // onClick={() =>
-                //   cartDispatch({ type: "INCREASE_QUANTITY", payload: product })
-                // }
+                onClick={() => ChangeCartQty(product._id, setCart, "increment")}
               >
                 <i className="fa-solid fa-circle-plus"></i>
               </button>

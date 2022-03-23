@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./nav.css";
 import { useWishlist } from "../../contexts/wishlist-context";
+import { useCart } from "../../contexts/cart-context";
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const { wishList } = useWishlist();
-
+  const { cart } = useCart();
+  console.log(cart);
   return (
     <nav>
       <div
@@ -61,7 +63,9 @@ const Nav = () => {
         <Link to="/cart">
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
-            <span>Cart</span>
+            <span className="relative">
+              Cart <span className="icon-counter">{cart.length}</span>
+            </span>
           </div>
         </Link>
       </div>

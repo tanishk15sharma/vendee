@@ -2,9 +2,10 @@ import "./WishlistItems.css";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 import { removeFromWishlist } from "../../utilities/wishlist-utils";
+import { addToCart } from "../../utilities/cart-utils";
 const WishlistItems = () => {
   const { wishList, setWishList } = useWishlist();
-  const { cartDispatch } = useCart();
+  const { setCart } = useCart();
 
   console.log(wishList);
   if (wishList.length === 0) {
@@ -44,9 +45,7 @@ const WishlistItems = () => {
           </div>
           <button
             className="product-btn"
-            onClick={() =>
-              cartDispatch({ type: "ADD_TO_CART", payload: product })
-            }
+            onClick={() => addToCart(product, setCart)}
           >
             ADD TO CART
           </button>

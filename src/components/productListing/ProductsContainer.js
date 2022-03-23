@@ -115,12 +115,18 @@ const ProductsContainer = () => {
                 </div>
               </div>
             </div>
-            <button
-              className="product-btn"
-              onClick={() => addToCart(product, setCart)}
-            >
-              ADD TO CART
-            </button>
+            {cart.find((item) => item._id === product._id) ? (
+              <button className="product-btn" onClick={() => navigate("/cart")}>
+                GO TO CART
+              </button>
+            ) : (
+              <button
+                className="product-btn"
+                onClick={() => addToCart(product, setCart)}
+              >
+                ADD TO CART
+              </button>
+            )}
           </div>
         ))
       )}

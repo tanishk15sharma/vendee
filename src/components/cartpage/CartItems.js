@@ -1,16 +1,17 @@
 import "./CartItems.css";
-// import img from "../../assets/recommendedproduct-images/-Heels.webp";
-// import { img } from "";
 import { useCart } from "../../contexts/cart-context";
+import { removeFromCart, ChangeCartQty } from "../../utilities/cart-utils";
+import { addToWishlist } from "../../utilities/wishlist-utils";
 import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartItems = () => {
-  const { cartState, cartDispatch } = useCart();
-  const { wishlistDispatch } = useWishlist();
-  console.log(cartState);
+  const { cart, setCart } = useCart();
+  const { setWishList } = useWishlist();
+  console.log(cart);
+
   return (
     <div className="items">
-      {cartState.map((product) => (
+      {cart.map((product) => (
         <div className="cart-item" key={product._id}>
           <div className="cover-img">
             <img
@@ -33,37 +34,29 @@ const CartItems = () => {
               Quantity:
               <button
                 className="btn-qty"
-                onClick={() =>
-                  cartDispatch({ type: "DECREASE_QUANTITY", payload: product })
-                }
-                disabled={product.quantity === 1}
+                disabled={product.qty === 1}
+                onClick={() => ChangeCartQty(product._id, setCart, "decrement")}
               >
                 <i className="px-1 fa-solid fa-circle-minus"></i>
               </button>
-              {product.quantity}
+              {product.qty}
               <button
                 className="btn-qty"
-                onClick={() =>
-                  cartDispatch({ type: "INCREASE_QUANTITY", payload: product })
-                }
+                onClick={() => ChangeCartQty(product._id, setCart, "increment")}
               >
                 <i className="fa-solid fa-circle-plus"></i>
               </button>
             </p>
             <button
               className="btn"
-              onClick={() =>
-                cartDispatch({ type: "REMOVE_PRODUCT", payload: product })
-              }
+              onClick={() => removeFromCart(product._id, setCart)}
             >
               Remove from Cart
             </button>
 
             <button
               className="btn"
-              onClick={() =>
-                wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: product })
-              }
+              onClick={() => addToWishlist(product, setWishList)}
             >
               Move to wishlist
             </button>

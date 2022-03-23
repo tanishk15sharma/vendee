@@ -2,14 +2,7 @@ import "./Header.css";
 // import { useState } from "react";
 import { Nav } from "../../components/nav/nav";
 
-import { useCart } from "../../contexts/cart-context";
-
 const HeaderSection = () => {
-  // const [toggleHamburger, setToggleHamburger] = useState(false);
-  const { cartState } = useCart();
-
-  console.log(cartState.length);
-
   return (
     <>
       <header>

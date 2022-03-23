@@ -1,26 +1,15 @@
 import "./CartPriceDetails.css";
 import { useCart } from "../../contexts/cart-context";
+import { checkoutDetails } from "../../utilities/cart-utils";
 
 const CartPriceDetails = () => {
-  const { cartState } = useCart();
+  const { cart } = useCart();
 
-  if (cartState.length === 0) {
+  if (cart.length === 0) {
     return <h2>No items in cart</h2>;
   }
+  const { totalAmount, price, discountPrice } = checkoutDetails(cart);
 
-  let totalAmount = cartState.reduce(
-    (sum, curr) => sum + curr.quantity * curr.discountPrice,
-    0
-  );
-  let price = cartState.reduce(
-    (sum, curr) => sum + curr.quantity * curr.actualPrice,
-    0
-  );
-
-  let discountPrice = cartState.reduce(
-    (sum, curr) => sum + curr.quantity * curr.discount,
-    0
-  );
   return (
     <div className="price-details-container">
       <p className="price-details-title bold">PRICE DETAILS</p>

@@ -14,6 +14,7 @@ import {
   getToken,
   removeFromWishlist,
 } from "../../utilities/wishlist-utils";
+import { addToCart } from "../../utilities/cart-utils";
 import { useNavigate } from "react-router-dom";
 
 const ProductsContainer = () => {
@@ -21,7 +22,7 @@ const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
-  const { cartDispatch } = useCart();
+  const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
 
   useEffect(() => {
@@ -114,14 +115,18 @@ const ProductsContainer = () => {
                 </div>
               </div>
             </div>
-            <button
-              className="product-btn"
-              onClick={() =>
-                cartDispatch({ type: "ADD_TO_CART", payload: product })
-              }
-            >
-              ADD TO CART
-            </button>
+            {cart.find((item) => item._id === product._id) ? (
+              <button className="product-btn" onClick={() => navigate("/cart")}>
+                GO TO CART
+              </button>
+            ) : (
+              <button
+                className="product-btn"
+                onClick={() => addToCart(product, setCart)}
+              >
+                ADD TO CART
+              </button>
+            )}
           </div>
         ))
       )}

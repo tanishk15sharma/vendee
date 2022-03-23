@@ -289,7 +289,7 @@ const ProductsFilters = () => {
         </ul>
       </div>
       <button
-        class="btn-filter"
+        className="btn-filter"
         onClick={() => setToggleFilterBtn((val) => !val)}
       >
         <i className="fa-solid fa-filter"></i> FILTER

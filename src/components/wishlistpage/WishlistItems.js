@@ -1,28 +1,21 @@
 import "./WishlistItems.css";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
-
+import { removeFromWishlist } from "../../utilities/wishlist-utils";
 const WishlistItems = () => {
-  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishList, setWishList } = useWishlist();
   const { cartDispatch } = useCart();
 
-  console.log(wishlistState);
-  if (wishlistState.length === 0) {
+  console.log(wishList);
+  if (wishList.length === 0) {
     return <h1>No items in Wishlist.</h1>;
   }
   return (
     <>
-      {wishlistState.map((product) => (
-        <div className="product-card">
+      {wishList.map((product) => (
+        <div className="product-card" key={product._id}>
           <div className="product-img-div">
-            <div
-              onClick={() =>
-                wishlistDispatch({
-                  type: "REMOVE_FROM_WISHIST",
-                  payload: product,
-                })
-              }
-            >
+            <div onClick={() => removeFromWishlist(product._id, setWishList)}>
               <i className="fa-solid fa-xmark"></i>
             </div>
             <img src={product.image} alt="tshirt" className="product-img" />

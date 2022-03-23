@@ -2,14 +2,16 @@ import "./Login.css";
 import { useState } from "react";
 import { useAuth } from "../../contexts/auth-context";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validLogin } from "../../utilities/auth";
 const UserLogin = () => {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const { authState, authDispatch } = useAuth();
   const [loginErrors, setLoginErrors] = useState({
     email: "",
     password: "",
+    others: "",
   });
   const inputHandler = (e) => {
     setLoginData((data) => ({ ...data, [e.target.name]: e.target.value }));
@@ -23,8 +25,13 @@ const UserLogin = () => {
       authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.foundUser });
       console.log(data);
       localStorage.setItem("token", data.encodedToken);
+      navigate(-1);
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
+      setLoginErrors((loginErr) => ({
+        ...loginErr,
+        others: err.response.data.errors[0],
+      }));
     }
   };
   console.log(authState);
@@ -65,6 +72,7 @@ const UserLogin = () => {
           value={loginData.password}
           onChange={inputHandler}
         />
+
         {loginErrors.password && (
           <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>
@@ -80,6 +88,12 @@ const UserLogin = () => {
           </div>
           <a href="#">Forget Password</a>
         </div>
+        {loginErrors.others && (
+          <span className="err-msg">
+            <i className="fa-solid fa-circle-exclamation"></i>
+            {loginErrors.others}
+          </span>
+        )}
         <button className="login-btn">
           {authState.loading && "loading"} Login
         </button>

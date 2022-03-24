@@ -1,5 +1,5 @@
-.login-container input:nth-child(2),
-input:nth-child(3) {
+.login-container .login-input,
+.login-input {
   padding: 0.5rem 1rem;
   margin: 0.8rem 0;
   width: 100%;

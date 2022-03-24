@@ -56,6 +56,7 @@ const UserLogin = () => {
           name="email"
           value={loginData.email}
           onChange={inputHandler}
+          className="login-input"
         />
 
         {loginErrors.email && (
@@ -71,6 +72,7 @@ const UserLogin = () => {
           name="password"
           value={loginData.password}
           onChange={inputHandler}
+          className="login-input"
         />
 
         {loginErrors.password && (

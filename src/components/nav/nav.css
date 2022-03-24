@@ -79,6 +79,27 @@ nav {
   opacity: 0.9;
   left: 1.5rem;
 }
+.lt {
+  left: 1rem;
+}
+.high-index {
+  z-index: 5;
+}
+.search-bar {
+  position: absolute;
+  right: 13rem;
+  bottom: 0.8rem;
+
+  width: 0%;
+  background-color: #f5f5f6;
+  border: none;
+  transition: all 0.5s;
+}
+.search-bar:focus {
+  border: 1px solid #f5f5f6;
+  outline: none;
+  background-color: var(--primary-color);
+}
 /* media for responsive UI  */
 @media (max-width: 768px) {
   .foot-icon {

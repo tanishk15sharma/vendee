@@ -9,9 +9,10 @@ import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
+  const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const { wishList } = useWishlist();
   const { cart } = useCart();
-  console.log(cart);
+
   return (
     <nav>
       <div
@@ -41,8 +42,20 @@ const Nav = () => {
       </div>
       <div className="nav-icons-div">
         <div className="nav-icon-div">
-          <img src={searchIcon} />
-          <span>Search</span>
+          <img
+            src={searchIcon}
+            className="high-index"
+            onClick={() => setToggleSearchBar((val) => !val)}
+          />
+          <span className="relative high-index">Search</span>
+          <input
+            className="search-bar"
+            placeholder="Search"
+            style={{
+              width: toggleSearchBar && "20%",
+              padding: toggleSearchBar && "0.8rem",
+            }}
+          />
         </div>
         <Link to="/login">
           <div className="nav-icon-div">
@@ -64,7 +77,7 @@ const Nav = () => {
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
             <span className="relative">
-              Cart <span className="icon-counter">{cart.length}</span>
+              Cart <span className="icon-counter lt">{cart.length}</span>
             </span>
           </div>
         </Link>

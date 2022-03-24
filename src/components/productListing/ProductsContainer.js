@@ -45,8 +45,9 @@ const ProductsContainer = () => {
     brands,
     rating,
     range,
+    search,
   } = state;
-
+  console.log(search.toLowerCase());
   const sortedProducts = getSortedProducts(products, sortBy);
 
   const filteredProducts = getFilteredProducts(
@@ -56,7 +57,8 @@ const ProductsContainer = () => {
     category,
     brands,
     rating,
-    range
+    range,
+    search
   );
 
   return (

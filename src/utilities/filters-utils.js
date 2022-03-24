@@ -15,7 +15,8 @@ const getFilteredProducts = (
   categoryObj,
   brands,
   rating,
-  range
+  range,
+  search
 ) => {
   return products
     .filter((product) => (stockBoolean ? true : product.inStock))
@@ -27,6 +28,11 @@ const getFilteredProducts = (
       brands.length === 0
         ? true
         : brands.find((brand) => brand === product.brand)
+    )
+    .filter(
+      (product) =>
+        product.name.toLowerCase().includes(search.toLowerCase()) ||
+        product.brand.toLowerCase().includes(search.toLowerCase())
     );
 };
 

@@ -10,6 +10,7 @@ const initialState = {
   brands: [],
   rating: null,
   range: 6000,
+  search: "",
 };
 
 const filtersReducer = (state, action) => {
@@ -39,6 +40,8 @@ const filtersReducer = (state, action) => {
           [action.payload]: !state.category[action.payload],
         },
       };
+    case "SEARCH_PRODUCT":
+      return { ...state, search: action.payload };
     case "CLEAR_ALL":
       return {
         includeOutOfStock: true,

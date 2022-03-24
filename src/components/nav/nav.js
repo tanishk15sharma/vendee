@@ -7,11 +7,13 @@ import { useState } from "react";
 import "./nav.css";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useCart } from "../../contexts/cart-context";
+import { useProductsFilters } from "../../contexts/filter-context";
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const { wishList } = useWishlist();
   const { cart } = useCart();
+  const { dispatch } = useProductsFilters();
 
   return (
     <nav>
@@ -55,6 +57,9 @@ const Nav = () => {
               width: toggleSearchBar && "20%",
               padding: toggleSearchBar && "0.8rem",
             }}
+            onChange={(e) =>
+              dispatch({ type: "SEARCH_PRODUCT", payload: e.target.value })
+            }
           />
         </div>
         <Link to="/login">

@@ -3,13 +3,13 @@
 }
 
 .fa-xmark {
-  color: #9ca3af;
+  color: #a7a7a7;
   position: absolute;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   top: 2%;
   right: 4%;
-  padding: 0.2rem 0.4rem;
-  background-color: #f3f4f6;
+  padding: 0.3rem 0.5rem;
+  background-color: #edeeef;
   border-radius: 50%;
   cursor: pointer;
 }

@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
           <div>
             {wishList.find((item) => item._id === product._id) ? (
               <i
-                className="fas fa-heart action-cl"
+                className="fas fa-heart "
                 style={{ color: "#ff715b" }}
                 onClick={() => removeFromWishlist(product._id, setWishList)}
               ></i>
@@ -65,7 +65,9 @@ const ProductCard = ({ product }) => {
       ) : (
         <button
           className="product-btn"
-          onClick={() => addToCart(product, setCart)}
+          onClick={() => {
+            getToken() ? addToCart(product, setCart, cart) : navigate("/login");
+          }}
         >
           ADD TO CART
         </button>

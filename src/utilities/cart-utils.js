@@ -1,7 +1,11 @@
 import axios from "axios";
 import { getToken } from "./wishlist-utils";
 
-const addToCart = async (product, setCart) => {
+const addToCart = async (product, setCart, cart) => {
+  if (cart.find((item) => item._id === product._id)) {
+    alert("Item is Already present in cart");
+    return;
+  }
   try {
     const { data } = await axios.post(
       "/api/user/cart",

@@ -5,7 +5,7 @@ import { removeFromWishlist } from "../../utilities/wishlist-utils";
 import { addToCart } from "../../utilities/cart-utils";
 const WishlistItems = () => {
   const { wishList, setWishList } = useWishlist();
-  const { setCart } = useCart();
+  const { cart, setCart } = useCart();
 
   console.log(wishList);
   if (wishList.length === 0) {
@@ -24,7 +24,7 @@ const WishlistItems = () => {
           <div className="product-detail">
             <div className="product-brand">
               {product.brand}
-              <i className="far fa-heart"></i>
+              <i className="fas fa-heart " style={{ color: "#ff715b" }}></i>
             </div>
             <p className="product-info">{product.name}</p>
             <div className="product-price">
@@ -45,7 +45,7 @@ const WishlistItems = () => {
           </div>
           <button
             className="product-btn"
-            onClick={() => addToCart(product, setCart)}
+            onClick={() => addToCart(product, setCart, cart)}
           >
             ADD TO CART
           </button>

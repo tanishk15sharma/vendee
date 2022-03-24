@@ -5,9 +5,8 @@ import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./nav.css";
-import { useWishlist } from "../../contexts/wishlist-context";
-import { useCart } from "../../contexts/cart-context";
-import { useProductsFilters } from "../../contexts/filter-context";
+import { useCart, useProductsFilters, useWishlist } from "../../contexts";
+import { getToken } from "../../utilities/wishlist-utils";
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
@@ -69,7 +68,7 @@ const Nav = () => {
           </div>
         </Link>
 
-        <Link to="/wishlist">
+        <Link to={getToken() ? "/wishlist" : "/login"}>
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
             <span className="relative">
@@ -78,7 +77,7 @@ const Nav = () => {
           </div>
         </Link>
 
-        <Link to="/cart">
+        <Link to={getToken() ? "/cart" : "/login"}>
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
             <span className="relative">

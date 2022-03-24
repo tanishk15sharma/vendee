@@ -6,8 +6,8 @@ import { useWishlist } from "../../contexts/wishlist-context";
 
 const CartItems = () => {
   const { cart, setCart } = useCart();
-  const { setWishList } = useWishlist();
-  console.log(cart);
+  const { wishList, setWishList } = useWishlist();
+  console.log("render");
 
   return (
     <div className="items">
@@ -56,7 +56,7 @@ const CartItems = () => {
 
             <button
               className="btn"
-              onClick={() => addToWishlist(product, setWishList)}
+              onClick={() => addToWishlist(product, setWishList, wishList)}
             >
               Move to wishlist
             </button>

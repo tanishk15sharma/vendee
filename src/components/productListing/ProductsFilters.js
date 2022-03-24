@@ -5,7 +5,6 @@ import "./ProductsFilters.css";
 const ProductsFilters = () => {
   const [toggleFilterBtn, setToggleFilterBtn] = useState(false);
   const { state, dispatch } = useProductsFilters();
-  const [count, setCount] = useState(0);
   const brandClickHandler = (event) => {
     let checked = event.target.checked;
     let brandValue = event.target.value;
@@ -40,15 +39,14 @@ const ProductsFilters = () => {
             <p className="filter-title">Price</p>
             <div className="price-range">
               <span>500</span>
-              <span>10000</span>
+              <span> {state.range} </span>
             </div>
             <input
               type="range"
               min={500}
               max={8000}
               step={200}
-              defaultValue={6000}
-              onChange={() => setCount((val) => console.log(Number(val + 1)))}
+              defaultValue={state.range}
               onMouseUp={(e) =>
                 dispatch({ type: "RANGE", payload: e.target.value })
               }

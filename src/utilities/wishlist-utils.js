@@ -2,7 +2,11 @@ import axios from "axios";
 
 const getToken = () => localStorage.getItem("token");
 
-const addToWishlist = async (product, setWishlist) => {
+const addToWishlist = async (product, setWishlist, wishlist) => {
+  if (wishlist.find((item) => item._id === product._id)) {
+    alert("item is already on wishlist");
+    return;
+  }
   try {
     const { data } = await axios.post(
       "/api/user/wishlist",

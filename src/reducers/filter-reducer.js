@@ -55,6 +55,7 @@ const filtersReducer = (state, action) => {
         brands: [],
         rating: null,
         range: 6000,
+        search: "",
       };
     default:
       return state;

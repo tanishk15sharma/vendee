@@ -5,14 +5,23 @@ import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./nav.css";
-import { useCart, useProductsFilters, useWishlist } from "../../contexts";
+import {
+  useCart,
+  useProductsFilters,
+  useWishlist,
+  useAuth,
+} from "../../contexts";
 import { getToken } from "../../utilities/wishlist-utils";
+import { UserProfile } from "../userprofile/UserProfile";
+
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const { wishList } = useWishlist();
   const { cart } = useCart();
   const { dispatch } = useProductsFilters();
+  const { authState, authDispatch } = useAuth();
+  console.log(authState);
 
   return (
     <nav>
@@ -61,12 +70,16 @@ const Nav = () => {
             }
           />
         </div>
-        <Link to="/login">
-          <div className="nav-icon-div">
-            <img src={loginIcon} alt="user-icon" />
-            <span>Log in</span>
-          </div>
-        </Link>
+        {authState.user === null ? (
+          <Link to="/login">
+            <div className="nav-icon-div">
+              <img src={loginIcon} alt="user-icon" />
+              <span>Log in</span>
+            </div>
+          </Link>
+        ) : (
+          <UserProfile userDetails={authState.user} />
+        )}
 
         <Link to={getToken() ? "/wishlist" : "/login"}>
           <div className="nav-icon-div">

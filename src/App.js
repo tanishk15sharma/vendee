@@ -1,6 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartPage, HomePage, WishlistPage, ProductsPage } from "./pages";
+import {
+  CartPage,
+  HomePage,
+  WishlistPage,
+  ProductsPage,
+  PageNotFound,
+} from "./pages";
 import { UserLogin } from "./components/login/Login.js";
 import { SignUp } from "./components/signup/SignUp.js";
 import Mockman from "mockman-js";
@@ -16,6 +22,7 @@ function App() {
         <Route path="/login" element={<UserLogin />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mockapi" element={<Mockman />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </Router>
   );

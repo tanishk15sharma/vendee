@@ -19,7 +19,7 @@ const UserProfile = ({ userDetails }) => {
     setWishlist([]);
   };
   return (
-    <div className="relative">
+    <div>
       <div
         className="nav-icon-div"
         onClick={() => setToggleUserProfile((val) => !val)}
@@ -34,7 +34,9 @@ const UserProfile = ({ userDetails }) => {
         <Link to="/settings">Settings</Link>
         <Link to="/address">Address</Link>
         <Link to="/help">Help</Link>
-        <button onClick={logOutHandler}>logout</button>
+        <button onClick={logOutHandler} className="logout-btn">
+          logout
+        </button>
       </div>
     </div>
   );

@@ -8,11 +8,22 @@ const ProductsFilters = () => {
   const brandClickHandler = (event) => {
     let checked = event.target.checked;
     let brandValue = event.target.value;
-    // console.log(brandValue);
+
     if (checked) {
       return { type: "ADD_BRAND", payload: brandValue };
     } else {
       return { type: "REMOVE_BRAND", payload: brandValue };
+    }
+  };
+
+  const categoryClickHandler = (event) => {
+    let checked = event.target.checked;
+    let categoryVal = event.target.value;
+    console.log(checked);
+    if (checked) {
+      return { type: "ADD_CATEGORY", payload: categoryVal };
+    } else {
+      return { type: "REMOVE_CATEGORY", payload: categoryVal };
     }
   };
 
@@ -44,7 +55,7 @@ const ProductsFilters = () => {
             <input
               type="range"
               min={500}
-              max={8000}
+              max={10000}
               step={200}
               defaultValue={state.range}
               onMouseUp={(e) =>
@@ -56,15 +67,28 @@ const ProductsFilters = () => {
 
           <section className="filter-section">
             <p className="filter-title">Category</p>
+
+            <li className="filter-list">
+              <label htmlFor="homedecor">
+                <input
+                  type="checkbox"
+                  id="homedecor"
+                  value="homedecor"
+                  onChange={(event) => dispatch(categoryClickHandler(event))}
+                  checked={state.categories.includes("homedecor")}
+                />
+                Home Decor
+              </label>
+            </li>
+
             <li className="filter-list">
               <label htmlFor="men">
                 <input
-                  checked={state.category.men}
                   type="checkbox"
-                  onChange={() =>
-                    dispatch({ type: "CATEGORY", payload: "men" })
-                  }
                   id="men"
+                  value="men"
+                  onChange={(event) => dispatch(categoryClickHandler(event))}
+                  checked={state.categories.includes("men")}
                 />
                 Men
               </label>
@@ -72,26 +96,37 @@ const ProductsFilters = () => {
             <li className="filter-list">
               <label htmlFor="women">
                 <input
-                  checked={state.category.women}
                   type="checkbox"
-                  onChange={() =>
-                    dispatch({ type: "CATEGORY", payload: "women" })
-                  }
                   id="women"
+                  value="women"
+                  onChange={(event) => dispatch(categoryClickHandler(event))}
+                  checked={state.categories.includes("women")}
                 />
                 Women
               </label>
             </li>
             <li className="filter-list">
-              <label htmlFor="">
+              <label htmlFor="footwear">
                 <input
-                  checked={state.category.kids}
                   type="checkbox"
-                  onChange={() =>
-                    dispatch({ type: "CATEGORY", payload: "kids" })
-                  }
+                  value="footwear"
+                  id="footwear"
+                  onChange={(event) => dispatch(categoryClickHandler(event))}
+                  checked={state.categories.includes("footwear")}
                 />
-                Kids
+                Footwear
+              </label>
+            </li>
+            <li className="filter-list">
+              <label htmlFor="jewellery">
+                <input
+                  type="checkbox"
+                  id="jewellery"
+                  value="jewellery"
+                  onChange={(event) => dispatch(categoryClickHandler(event))}
+                  checked={state.categories.includes("jewellery")}
+                />
+                Jewellery
               </label>
             </li>
           </section>
@@ -124,18 +159,20 @@ const ProductsFilters = () => {
           <hr />
           <section className="filter-section">
             <p className="filter-title">Brands</p>
+
             <li className="filter-list">
-              <label htmlFor="roadster">
+              <label htmlFor="regular">
                 <input
                   type="checkbox"
-                  id="roadster"
-                  value="Roadster"
+                  id="regular"
+                  value="Regular"
                   onChange={(event) => dispatch(brandClickHandler(event))}
-                  checked={state.brands.includes("Roadster")}
+                  checked={state.brands.includes("Regular")}
                 />
-                Roadster
+                Regular
               </label>
             </li>
+
             <li className="filter-list">
               <label htmlFor="levis">
                 <input

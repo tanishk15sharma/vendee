@@ -2,14 +2,10 @@ const initialState = {
   includeOutOfStock: true,
   fastDelivery: false,
   sortBy: null,
-  category: {
-    men: true,
-    women: true,
-    kids: true,
-  },
   brands: [],
+  categories: [],
   rating: null,
-  range: 6000,
+  range: 8000,
   search: "",
 };
 
@@ -32,6 +28,15 @@ const filtersReducer = (state, action) => {
       return { ...state, rating: action.payload };
     case "RANGE":
       return { ...state, range: action.payload };
+    case "ADD_CATEGORY":
+      return { ...state, categories: [...state.categories, action.payload] };
+    case "REMOVE_CATEGORY":
+      return {
+        ...state,
+        categories: state.categories.filter(
+          (category) => category !== action.payload
+        ),
+      };
     case "CATEGORY":
       return {
         ...state,
@@ -47,11 +52,7 @@ const filtersReducer = (state, action) => {
         includeOutOfStock: true,
         fastDelivery: false,
         sortBy: null,
-        category: {
-          men: true,
-          women: true,
-          kids: true,
-        },
+        categories: [],
         brands: [],
         rating: null,
         range: 6000,

@@ -7,47 +7,66 @@ import trendingStyles from "../../assets/recommendedproduct-images/-Trending-Sty
 import heels from "../../assets/recommendedproduct-images/-Heels.webp";
 import nike from "../../assets/recommendedproduct-images/1.webp";
 import { Link } from "react-router-dom";
+import { useProductsFilters } from "../../contexts/filter-context";
 
 const RecommendProducts = () => {
+  const { dispatch } = useProductsFilters();
   return (
     <div>
       <section className="deal-section">
         <span className="deal-title">DEALS Of The Day</span>
-        <Link to="/products">
-          <div className="deal-container">
+        <div className="deal-container">
+          <Link
+            to="/products"
+            className="recommendation-img"
+            onClick={() =>
+              dispatch({ type: "ADD_CATEGORY", payload: "footwear" })
+            }
+          >
             <img
               src={sportsShoes}
               alt="deal-shoes"
-              className="recommendation-img"
+              onClick={() => console.log("ji")}
             />
-
-            <img
-              src={homeDecor}
-              alt="deal-decor"
-              className="recommendation-img"
-            />
-
-            <img
-              src={jewellery}
-              alt="deal-jewellery"
-              className="recommendation-img"
-            />
-
-            <img
-              src={trendingStyles}
-              alt="deal-treading"
-              className="recommendation-img"
-            />
-
-            <img src={heels} alt="deal-heels" className="recommendation-img" />
-
-            <img
-              src={nike}
-              alt="nike-deals"
-              className="recommendation-img display-hide"
-            />
-          </div>
-        </Link>
+          </Link>
+          <Link
+            to="/products"
+            className="recommendation-img"
+            onClick={() =>
+              dispatch({ type: "ADD_CATEGORY", payload: "homedecor" })
+            }
+          >
+            <img src={homeDecor} alt="deal-decor" />
+          </Link>
+          <Link
+            to="/products"
+            className="recommendation-img"
+            onClick={() =>
+              dispatch({ type: "ADD_CATEGORY", payload: "jewellery" })
+            }
+          >
+            <img src={jewellery} alt="deal-jewellery" />
+          </Link>
+          <Link
+            to="/products"
+            className="recommendation-img"
+            onClick={() => dispatch({ type: "ADD_CATEGORY", payload: "women" })}
+          >
+            <img src={trendingStyles} alt="deal-treading" />
+          </Link>
+          <Link
+            to="/products"
+            className="recommendation-img"
+            onClick={() =>
+              dispatch({ type: "ADD_CATEGORY", payload: "footwear" })
+            }
+          >
+            <img src={heels} alt="deal-heels" />
+          </Link>
+          <Link to="/products" className="recommendation-img display-hide">
+            <img src={nike} alt="nike-deals" />
+          </Link>
+        </div>
       </section>
       <section className="banner-section">
         <div className="banner-detail">

@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    categories: "men",
+    category: "men",
     image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "HRX",
     name: "Yellow Printed Round Neck",
@@ -21,7 +21,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "men",
+    category: "men",
     image:
       "/Products-images/-Men-Green-Slim-Fit-Solid-Casual-Shirt-358156645-1.webp",
     brand: "Levis",
@@ -35,7 +35,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "men",
+    category: "men",
     image: "/Products-images/Leather-Jacket1.webp",
     brand: "H&M",
     name: "Brown Leather Jacket",
@@ -48,7 +48,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "men",
+    category: "men",
     image: "/Products-images/Nautica-Men-Tshirts-1.webp",
     brand: "Nautica",
     name: "Red Plain Kolor Neck",
@@ -61,7 +61,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "women",
+    category: "women",
     image: "/Products-images/-Women-Kurta-Sets2-1.webp",
     brand: "Nautica",
     name: "Yellow Printed Long Suit",
@@ -74,7 +74,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "women",
+    category: "women",
     image: "/Products-images/women-kurti-nautrica.webp",
     brand: "Nautica",
     name: "Yellow Silk Design Kurta",
@@ -87,7 +87,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "women",
+    category: "women",
     image: "/Products-images/womne-top-hrx.webp",
     brand: "H&M",
     name: "Black Cotton Shrug",
@@ -101,7 +101,7 @@ export const products = [
 
   {
     _id: uuid(),
-    categories: "footwear",
+    category: "footwear",
     image: "/Products-images/HRX-Running-Shoe.webp",
     brand: "HRX",
     name: "Running Shoes",
@@ -114,7 +114,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "footwear",
+    category: "footwear",
     image: "/Products-images/HRX-White-Shoes.webp",
     brand: "HRX",
     name: "White Sneekers",
@@ -127,7 +127,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "footwear",
+    category: "footwear",
     image: "/Products-images/Nike-Shoes.webp",
     brand: "Nike",
     name: "Sports shoes",
@@ -140,7 +140,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "footwear",
+    category: "footwear",
     image: "/Products-images/NikeMen-Black-Running-Shoes.webp",
     brand: "Nike",
     name: "Running shoes",
@@ -153,7 +153,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "homedecor",
+    category: "homedecor",
     image: "/Products-images/Golden-statue.webp",
     brand: "Regular",
     name: "Golden Ganesh Light",
@@ -166,7 +166,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "homedecor",
+    category: "homedecor",
     image: "/Products-images/HomeCentreMultiTableLampsGlass1.webp",
     brand: "Regular",
     name: "Light Lamp",
@@ -179,7 +179,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "jewellery",
+    category: "jewellery",
     image: "/Products-images/bangle1.webp",
     brand: "Regular",
     name: "gold Bangle",
@@ -192,7 +192,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "footwear",
+    category: "footwear",
     image: "/Products-images/Women-White-Flats.webp",
     brand: "Nautica",
     name: "White Flats",
@@ -205,7 +205,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "footwear",
+    category: "footwear",
     image: "/Products-images/WomenPinkFlats.webp",
     brand: "Nautica",
     name: "Pink Flats",
@@ -218,7 +218,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "refootwear",
+    category: "refootwear",
     image: "/Products-images/WomenPinkFlats.webp",
     brand: "Nautica",
     name: "Pink Flats",
@@ -231,7 +231,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    categories: "jewellery",
+    category: "jewellery",
     image: "/Products-images/JewellerySet1.webp",
     brand: "Regular",
     name: "Jewellery Set",

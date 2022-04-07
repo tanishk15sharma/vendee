@@ -4,11 +4,24 @@
   gap: 1rem;
 }
 .user-modal {
-  position: absolute;
+  position: fixed;
   background-color: var(--primary-color);
+
   padding: 1rem;
-  left: -1.2rem;
-  bottom: -11rem;
-  border-radius: 5px;
+  right: 9%;
+  top: 10%;
+  width: 10%;
+
   /* border: 2px solid red; */
+}
+.logout-btn {
+  border: none;
+  width: 100%;
+  padding: 0.5rem;
+  border-bottom: 3px solid var(--action-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.logout-btn:hover {
+  border-bottom: 3px solid var(--secondary-color);
 }

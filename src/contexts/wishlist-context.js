@@ -10,7 +10,7 @@ const WishlistContextProvider = ({ children }) => {
   const { authState } = useAuth();
 
   useEffect(() => {
-    if (!authState.isAuth) return;
+    if (!getToken()) return;
     (async () => {
       try {
         const { data } = await axios.get("/api/user/wishlist", {
@@ -21,7 +21,7 @@ const WishlistContextProvider = ({ children }) => {
         console.log(err);
       }
     })();
-  }, []);
+  }, [authState]);
 
   return (
     <wishlistContext.Provider value={{ wishList, setWishList }}>

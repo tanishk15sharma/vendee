@@ -11,6 +11,7 @@ const WishlistItems = () => {
   if (wishList.length === 0) {
     return <h1>No items in Wishlist.</h1>;
   }
+  console.log(wishList);
   return (
     <>
       {wishList.map((product) => (

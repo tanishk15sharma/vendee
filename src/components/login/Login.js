@@ -7,6 +7,8 @@ import { validLogin } from "../../utilities/auth";
 const UserLogin = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
+  // tanishk  -email
+  // 123 - passwrod
   const { authState, authDispatch } = useAuth();
   const [loginErrors, setLoginErrors] = useState({
     email: "",
@@ -25,6 +27,7 @@ const UserLogin = () => {
       authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.foundUser });
       console.log(data);
       localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.foundUser));
       navigate(-1);
     } catch (err) {
       console.log(err.response.data);
@@ -34,7 +37,7 @@ const UserLogin = () => {
       }));
     }
   };
-  console.log(authState);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const { isValid, errors } = validLogin(loginData, loginErrors);

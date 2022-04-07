@@ -12,6 +12,8 @@ const authReducer = (state, action) => {
 
     case "USER_LOAD_FALIUR":
       return { ...state, isAuthanticaded: false, loading: false };
+    case "USER_LOGOUT":
+      return { isAuth: false, loading: false, user: null };
   }
 };
 

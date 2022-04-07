@@ -5,14 +5,23 @@ import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./nav.css";
-import { useCart, useProductsFilters, useWishlist } from "../../contexts";
+import {
+  useCart,
+  useProductsFilters,
+  useWishlist,
+  useAuth,
+} from "../../contexts";
 import { getToken } from "../../utilities/wishlist-utils";
+import { UserProfile } from "../userprofile/UserProfile";
+
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const { wishList } = useWishlist();
   const { cart } = useCart();
   const { dispatch } = useProductsFilters();
+  const { authState } = useAuth();
+  console.log(authState);
 
   return (
     <nav>
@@ -61,18 +70,25 @@ const Nav = () => {
             }
           />
         </div>
-        <Link to="/login">
-          <div className="nav-icon-div">
-            <img src={loginIcon} alt="user-icon" />
-            <span>Log in</span>
-          </div>
-        </Link>
+        {!getToken() ? (
+          <Link to="/login">
+            <div className="nav-icon-div">
+              <img src={loginIcon} alt="user-icon" />
+              <span>Log in</span>
+            </div>
+          </Link>
+        ) : (
+          <UserProfile userDetails={authState.user} />
+        )}
 
         <Link to={getToken() ? "/wishlist" : "/login"}>
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
             <span className="relative">
-              Wishlist <span className="icon-counter">{wishList.length}</span>
+              Wishlist
+              {wishList.length !== 0 && (
+                <span className="icon-counter">{wishList.length}</span>
+              )}
             </span>
           </div>
         </Link>
@@ -81,7 +97,10 @@ const Nav = () => {
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
             <span className="relative">
-              Cart <span className="icon-counter lt">{cart.length}</span>
+              Cart
+              {cart.length !== 0 && (
+                <span className="icon-counter lt">{cart.length}</span>
+              )}
             </span>
           </div>
         </Link>

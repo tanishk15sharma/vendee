@@ -4,5 +4,5 @@ This folder contains the Mock Backend created for E-Commerce App. It contains di
 
 
 ##FOR GUEST LOGIN :
-```email: adarshbalak@gmail.com
-password: adarshBalaki123```
+email: adarshbalak@gmail.com
+password: adarshBalaki123

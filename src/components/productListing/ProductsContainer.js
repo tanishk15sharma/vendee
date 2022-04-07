@@ -22,6 +22,7 @@ const ProductsContainer = () => {
       try {
         let response = await axios.get("/api/products");
         setProducts(response.data.products);
+        console.log(response);
         setLoad(false);
       } catch (err) {
         console.log(err);

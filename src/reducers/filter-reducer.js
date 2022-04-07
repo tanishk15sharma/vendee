@@ -5,7 +5,9 @@ const initialState = {
   category: {
     men: true,
     women: true,
-    kids: true,
+    footwear: true,
+    homedecor: true,
+    jewellery: true,
   },
   brands: [],
   rating: null,
@@ -50,7 +52,9 @@ const filtersReducer = (state, action) => {
         category: {
           men: true,
           women: true,
-          kids: true,
+          footwear: true,
+          homedecor: true,
+          jewellery: true,
         },
         brands: [],
         rating: null,

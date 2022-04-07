@@ -56,6 +56,21 @@ const ProductsFilters = () => {
 
           <section className="filter-section">
             <p className="filter-title">Category</p>
+
+            <li className="filter-list">
+              <label htmlFor="men">
+                <input
+                  checked={state.category.homedecor}
+                  type="checkbox"
+                  onChange={() =>
+                    dispatch({ type: "CATEGORY", payload: "homedecor" })
+                  }
+                  id="men"
+                />
+                Home Decor
+              </label>
+            </li>
+
             <li className="filter-list">
               <label htmlFor="men">
                 <input
@@ -85,13 +100,25 @@ const ProductsFilters = () => {
             <li className="filter-list">
               <label htmlFor="">
                 <input
-                  checked={state.category.kids}
+                  checked={state.category.footwear}
                   type="checkbox"
                   onChange={() =>
-                    dispatch({ type: "CATEGORY", payload: "kids" })
+                    dispatch({ type: "CATEGORY", payload: "footwear" })
                   }
                 />
-                Kids
+                Footwear
+              </label>
+            </li>
+            <li className="filter-list">
+              <label htmlFor="">
+                <input
+                  checked={state.category.jewellery}
+                  type="checkbox"
+                  onChange={() =>
+                    dispatch({ type: "CATEGORY", payload: "jewellery" })
+                  }
+                />
+                Jewellery
               </label>
             </li>
           </section>
@@ -124,18 +151,20 @@ const ProductsFilters = () => {
           <hr />
           <section className="filter-section">
             <p className="filter-title">Brands</p>
+
             <li className="filter-list">
-              <label htmlFor="roadster">
+              <label htmlFor="regular">
                 <input
                   type="checkbox"
-                  id="roadster"
-                  value="Roadster"
+                  id="regular"
+                  value="Regular"
                   onChange={(event) => dispatch(brandClickHandler(event))}
-                  checked={state.brands.includes("Roadster")}
+                  checked={state.brands.includes("Regular")}
                 />
-                Roadster
+                Regular
               </label>
             </li>
+
             <li className="filter-list">
               <label htmlFor="levis">
                 <input

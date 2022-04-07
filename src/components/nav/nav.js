@@ -20,7 +20,7 @@ const Nav = () => {
   const { wishList } = useWishlist();
   const { cart } = useCart();
   const { dispatch } = useProductsFilters();
-  const { authState, authDispatch } = useAuth();
+  const { authState } = useAuth();
   console.log(authState);
 
   return (
@@ -70,7 +70,7 @@ const Nav = () => {
             }
           />
         </div>
-        {authState.user === null ? (
+        {!getToken() ? (
           <Link to="/login">
             <div className="nav-icon-div">
               <img src={loginIcon} alt="user-icon" />
@@ -85,7 +85,10 @@ const Nav = () => {
           <div className="nav-icon-div">
             <img src={likeIcon} alt="wishlist-icon" />
             <span className="relative">
-              Wishlist <span className="icon-counter">{wishList.length}</span>
+              Wishlist
+              {wishList.length !== 0 && (
+                <span className="icon-counter">{wishList.length}</span>
+              )}
             </span>
           </div>
         </Link>
@@ -94,7 +97,10 @@ const Nav = () => {
           <div className="nav-icon-div">
             <img src={cartIcon} alt="cart-icon" />
             <span className="relative">
-              Cart <span className="icon-counter lt">{cart.length}</span>
+              Cart
+              {cart.length !== 0 && (
+                <span className="icon-counter lt">{cart.length}</span>
+              )}
             </span>
           </div>
         </Link>

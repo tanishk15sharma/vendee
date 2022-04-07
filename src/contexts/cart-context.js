@@ -16,9 +16,10 @@ const CartContextProvider = ({ children }) => {
           authorization: getToken(),
         },
       });
+      console.log(data);
       setCart(data.cart);
     })();
-  }, []);
+  }, [authState]);
 
   return (
     <cartContext.Provider value={{ cart, setCart }}>

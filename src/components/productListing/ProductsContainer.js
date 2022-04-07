@@ -52,7 +52,7 @@ const ProductsContainer = () => {
     range,
     search
   );
-  console.log("render");
+
   return (
     <div className="product-wrapper">
       {load ? (

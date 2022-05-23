@@ -5,6 +5,7 @@ import { validSignUp } from "../../utilities/auth";
 
 const SignUp = () => {
   const { authState, authDispatch } = useAuth();
+  const [passwordType, setPasswordType] = useState(true);
 
   const [signUpData, setSignUpData] = useState({
     firstName: "",
@@ -122,29 +123,40 @@ const SignUp = () => {
             {signUpErrors.email}
           </span>
         )}
-        <input
-          type="text"
-          placeholder="Password"
-          name="password"
-          value={signUpData.password}
-          onChange={inputHandler}
-          className="auth-input"
-        />
+        <div className="auth-input-div">
+          <input
+            type={passwordType ? "password" : "text"}
+            placeholder="Password"
+            name="password"
+            value={signUpData.password}
+            onChange={inputHandler}
+            className="input-reset"
+          />
+          <i
+            class="fa-solid fa-eye"
+            onClick={() => setPasswordType(!passwordType)}
+          ></i>
+        </div>
         {signUpErrors.password && (
           <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>
             {signUpErrors.password}
           </span>
         )}
-        <input
-          type="text"
-          placeholder="Confirm Password"
-          name="confirmPassword"
-          value={signUpData.confirmPassword}
-          onChange={inputHandler}
-          className="auth-input"
-        />
-
+        <div className="auth-input-div">
+          <input
+            type="text"
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            value={signUpData.confirmPassword}
+            onChange={inputHandler}
+            className="input-reset"
+          />
+          <i
+            class="fa-solid fa-eye"
+            onClick={() => setPasswordType(!passwordType)}
+          ></i>
+        </div>
         {signUpErrors.confirmPassword && (
           <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>

@@ -115,7 +115,7 @@ export const products = [
   {
     _id: uuid(),
     category: "footwear",
-    image: "/Products-images/HRX-White-Shoes.webp",
+    image: "/Products-images/HRX-White-Shoes-sneekers.webp",
     brand: "HRX",
     name: "White Sneekers",
     discountPrice: 2999,

@@ -2,6 +2,7 @@ import React from "react";
 import { useCart, useWishlist } from "../../contexts";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../utilities/cart-utils";
+
 import {
   addToWishlist,
   getToken,
@@ -14,7 +15,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-card" key={product.id}>
       <div className="product-img-div">
-        <img src={product.image} alt="tshirt" />
+        <img src={product.image} alt={`${product.name} image`} />
         <span className="product-rating">
           {product.ratings} <i className="fa-solid fa-star"></i>
         </span>

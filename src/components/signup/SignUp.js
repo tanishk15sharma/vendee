@@ -1,5 +1,4 @@
-import "./SignUp.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth-context";
 import { validSignUp } from "../../utilities/auth";
@@ -61,15 +60,19 @@ const SignUp = () => {
   };
 
   return (
-    <main className="center">
-      <form className="login-container" onSubmit={postSignUpDetails}>
-        <h1 className="login-title">Sign up</h1>
+    <main className="bg">
+      <form className="auth-container center" onSubmit={postSignUpDetails}>
+        <h1>
+          Sign
+          <span className="action-color">up</span>
+        </h1>
         <input
           type="text"
           placeholder="First Name"
           name="firstName"
           value={signUpData.firstName}
           onChange={inputHandler}
+          className="auth-input"
         />
         {signUpErrors.firstName && (
           <span className="err-msg">
@@ -83,6 +86,7 @@ const SignUp = () => {
           name="lastName"
           value={signUpData.lastName}
           onChange={inputHandler}
+          className="auth-input"
         />
         {signUpErrors.lastName && (
           <span className="err-msg">
@@ -96,6 +100,7 @@ const SignUp = () => {
           name="mobile"
           value={signUpData.mobile}
           onChange={inputHandler}
+          className="auth-input"
         />
         {signUpErrors.mobile && (
           <span className="err-msg">
@@ -109,6 +114,7 @@ const SignUp = () => {
           name="email"
           value={signUpData.email}
           onChange={inputHandler}
+          className="auth-input"
         />
         {signUpErrors.email && (
           <span className="err-msg">
@@ -122,6 +128,7 @@ const SignUp = () => {
           name="password"
           value={signUpData.password}
           onChange={inputHandler}
+          className="auth-input"
         />
         {signUpErrors.password && (
           <span className="err-msg">
@@ -135,6 +142,7 @@ const SignUp = () => {
           name="confirmPassword"
           value={signUpData.confirmPassword}
           onChange={inputHandler}
+          className="auth-input"
         />
 
         {signUpErrors.confirmPassword && (
@@ -163,7 +171,7 @@ const SignUp = () => {
           )}
         </div>
         <button className="login-btn" type="submit">
-          {authState.loading && "loading"} Creat New Account
+          {authState.loading && "loading"} Create New Account
         </button>
       </form>
     </main>

@@ -7,8 +7,7 @@ import { validLogin } from "../../utilities/auth";
 const UserLogin = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  // tanishk  -email
-  // 123 - passwrod
+  const [passwordType, setPasswordType] = useState(true);
   const { authState, authDispatch } = useAuth();
   const [loginErrors, setLoginErrors] = useState({
     email: "",
@@ -50,16 +49,18 @@ const UserLogin = () => {
 
   return (
     <form className="bg" onSubmit={handleSubmit}>
-      <div className="login-container center">
-        <h1 className="login-title">Login</h1>
-
+      <div className="auth-container center">
+        <h1>
+          Log
+          <span className="action-color">in</span>
+        </h1>
         <input
           type="text"
           placeholder="Email"
           name="email"
           value={loginData.email}
           onChange={inputHandler}
-          className="login-input"
+          className="auth-input"
         />
 
         {loginErrors.email && (
@@ -68,15 +69,21 @@ const UserLogin = () => {
             {loginErrors.email}
           </span>
         )}
-
-        <input
-          type="text"
-          placeholder="Password"
-          name="password"
-          value={loginData.password}
-          onChange={inputHandler}
-          className="login-input"
-        />
+        <div className="auth-input-div">
+          <input
+            type={passwordType ? "password" : "text"}
+            id="password"
+            placeholder="Password"
+            name="password"
+            value={loginData.password}
+            onChange={inputHandler}
+            className="input-reset"
+          />
+          <i
+            class="fa-solid fa-eye"
+            onClick={() => setPasswordType(!passwordType)}
+          ></i>
+        </div>
 
         {loginErrors.password && (
           <span className="err-msg">
@@ -84,15 +91,6 @@ const UserLogin = () => {
             {loginErrors.password}
           </span>
         )}
-
-        <div className="login-options">
-          <div>
-            <input type="checkbox" />
-
-            <label htmlFor="remember-me">Remember me</label>
-          </div>
-          <a href="#">Forget Password</a>
-        </div>
         {loginErrors.others && (
           <span className="err-msg">
             <i className="fa-solid fa-circle-exclamation"></i>
@@ -102,9 +100,11 @@ const UserLogin = () => {
         <button className="login-btn">
           {authState.loading && "loading"} Login
         </button>
+        <button className="test-btn">
+          {authState.loading && "loading"} Test Login
+        </button>
         <Link to="/signup">
-          Create New Account
-          <i className="fa-solid fa-greater-than"></i>
+          Don't have an account ?<span className="action-color"> Signup</span>
         </Link>
       </div>
     </form>

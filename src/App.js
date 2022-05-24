@@ -6,6 +6,7 @@ import {
   WishlistPage,
   ProductsPage,
   PageNotFound,
+  SingleProduct,
 } from "./pages";
 import { UserLogin } from "./components/login/Login.js";
 import { SignUp } from "./components/signup/SignUp.js";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/product/:productId" element={<SingleProduct />} />
         <Route path="/mockapi" element={<Mockman />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>

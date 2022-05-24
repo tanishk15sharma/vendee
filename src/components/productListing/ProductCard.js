@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart, useWishlist } from "../../contexts";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../utilities/cart-utils";
 
 import {
@@ -12,10 +12,13 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
+
   return (
     <div className="product-card" key={product.id}>
       <div className="product-img-div">
-        <img src={product.image} alt={`${product.name} image`} />
+        <Link to={`/product/${product._id}`}>
+          <img src={product.image} alt={`${product.name} image`} />
+        </Link>
         <span className="product-rating">
           {product.ratings} <i className="fa-solid fa-star"></i>
         </span>

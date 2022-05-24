@@ -2,13 +2,19 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Nav } from "../../components/nav/nav";
 import "./SingleProduct.css";
-import { useCart, useProducts } from "../../contexts";
-import { getToken } from "../../utilities/wishlist-utils";
+import { useCart, useProducts, useWishlist } from "../../contexts";
+import {
+  addToWishlist,
+  getToken,
+  removeFromWishlist,
+} from "../../utilities/wishlist-utils";
 import { addToCart } from "../../utilities/cart-utils";
 const SingleProduct = () => {
   const { productId } = useParams();
   const { products } = useProducts();
   const { cart, setCart } = useCart();
+  const { wishList, setWishList } = useWishlist();
+
   const navigate = useNavigate();
 
   const currentProduct = products.find(({ _id }) => _id === productId);
@@ -76,9 +82,29 @@ const SingleProduct = () => {
             </button>
           )}
 
-          <button className="product-card-btn secondary-border">
-            ADD TO WISHLIST
-          </button>
+          {wishList.some((item) => item._id === currentProduct._id) &&
+          getToken() ? (
+            <button
+              className="product-card-btn secondary-border"
+              onClick={() =>
+                removeFromWishlist(currentProduct._id, setWishList)
+              }
+            >
+              REMOVE FROM WISHLIST
+            </button>
+          ) : (
+            <button
+              className="product-card-btn secondary-border"
+              onClick={() => {
+                getToken()
+                  ? addToWishlist(currentProduct, setWishList, wishList)
+                  : navigate("/login");
+              }}
+            >
+              ADD TO WISHLIST
+            </button>
+          )}
+
           <p className="product-desc">
             <span className="sub-txt">Descrpition:</span> Lorem ipsum dolor sit
             amet, consectetur adipisicing elit. Nesciunt fuga, autem harum animi

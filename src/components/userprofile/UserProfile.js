@@ -7,17 +7,15 @@ import { useAuth, useCart, useWishlist } from "../../contexts";
 import "./UserProfile.css";
 const UserProfile = ({ userDetails }) => {
   const [toggleUserProfile, setToggleUserProfile] = useState(false);
-  const { cart, setCart } = useCart();
+  const { setCart } = useCart();
   const { setWishlist } = useWishlist();
-  console.log(cart);
-  const { authDispatch } = useAuth();
 
   const logOutHandler = () => {
-    localStorage.removeItem("token");
-    authDispatch({ type: "USER_LOGOUT" });
+    localStorage.clear();
     setCart([]);
     setWishlist([]);
   };
+  // console.log(wishList);
   return (
     <div>
       <div
@@ -25,7 +23,7 @@ const UserProfile = ({ userDetails }) => {
         onClick={() => setToggleUserProfile((val) => !val)}
       >
         <img src={loginIcon} alt="user-icon" />
-        <span>hi {userDetails?.firstName} </span>
+        <span>Hey, {userDetails?.firstName} </span>
       </div>
       <div
         className="flex-cl user-modal"

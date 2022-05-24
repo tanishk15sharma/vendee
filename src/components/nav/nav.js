@@ -21,7 +21,6 @@ const Nav = () => {
   const { cart } = useCart();
   const { dispatch } = useProductsFilters();
   const { authState } = useAuth();
-  console.log(authState);
 
   return (
     <nav>

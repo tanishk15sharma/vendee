@@ -56,7 +56,10 @@ const CartItems = () => {
 
             <button
               className="btn"
-              onClick={() => addToWishlist(product, setWishList, wishList)}
+              onClick={() => {
+                addToWishlist(product, setWishList, wishList);
+                removeFromCart(product._id, setCart);
+              }}
             >
               Move to wishlist
             </button>

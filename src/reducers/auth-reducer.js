@@ -10,7 +10,7 @@ const authReducer = (state, action) => {
         user: action.payload,
       };
 
-    case "USER_LOAD_FALIUR":
+    case "USER_LOAD_FAILURE":
       return { ...state, isAuthanticaded: false, loading: false };
     case "USER_LOGOUT":
       return { isAuth: false, loading: false, user: null };

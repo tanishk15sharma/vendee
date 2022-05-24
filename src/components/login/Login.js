@@ -34,6 +34,7 @@ const UserLogin = () => {
         ...loginErr,
         others: err.response.data.errors[0],
       }));
+      authDispatch({ type: "USER_LOAD_FAILURE" });
     }
   };
 
@@ -45,6 +46,15 @@ const UserLogin = () => {
       return;
     }
     postLoginDetails(loginData.email, loginData.password);
+  };
+
+  const testLoginHandler = (e) => {
+    e.preventDefault();
+
+    setLoginData({
+      email: "adarshbalak@gmail.com",
+      password: "adarshBalaki123",
+    });
   };
 
   return (
@@ -100,7 +110,7 @@ const UserLogin = () => {
         <button className="login-btn">
           {authState.loading && "loading"} Login
         </button>
-        <button className="test-btn">
+        <button className="test-btn" onClick={testLoginHandler}>
           {authState.loading && "loading"} Test Login
         </button>
         <Link to="/signup">

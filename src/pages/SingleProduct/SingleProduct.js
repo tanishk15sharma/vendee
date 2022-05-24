@@ -20,10 +20,8 @@ const SingleProduct = () => {
             <p className="font-xxl">{currentProduct.name}</p>
             <h2 lassName="product-brand">
               {currentProduct.brand}
-              <span className="font-xl">
-                {currentProduct.ratings}
-
-                <i class="fa-solid fa-star"></i>
+              <span className="rating">
+                {currentProduct.ratings} <i class="fa-solid fa-star"></i>
               </span>
             </h2>
           </div>
@@ -35,6 +33,14 @@ const SingleProduct = () => {
               ({currentProduct.discount}% OFF)
             </span>
           </p>
+          <h3>Size:</h3>
+          <span>In Stock</span>
+          <span>Fast Delivery</span>
+
+          <div>
+            <button>ADD TO CART</button>
+            <button>ADD TO WISHLIST</button>
+          </div>
         </div>
       </section>
     </div>

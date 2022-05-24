@@ -29,7 +29,9 @@
   color: var(--secondary-color);
   margin-right: 5px;
 }
-.font-xl {
+.rating {
+  border-left: 1px solid gray;
+  padding-left: 5px;
   font-size: 1rem;
   margin-left: 5px;
 }

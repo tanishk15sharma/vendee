@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart, useWishlist } from "../../contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../utilities/cart-utils";
@@ -13,6 +13,7 @@ const ProductCard = ({ product }) => {
   const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
 
+  console.log(product);
   return (
     <div className="product-card" key={product.id}>
       <div className="product-img-div">
@@ -54,11 +55,11 @@ const ProductCard = ({ product }) => {
         <div className="product-size-div">
           <div className="product-size-title">Add size</div>
           <div className="product-size">
-            <span>XS</span>
-            <span>S</span>
-            <span>M</span>
-            <span>L</span>
-            <span>XL</span>
+            <span onClick={() => setSize("XS")}>XS</span>
+            <span onClick={() => setSize("S")}>S</span>
+            <span onClick={() => setSize("M")}>M</span>
+            <span onClick={() => setSize("L")}>L</span>
+            <span onClick={() => setSize("XL")}>XL</span>
           </div>
         </div>
       </div>

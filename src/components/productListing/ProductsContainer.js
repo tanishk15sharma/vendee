@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "./ProductsContainer.css";
 import {
   getSortedProducts,
   getFilteredProducts,
 } from "../../utilities/filters-utils";
 import loaderGif from "../../assets/loaderg.gif";
-import { useProductsFilters } from "../../contexts";
+import { useProducts, useProductsFilters } from "../../contexts";
 import { ProductCard } from "./ProductCard";
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState([]);
-  const [load, setLoad] = useState(true);
   const { state } = useProductsFilters();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        let response = await axios.get("/api/products");
-        setProducts(response.data.products);
-
-        setLoad(false);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, []);
-
+  const { products } = useProducts();
   const {
     sortBy,
     includeOutOfStock,
@@ -53,7 +37,7 @@ const ProductsContainer = () => {
 
   return (
     <div className="product-wrapper">
-      {load ? (
+      {!products ? (
         <div className="loading-img">
           <img src={loaderGif} alt="loading gif" />
         </div>

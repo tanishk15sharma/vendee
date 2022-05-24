@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Nav } from "../../components/nav/nav";
 import "./SingleProduct.css";
-import { useProducts } from "../../contexts";
+import { useCart, useProducts } from "../../contexts";
+import { getToken } from "../../utilities/wishlist-utils";
+import { addToCart } from "../../utilities/cart-utils";
 const SingleProduct = () => {
   const { productId } = useParams();
   const { products } = useProducts();
+  const { cart, setCart } = useCart();
+  const navigate = useNavigate();
 
   const currentProduct = products.find(({ _id }) => _id === productId);
 
-  console.log(currentProduct);
   return (
     <div>
       <Nav />
@@ -23,7 +26,7 @@ const SingleProduct = () => {
             <h2>
               {currentProduct.brand}
               <span className="rating">
-                {currentProduct.ratings} <i class="fa-solid fa-star"></i>
+                {currentProduct.ratings} <i className="fa-solid fa-star"></i>
               </span>
             </h2>
           </div>
@@ -51,9 +54,28 @@ const SingleProduct = () => {
             </h3>
           </div>
 
-          <button className="product-card-btn primary-btn-color">
-            ADD TO CART
-          </button>
+          {cart.some((item) => item._id === currentProduct._id) ? (
+            <button
+              className="product-card-btn primary-btn-color"
+              onClick={() =>
+                getToken() ? navigate("/cart") : navigate("/login")
+              }
+            >
+              GO TO CART
+            </button>
+          ) : (
+            <button
+              className="product-card-btn primary-btn-color"
+              onClick={() => {
+                getToken()
+                  ? addToCart(currentProduct, setCart, cart)
+                  : navigate("/login");
+              }}
+            >
+              ADD TO CART
+            </button>
+          )}
+
           <button className="product-card-btn secondary-border">
             ADD TO WISHLIST
           </button>

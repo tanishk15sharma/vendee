@@ -38,3 +38,21 @@
   font-size: 1rem;
   font-weight: 500;
 }
+.hidden {
+  display: none;
+}
+.size-name {
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.size-name:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.product-size {
+  display: flex;
+  margin-top: 4px;
+  justify-content: space-around;
+  width: 80%;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCart, useWishlist } from "../../contexts";
+import { useCart, useProducts, useWishlist } from "../../contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../utilities/cart-utils";
 
@@ -8,12 +8,46 @@ import {
   getToken,
   removeFromWishlist,
 } from "../../utilities/wishlist-utils";
+
+const sizeOptions = [
+  {
+    name: "size",
+    value: "XS",
+  },
+  {
+    name: "size",
+    value: "S",
+  },
+  {
+    name: "size",
+    value: "M",
+  },
+  {
+    name: "size",
+    value: "L",
+  },
+  {
+    name: "size",
+    value: "XL",
+  },
+];
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
+  const { products, setProducts } = useProducts();
 
-  console.log(product);
+  const sizeHandler = (e, id) => {
+    const newSize = e.target.value;
+
+    setProducts(
+      products.map((currProduct) =>
+        currProduct._id === id ? { ...currProduct, size: newSize } : currProduct
+      )
+    );
+  };
+
   return (
     <div className="product-card" key={product.id}>
       <div className="product-img-div">
@@ -54,52 +88,28 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="product-size-div">
           <div className="product-size-title">Add size</div>
-          <div className="product-size">
-            {/* <span onClick={() => setSize("XS")}>XS</span>
-            <span onClick={() => setSize("S")}>S</span>
-            <span onClick={() => setSize("M")}>M</span>
-            <span onClick={() => setSize("L")}>L</span>
-            <span onClick={() => setSize("XL")}>XL</span> */}
-            <label
-              className="size-name"
-              htmlFor="XS
-            "
-            >
-              XS
-              <input type="radio" id="XS" className="hidden" />
-            </label>
-            <label
-              className="size-name"
-              htmlFor="X
-            "
-            >
-              S
-              <input type="radio" id="S" className="hidden" />
-            </label>{" "}
-            <label
-              className="size-name"
-              htmlFor="M
-            "
-            >
-              M
-              <input type="radio" id="M" className="hidden" />
-            </label>{" "}
-            <label
-              className="size-name"
-              htmlFor="L
-            "
-            >
-              L
-              <input type="radio" id="L" className="hidden" />
-            </label>{" "}
-            <label
-              className="size-name"
-              htmlFor="XL
-            "
-            >
-              XL
-              <input type="radio" id="XL" className="hidden" />
-            </label>
+          <div
+            className="product-size"
+            onClick={(e) => sizeHandler(e, product._id)}
+          >
+            {sizeOptions.map((size) => (
+              <label
+                className={`size-name ${
+                  product.size === size.value ? "highlight" : ""
+                }`}
+                key={size.value}
+              >
+                {size.value}
+                <input
+                  type="radio"
+                  id={size.value}
+                  name={product._id}
+                  className="hidden"
+                  value={size.value}
+                  onClick={(e) => sizeHandler(e, product._id)}
+                />
+              </label>
+            ))}
           </div>
         </div>
       </div>

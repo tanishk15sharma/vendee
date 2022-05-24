@@ -40,7 +40,6 @@
 }
 .hidden {
   display: none;
-  /* visibility: hidden; */
 }
 .size-name {
   padding: 5px;

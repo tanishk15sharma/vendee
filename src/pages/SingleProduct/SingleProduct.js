@@ -14,11 +14,13 @@ const SingleProduct = () => {
     <div>
       <Nav />
       <section className="singlePage-section">
-        <img src={currentProduct.image} />
+        <div className="product-img">
+          <img src={currentProduct.image} />
+        </div>
         <div>
           <div className="product-title">
             <p className="font-xxl">{currentProduct.name}</p>
-            <h2 lassName="product-brand">
+            <h2>
               {currentProduct.brand}
               <span className="rating">
                 {currentProduct.ratings} <i class="fa-solid fa-star"></i>
@@ -33,14 +35,35 @@ const SingleProduct = () => {
               ({currentProduct.discount}% OFF)
             </span>
           </p>
-          <h3>Size:</h3>
-          <span>In Stock</span>
-          <span>Fast Delivery</span>
-
-          <div>
-            <button>ADD TO CART</button>
-            <button>ADD TO WISHLIST</button>
+          <div className="single-product-info">
+            <h3>
+              <span className="sub-txt">Size:</span> {currentProduct.size}
+            </h3>
+            <h3>
+              <span className="sub-txt">Avability:</span>
+              {currentProduct.inStock ? "In Stock" : "Out of Stock"}
+            </h3>
+            <h3>
+              <span className="sub-txt">Fast Delivery: </span>
+              {currentProduct.fastDelivery
+                ? "Fast Delivery"
+                : "Fast Delivery Unavailable"}{" "}
+            </h3>
           </div>
+
+          <button className="product-card-btn primary-btn-color">
+            ADD TO CART
+          </button>
+          <button className="product-card-btn secondary-border">
+            ADD TO WISHLIST
+          </button>
+          <p className="product-desc">
+            <span className="sub-txt">Descrpition:</span> Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Nesciunt fuga, autem harum animi
+            magni sunt reiciendis placeat ratione facere omnis alias! Dicta
+            culpa commodi totam illo. Perferendis recusandae expedita
+            necessitatibus!
+          </p>
         </div>
       </section>
     </div>

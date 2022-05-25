@@ -27,3 +27,16 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+.mr-2 {
+  margin-right: 1rem;
+}
+@media (max-width: 790px) {
+  .addAddress-container {
+    width: 60%;
+  }
+}
+@media (max-width: 470px) {
+  .addAddress-container {
+    width: 80%;
+  }
+}

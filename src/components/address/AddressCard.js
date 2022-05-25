@@ -24,7 +24,9 @@ const AddressCard = (props) => {
       <p>
         <span className="sub-txt">Phone Number :</span>
         {number}
+        <span className="small-txt">{option}</span>
       </p>
+
       <button
         className="edit-btn"
         onClick={() => {

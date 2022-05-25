@@ -97,22 +97,32 @@ const AddressForm = ({ toggleForm }) => {
               type="radio"
               id="home"
               name="option"
-              value="home"
+              value="Home"
               onChange={changeHandler}
             />
-            <label htmlFor="home" onChange={changeHandler}>
+            <label htmlFor="home" onChange={changeHandler} className="mr-2">
               HOME
             </label>
 
             <input
               type="radio"
-              id="work"
+              id="office"
               name="option"
-              value="work"
+              value="Office"
               onChange={changeHandler}
             />
-            <label htmlFor="work" onChange={changeHandler}>
-              WORK
+            <label htmlFor="work" onChange={changeHandler} className="mr-2">
+              OFFICE
+            </label>
+            <input
+              type="radio"
+              id="guest"
+              name="option"
+              value="Guest"
+              onChange={changeHandler}
+            />
+            <label htmlFor="guest" onChange={changeHandler} className="mr-2">
+              GUEST
             </label>
           </div>
           <button className="primary-btn-color btn-pd" type="submit">

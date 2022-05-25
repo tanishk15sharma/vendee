@@ -12,6 +12,9 @@ const AddressPage = () => {
     <div>
       <Nav />
       <section className="address-main">
+        <p className="title-name">
+          <span className="logo-v">My</span>Addresses
+        </p>
         <button
           className="edit-btn"
           onClick={() => setToggleAddressForm((preValue) => !preValue)}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useAddress } from "../../contexts";
 import "./AddressForm.css";
-const AddressForm = () => {
+const AddressForm = ({ toggleForm }) => {
+  const { addressDispatch } = useAddress();
   const [addressData, setAddressData] = useState({
     name: "",
     address: "",
@@ -14,10 +16,20 @@ const AddressForm = () => {
   const changeHandler = (e) => {
     setAddressData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
-
+  const submitAddress = (e) => {
+    e.preventDefault();
+    addressDispatch({ type: "ADD_ADDRESS", payload: { ...addressData } });
+  };
   return (
-    <main className="addressForm-main">
-      <form className="addAddress-container">
+    <main
+      className="addressForm-main"
+      onClick={() => toggleForm((preVal) => !preVal)}
+    >
+      <form
+        className="addAddress-container"
+        onClick={(e) => e.stopPropagation()}
+        onSubmit={submitAddress}
+      >
         <div className="addressForm">
           <input
             type="text"
@@ -90,7 +102,7 @@ const AddressForm = () => {
               WORK
             </label>
           </div>
-          <button className="primary-btn-color btn-pd">
+          <button className="primary-btn-color btn-pd" type="submit">
             SAVE
             <i className="fa-solid fa-check ml-icon"></i>
           </button>

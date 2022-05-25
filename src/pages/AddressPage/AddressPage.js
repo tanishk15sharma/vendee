@@ -19,7 +19,11 @@ const AddressPage = () => {
         <div>
           <AddressCard />
         </div>
-        {toggleAddressForm ? <AddressForm /> : ""}
+        {toggleAddressForm ? (
+          <AddressForm toggleForm={setToggleAddressForm} />
+        ) : (
+          ""
+        )}
       </section>
     </div>
   );

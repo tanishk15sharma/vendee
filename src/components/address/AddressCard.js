@@ -1,7 +1,8 @@
 import React from "react";
+import { useAddress } from "../../contexts";
 import "./AddressCard.css";
 const AddressCard = (props) => {
-  // console.log(address);
+  const { addressDispatch } = useAddress();
   const { id, name, address, city, state, number, pincode, option } =
     props.address;
   return (
@@ -23,7 +24,10 @@ const AddressCard = (props) => {
         EDIT
         <i className="fa-solid fa-pen-clip ml-icon"></i>
       </button>
-      <button className="remove-btn">
+      <button
+        className="remove-btn"
+        onClick={() => addressDispatch({ type: "REMOVE_ADDRESS", payload: id })}
+      >
         REMOVE
         <i className="fa-solid fa-trash-can remove-icon"></i>
       </button>

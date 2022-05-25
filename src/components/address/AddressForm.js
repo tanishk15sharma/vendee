@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useAddress } from "../../contexts";
 import "./AddressForm.css";
+import { v4 as uuidv4 } from "uuid";
+
 const AddressForm = ({ toggleForm }) => {
   const { addressDispatch } = useAddress();
   const [addressData, setAddressData] = useState({
@@ -18,7 +20,10 @@ const AddressForm = ({ toggleForm }) => {
   };
   const submitAddress = (e) => {
     e.preventDefault();
-    addressDispatch({ type: "ADD_ADDRESS", payload: { ...addressData } });
+    addressDispatch({
+      type: "ADD_ADDRESS",
+      payload: { ...addressData, id: uuidv4() },
+    });
   };
   return (
     <main
@@ -104,7 +109,6 @@ const AddressForm = ({ toggleForm }) => {
           </div>
           <button className="primary-btn-color btn-pd" type="submit">
             SAVE
-            <i className="fa-solid fa-check ml-icon"></i>
           </button>
         </div>
       </form>

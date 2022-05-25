@@ -2,9 +2,14 @@ import React from "react";
 import { useAddress } from "../../contexts";
 import "./AddressCard.css";
 const AddressCard = (props) => {
-  const { addressDispatch } = useAddress();
+  const { addressDispatch, addressState, setAddressData } = useAddress();
   const { id, name, address, city, state, number, pincode, option } =
     props.address;
+
+  const editHandler = (addressId) => {
+    const editAddress = addressState.find(({ id }) => id === addressId);
+    setAddressData({ ...editAddress, edit: true });
+  };
   return (
     <div className="address-card-main">
       <h2>{name}</h2>
@@ -20,7 +25,13 @@ const AddressCard = (props) => {
         <span className="sub-txt">Phone Number :</span>
         {number}
       </p>
-      <button className="edit-btn">
+      <button
+        className="edit-btn"
+        onClick={() => {
+          props.toggleForm((preVal) => !preVal);
+          editHandler(id);
+        }}
+      >
         EDIT
         <i className="fa-solid fa-pen-clip ml-icon"></i>
       </button>

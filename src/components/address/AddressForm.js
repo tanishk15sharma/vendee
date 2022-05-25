@@ -1,29 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAddress } from "../../contexts";
 import "./AddressForm.css";
 import { v4 as uuidv4 } from "uuid";
 
 const AddressForm = ({ toggleForm }) => {
-  const { addressDispatch } = useAddress();
-  const [addressData, setAddressData] = useState({
-    name: "",
-    address: "",
-    pincode: "",
-    city: "",
-    state: "",
-    number: "",
-    option: "",
-    edit: false,
-  });
+  const { addressDispatch, addressData, setAddressData } = useAddress();
+
   const changeHandler = (e) => {
     setAddressData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
   const submitAddress = (e) => {
     e.preventDefault();
-    addressDispatch({
-      type: "ADD_ADDRESS",
-      payload: { ...addressData, id: uuidv4() },
+
+    addressData.edit
+      ? addressDispatch({
+          type: "EDIT_ADDRESS",
+          payload: addressData,
+        })
+      : addressDispatch({
+          type: "ADD_ADDRESS",
+          payload: { ...addressData, id: uuidv4() },
+        });
+    setAddressData({
+      name: "",
+      address: "",
+      pincode: "",
+      city: "",
+      state: "",
+      number: "",
+      option: "",
+      edit: false,
     });
+    toggleForm(false);
   };
   return (
     <main
@@ -108,7 +116,7 @@ const AddressForm = ({ toggleForm }) => {
             </label>
           </div>
           <button className="primary-btn-color btn-pd" type="submit">
-            SAVE
+            {addressData.edit ? "EDIT" : "SAVE"}
           </button>
         </div>
       </form>

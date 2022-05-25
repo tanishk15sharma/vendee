@@ -7,7 +7,7 @@ import "./AddressPage.css";
 const AddressPage = () => {
   const [toggleAddressForm, setToggleAddressForm] = useState(false);
   const { addressState } = useAddress();
-  console.log(addressState);
+
   return (
     <div>
       <Nav />
@@ -20,7 +20,11 @@ const AddressPage = () => {
           Add New Address
         </button>
         {addressState?.map((address) => (
-          <AddressCard address={address} key={address.id} />
+          <AddressCard
+            address={address}
+            key={address.id}
+            toggleForm={setToggleAddressForm}
+          />
         ))}
 
         {toggleAddressForm ? (

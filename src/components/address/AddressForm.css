@@ -1,0 +1,29 @@
+.addressForm-main {
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: rgba(38, 38, 40, 0.58);
+  z-index: 15;
+}
+.addressForm {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+.addressInput {
+  padding: 0.5rem 0.5rem;
+}
+.addAddress-container {
+  width: 40%;
+}
+.btn-pd {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

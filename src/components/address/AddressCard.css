@@ -22,7 +22,7 @@
   transition: all 0.2s;
   cursor: pointer;
 }
-.edit-icon {
+.ml-icon {
   margin-left: 5px;
   color: var(--background-color);
 }

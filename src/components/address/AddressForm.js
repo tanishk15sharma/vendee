@@ -11,8 +11,10 @@ const AddressForm = () => {
     option: "",
     edit: false,
   });
-  const changeHandler = () => {};
-
+  const changeHandler = (e) => {
+    setAddressData((data) => ({ ...data, [e.target.name]: e.target.value }));
+  };
+  console.log(addressData);
   return (
     <main className="addressForm-main">
       <form className="addAddress-container">
@@ -88,7 +90,10 @@ const AddressForm = () => {
               WORK
             </label>
           </div>
-          <button className="primary-btn-color btn-pd">ADD</button>
+          <button className="primary-btn-color btn-pd">
+            SAVE
+            <i className="fa-solid fa-check ml-icon"></i>
+          </button>
         </div>
       </form>
     </main>

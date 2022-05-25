@@ -13,7 +13,7 @@ const AddressPage = () => {
           className="edit-btn"
           onClick={() => setToggleAddressForm((preValue) => !preValue)}
         >
-          <i class="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus"></i>
           Add New Address
         </button>
         <div>

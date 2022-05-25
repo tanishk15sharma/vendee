@@ -9,11 +9,11 @@ const AddressCard = () => {
       <p>NUMBER : 8233189891</p>
       <button className="edit-btn">
         EDIT
-        <i class="fa-solid fa-pen-clip edit-icon"></i>
+        <i className="fa-solid fa-pen-clip ml-icon"></i>
       </button>
       <button className="remove-btn">
         REMOVE
-        <i class="fa-solid fa-trash-can remove-icon"></i>
+        <i className="fa-solid fa-trash-can remove-icon"></i>
       </button>
     </div>
   );

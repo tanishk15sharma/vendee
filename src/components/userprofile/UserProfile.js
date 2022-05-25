@@ -8,14 +8,16 @@ import "./UserProfile.css";
 const UserProfile = ({ userDetails }) => {
   const [toggleUserProfile, setToggleUserProfile] = useState(false);
   const { setCart } = useCart();
-  const { setWishlist } = useWishlist();
+  const { setWishList } = useWishlist();
+  const { authDispatch } = useAuth();
 
   const logOutHandler = () => {
     localStorage.clear();
+    authDispatch({ type: "USER_LOGOUT" });
+    setWishList([]);
     setCart([]);
-    setWishlist([]);
   };
-  // console.log(wishList);
+
   return (
     <div>
       <div

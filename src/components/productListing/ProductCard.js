@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCart, useProducts, useWishlist } from "../../contexts";
 import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../utilities/cart-utils";
-
+import defaultImage from "../../assets/default-img.png";
 import {
   addToWishlist,
   getToken,
@@ -52,7 +52,10 @@ const ProductCard = ({ product }) => {
     <div className="product-card" key={product.id}>
       <div className="product-img-div">
         <Link to={`/product/${product._id}`}>
-          <img src={product.image} alt={`${product.name} image`} />
+          <img
+            src={product.image ? product.image : defaultImage}
+            alt={`${product.name} image`}
+          />
         </Link>
         <span className="product-rating">
           {product.ratings} <i className="fa-solid fa-star"></i>

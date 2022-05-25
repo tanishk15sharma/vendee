@@ -14,7 +14,7 @@ const AddressForm = () => {
   const changeHandler = (e) => {
     setAddressData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
-  console.log(addressData);
+
   return (
     <main className="addressForm-main">
       <form className="addAddress-container">

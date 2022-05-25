@@ -16,7 +16,7 @@ const CartContextProvider = ({ children }) => {
           authorization: getToken(),
         },
       });
-      console.log(data);
+
       setCart(data.cart);
     })();
   }, [authState]);

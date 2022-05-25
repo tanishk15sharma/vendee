@@ -11,13 +11,14 @@ export const products = [
     category: "men",
     image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "HRX",
-    name: "Yellow Printed Round Neck",
+    name: "Yellow Printed Tshirt",
     discountPrice: 700,
     actualPrice: 900,
     discount: 20,
     inStock: true,
     fastDelivery: false,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -32,6 +33,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     ratings: 3.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -45,6 +47,7 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -58,6 +61,7 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -71,6 +75,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -84,6 +89,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     ratings: 3.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -97,6 +103,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -110,6 +117,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     ratings: 3.5,
+    size: "L",
   },
 
   {
@@ -124,6 +132,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -137,6 +146,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -150,6 +160,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -163,6 +174,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -176,6 +188,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -189,19 +202,21 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
     category: "jewellery",
     image: "/Products-images/bangle1.webp",
     brand: "Regular",
-    name: "gold Bangle",
+    name: "Gold Bangle",
     discountPrice: 1999,
     actualPrice: 999,
     discount: 50,
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -215,6 +230,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -228,6 +244,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 3.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -241,6 +258,7 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     ratings: 3.5,
+    size: "L",
   },
   {
     _id: uuid(),
@@ -253,6 +271,7 @@ export const products = [
     discount: 20,
     inStock: false,
     fastDelivery: true,
+    size: "L",
     ratings: 2.5,
   },
   {
@@ -267,5 +286,6 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     ratings: 4.5,
+    size: "L",
   },
 ];

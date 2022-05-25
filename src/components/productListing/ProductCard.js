@@ -1,6 +1,6 @@
-import React from "react";
-import { useCart, useWishlist } from "../../contexts";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useCart, useProducts, useWishlist } from "../../contexts";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../utilities/cart-utils";
 
 import {
@@ -8,14 +8,52 @@ import {
   getToken,
   removeFromWishlist,
 } from "../../utilities/wishlist-utils";
+
+const sizeOptions = [
+  {
+    name: "size",
+    value: "XS",
+  },
+  {
+    name: "size",
+    value: "S",
+  },
+  {
+    name: "size",
+    value: "M",
+  },
+  {
+    name: "size",
+    value: "L",
+  },
+  {
+    name: "size",
+    value: "XL",
+  },
+];
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
+  const { products, setProducts } = useProducts();
+
+  const sizeHandler = (e, id) => {
+    const newSize = e.target.value;
+
+    setProducts(
+      products.map((currProduct) =>
+        currProduct._id === id ? { ...currProduct, size: newSize } : currProduct
+      )
+    );
+  };
+
   return (
     <div className="product-card" key={product.id}>
       <div className="product-img-div">
-        <img src={product.image} alt={`${product.name} image`} />
+        <Link to={`/product/${product._id}`}>
+          <img src={product.image} alt={`${product.name} image`} />
+        </Link>
         <span className="product-rating">
           {product.ratings} <i className="fa-solid fa-star"></i>
         </span>
@@ -50,12 +88,28 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="product-size-div">
           <div className="product-size-title">Add size</div>
-          <div className="product-size">
-            <span>XS</span>
-            <span>S</span>
-            <span>M</span>
-            <span>L</span>
-            <span>XL</span>
+          <div
+            className="product-size"
+            onClick={(e) => sizeHandler(e, product._id)}
+          >
+            {sizeOptions.map((size) => (
+              <label
+                className={`size-name ${
+                  product.size === size.value ? "highlight" : ""
+                }`}
+                key={size.value}
+              >
+                {size.value}
+                <input
+                  type="radio"
+                  id={size.value}
+                  name={product._id}
+                  className="hidden"
+                  value={size.value}
+                  onClick={(e) => sizeHandler(e, product._id)}
+                />
+              </label>
+            ))}
           </div>
         </div>
       </div>

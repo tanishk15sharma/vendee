@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { FiltersContextProvider } from "./contexts/filter-context";
-import { CartContextProvider } from "./contexts/cart-context";
-import { WishlistContextProvider } from "./contexts/wishlist-context";
-import { AuthContextProvider } from "./contexts/auth-context";
+import {
+  ProductsContextProvider,
+  AuthContextProvider,
+  WishlistContextProvider,
+  CartContextProvider,
+  FiltersContextProvider,
+} from "./contexts";
 
 // Call make Server
 makeServer();
@@ -17,7 +20,9 @@ ReactDOM.render(
       <FiltersContextProvider>
         <CartContextProvider>
           <WishlistContextProvider>
-            <App />
+            <ProductsContextProvider>
+              <App />
+            </ProductsContextProvider>
           </WishlistContextProvider>
         </CartContextProvider>
       </FiltersContextProvider>

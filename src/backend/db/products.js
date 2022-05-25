@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "p1",
     category: "men",
     image: "/Products-images/HRX-Yellow-Printed-Round-Neck-T-Shirt--1.webp",
     brand: "HRX",
@@ -21,7 +21,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p2",
     category: "men",
     image:
       "/Products-images/-Men-Green-Slim-Fit-Solid-Casual-Shirt-358156645-1.webp",
@@ -36,7 +36,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p3",
     category: "men",
     image: "/Products-images/Leather-Jacket1.webp",
     brand: "H&M",
@@ -50,7 +50,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p4",
     category: "men",
     image: "/Products-images/Nautica-Men-Tshirts-1.webp",
     brand: "Nautica",
@@ -64,7 +64,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p5",
     category: "women",
     image: "/Products-images/-Women-Kurta-Sets2-1.webp",
     brand: "Nautica",
@@ -78,7 +78,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p6",
     category: "women",
     image: "/Products-images/women-kurti-nautrica.webp",
     brand: "Nautica",
@@ -92,7 +92,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p7",
     category: "women",
     image: "/Products-images/pink-top.webp",
     brand: "H&M",
@@ -106,7 +106,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p8",
     category: "women",
     image: "/Products-images/womne-top-hrx.webp",
     brand: "H&M",
@@ -121,7 +121,7 @@ export const products = [
   },
 
   {
-    _id: uuid(),
+    _id: "p9",
     category: "footwear",
     image: "/Products-images/HRX-Running-Shoe.webp",
     brand: "HRX",
@@ -135,7 +135,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p10",
     category: "footwear",
     image: "/Products-images/HRX-White-Shoes-sneekers.webp",
     brand: "HRX",
@@ -149,7 +149,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p11",
     category: "footwear",
     image: "/Products-images/Nike-Shoes.webp",
     brand: "Nike",
@@ -163,7 +163,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p12",
     category: "footwear",
     image: "/Products-images/NikeMen-Black-Running-Shoes.webp",
     brand: "Nike",
@@ -177,7 +177,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p13",
     category: "homedecor",
     image: "/Products-images/Golden-statue.webp",
     brand: "Regular",
@@ -191,7 +191,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p14",
     category: "homedecor",
     image: "/Products-images/HomeCentreMultiTableLampsGlass1.webp",
     brand: "Regular",
@@ -205,7 +205,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p15",
     category: "jewellery",
     image: "/Products-images/bangle1.webp",
     brand: "Regular",
@@ -219,7 +219,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p16",
     category: "footwear",
     image: "/Products-images/Women-White-Flats.webp",
     brand: "Nautica",
@@ -233,7 +233,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p17",
     category: "footwear",
     image: "/Products-images/WomenPinkFlats.webp",
     brand: "Nautica",
@@ -247,7 +247,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p18",
     category: "footwear",
     image: "/Products-images/red-heels.webp",
     brand: "Nautica",
@@ -261,7 +261,7 @@ export const products = [
     size: "L",
   },
   {
-    _id: uuid(),
+    _id: "p19",
     category: "jewellery",
     image: "/Products-images/JewellerySet1.webp",
     brand: "Regular",
@@ -275,7 +275,7 @@ export const products = [
     ratings: 2.5,
   },
   {
-    _id: uuid(),
+    _id: "p20",
     category: "jewellery",
     image: "/Products-images/ear-Gold-Toned.webp",
     brand: "Regular",

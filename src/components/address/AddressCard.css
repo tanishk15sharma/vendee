@@ -1,0 +1,51 @@
+.address-card-main {
+  background-color: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.address-card-main:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.edit-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.small-txt {
+  font-size: 12px;
+  font-weight: 300;
+  margin-left: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 2px 10px;
+  opacity: 0.4;
+}
+.remove-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.ml-icon {
+  margin-left: 5px;
+  color: var(--background-color);
+}
+.remove-icon {
+  margin-left: 5px;
+  color: var(--action-color);
+}
+.remove-btn:hover {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.edit-btn:hover {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}

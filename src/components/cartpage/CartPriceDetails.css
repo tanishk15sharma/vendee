@@ -1,6 +1,5 @@
 .price-details-container {
   background-color: #fdf4f3;
-
   margin: 1rem;
   padding: 1rem;
 }
@@ -9,10 +8,6 @@
   font-weight: 600;
   font-size: 1.2rem;
 }
-/* 
-hr {
-  margin: 1rem 0;
-} */
 
 .price-list {
   display: flex;
@@ -30,12 +25,4 @@ hr {
   font-size: 0.8rem;
 
   text-align: center;
-}
-
-.primary-btn {
-  width: 100%;
-  margin-top: 0.5rem;
-  border: none;
-  background-color: gray;
-  color: white;
 }

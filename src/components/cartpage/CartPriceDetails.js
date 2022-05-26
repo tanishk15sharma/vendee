@@ -31,7 +31,7 @@ const CartPriceDetails = () => {
         <hr />
       </ul>
       <p className="discount-txt">You will save &#8377; 1000 on this order</p>
-      <button className="btn primary-btn">PLACE ORDER</button>
+      <button className="primary-btn-color btn-pd">PLACE ORDER</button>
     </div>
   );
 };

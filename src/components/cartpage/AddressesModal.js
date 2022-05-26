@@ -3,7 +3,7 @@ import { useAddress } from "../../contexts/address-context";
 import { AddressForm } from "../address/AddressForm";
 
 import "./AddressesModal.css";
-const AddressesModal = () => {
+const AddressesModal = ({ setAddressModal, selectAddress }) => {
   const { addressState, addressDispatch, setAddressData, addressData } =
     useAddress();
 
@@ -11,13 +11,21 @@ const AddressesModal = () => {
     const editAddress = addressState.find(({ id }) => id === addressId);
     setAddressData({ ...editAddress, edit: true });
   };
-  console.log(addressData.addressFormModal);
+
   return (
-    <main className="addresses-container">
-      <div className="addresses">
+    <main
+      className="addresses-container"
+      onClick={() => setAddressModal((preVal) => !preVal)}
+    >
+      <div className="addresses" onClick={(e) => e.stopPropagation()}>
         {addressState?.map((address) => (
           <div className="address-div">
-            <input type="checkbox" className="address-input" />
+            <input
+              type="radio"
+              className="address-input"
+              name="address"
+              onChange={() => selectAddress(address)}
+            />
             <div className="">
               <h2>{address.name}</h2>
               <p>
@@ -31,7 +39,7 @@ const AddressesModal = () => {
               <p>
                 <span className="sub-txt">Phone Number :</span>
                 {address.number}
-                <span className="small-txt">{address.option}</span>
+                <span className="small-block-txt">{address.option}</span>
               </p>
 
               <button

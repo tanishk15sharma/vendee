@@ -9,16 +9,26 @@ const SelectAddress = () => {
     <div>
       <section className="selectedAddress-section">
         <div>
-          <p>
-            <span className="sub-txt">Deliver to:</span>
-            Tanishk sharma , 452001
-            <span className="small-txt">home</span>
+          <p className="addresser-name">
+            <span className="sub-txt">Deliver to: </span>
+            {selectedAddress.name} , {selectedAddress.pincode}
+            <span className="small-block-txt">{selectedAddress.option}</span>
           </p>
-          <p className="selected-place"> 589/8 nehru nagar near indore</p>
+          <p className="selected-place"> {selectedAddress.address}</p>
         </div>
-        <button className="primary-btn-color btn-pd">CHANGE</button>
+        <button
+          className="primary-btn-color btn-pd"
+          onClick={() => setAddressModal((preVal) => !preVal)}
+        >
+          CHANGE
+        </button>
       </section>
-      {/* <AddressesModal /> */}
+      {addressModal && (
+        <AddressesModal
+          setAddressModal={setAddressModal}
+          selectAddress={setSelectedAddress}
+        />
+      )}
     </div>
   );
 };

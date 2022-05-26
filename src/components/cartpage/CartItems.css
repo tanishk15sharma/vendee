@@ -17,6 +17,7 @@ h2 {
 }
 .card-title {
   padding-top: 0;
+  font-weight: 400;
 }
 .cart-item-img {
   width: 100%;

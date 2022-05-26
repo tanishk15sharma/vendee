@@ -30,8 +30,11 @@ const AddressCard = (props) => {
       <button
         className="edit-btn"
         onClick={() => {
-          props.toggleForm((preVal) => !preVal);
           editHandler(id);
+          setAddressData((preValue) => ({
+            ...preValue,
+            addressFormModal: true,
+          }));
         }}
       >
         EDIT

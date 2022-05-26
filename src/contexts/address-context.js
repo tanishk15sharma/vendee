@@ -22,6 +22,7 @@ const AddressContextProvider = ({ children }) => {
     number: "",
     option: "",
     edit: false,
+    addressFormModal: false,
   });
   useEffect(() => {
     addressDispatch({

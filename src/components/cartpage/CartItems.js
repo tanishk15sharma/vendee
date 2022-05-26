@@ -3,7 +3,8 @@ import { useCart } from "../../contexts/cart-context";
 import { removeFromCart, ChangeCartQty } from "../../utilities/cart-utils";
 import { addToWishlist } from "../../utilities/wishlist-utils";
 import { useWishlist } from "../../contexts/wishlist-context";
-import { useAddress } from "../../contexts/address-context";
+
+import SelectAddress from "./SelectAddress";
 
 const CartItems = () => {
   const { cart, setCart } = useCart();
@@ -11,6 +12,7 @@ const CartItems = () => {
 
   return (
     <div className="items">
+      {cart.length !== 0 && <SelectAddress />}
       {cart.map((product) => (
         <div className="cart-item" key={product._id}>
           <div className="cover-img">

@@ -1,0 +1,27 @@
+.addresses-container {
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: rgba(38, 38, 40, 0.58);
+  z-index: 15;
+}
+.addresses {
+  background-color: white;
+  padding: 1rem;
+  min-width: 40%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.addresses .address-div {
+  display: flex;
+  padding: 1rem;
+}
+.addresses .address-input {
+  margin-top: 10px;
+  margin-right: 2rem;
+}

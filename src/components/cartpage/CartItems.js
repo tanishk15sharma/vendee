@@ -11,7 +11,7 @@ const CartItems = () => {
   const { wishList, setWishList } = useWishlist();
 
   return (
-    <div className="items">
+    <div className="items-container">
       {cart.length !== 0 && <SelectAddress />}
       {cart.map((product) => (
         <div className="cart-item" key={product._id}>

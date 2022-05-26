@@ -63,7 +63,7 @@ const AddressesModal = () => {
           </div>
         ))}
         <button
-          // className="edit-btn"
+          className="edit-btn ml-2"
           onClick={() =>
             setAddressData((preValue) => ({
               ...preValue,

@@ -3,7 +3,11 @@ import { useAddress } from "../../contexts/address-context";
 import { AddressForm } from "../address/AddressForm";
 
 import "./AddressesModal.css";
-const AddressesModal = ({ setAddressModal, selectAddress }) => {
+const AddressesModal = ({
+  setAddressModal,
+  selectAddress,
+  selectedAddress,
+}) => {
   const { addressState, addressDispatch, setAddressData, addressData } =
     useAddress();
 
@@ -19,11 +23,12 @@ const AddressesModal = ({ setAddressModal, selectAddress }) => {
     >
       <div className="addresses" onClick={(e) => e.stopPropagation()}>
         {addressState?.map((address) => (
-          <div className="address-div">
+          <div className="address-div" key={address.id}>
             <input
               type="radio"
               className="address-input"
               name="address"
+              checked={selectedAddress.id === address.id}
               onChange={() => selectAddress(address)}
             />
             <div className="">

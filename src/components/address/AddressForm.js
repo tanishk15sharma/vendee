@@ -39,7 +39,7 @@ const AddressForm = () => {
       onClick={() =>
         setAddressData((preValue) => ({
           ...preValue,
-          addressFormModal: !preValue.addressFormModal,
+          addressFormModal: false,
         }))
       }
     >

@@ -4,8 +4,14 @@ import { AddressForm } from "../address/AddressForm";
 
 import "./AddressesModal.css";
 const AddressesModal = () => {
-  const { addressState, setAddressData, addressData } = useAddress();
-  console.log(addressState);
+  const { addressState, addressDispatch, setAddressData, addressData } =
+    useAddress();
+
+  const editHandler = (addressId) => {
+    const editAddress = addressState.find(({ id }) => id === addressId);
+    setAddressData({ ...editAddress, edit: true });
+  };
+  console.log(addressData.addressFormModal);
   return (
     <main className="addresses-container">
       <div className="addresses">
@@ -31,8 +37,11 @@ const AddressesModal = () => {
               <button
                 className="edit-btn"
                 onClick={() => {
-                  props.toggleForm((preVal) => !preVal);
-                  editHandler(id);
+                  setAddressData((preValue) => ({
+                    ...preValue,
+                    addressFormModal: true,
+                  }));
+                  editHandler(address.id);
                 }}
               >
                 EDIT
@@ -41,7 +50,10 @@ const AddressesModal = () => {
               <button
                 className="remove-btn"
                 onClick={() =>
-                  addressDispatch({ type: "REMOVE_ADDRESS", payload: id })
+                  addressDispatch({
+                    type: "REMOVE_ADDRESS",
+                    payload: address.id,
+                  })
                 }
               >
                 REMOVE
@@ -51,11 +63,11 @@ const AddressesModal = () => {
           </div>
         ))}
         <button
-          //   className="edit-btn"
+          // className="edit-btn"
           onClick={() =>
             setAddressData((preValue) => ({
               ...preValue,
-              addressFormModal: !preValue.addressFormModal,
+              addressFormModal: true,
             }))
           }
         >

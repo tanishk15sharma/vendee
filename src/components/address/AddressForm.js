@@ -21,6 +21,7 @@ const AddressForm = ({ toggleForm }) => {
           type: "ADD_ADDRESS",
           payload: { ...addressData, id: uuidv4() },
         });
+
     setAddressData({
       name: "",
       address: "",

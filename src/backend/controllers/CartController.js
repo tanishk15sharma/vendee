@@ -77,14 +77,7 @@ export const removeAllFromCartHandler = function (schema, request) {
         }
       );
     }
-    // const userCart = schema.users.findBy({ _id: userId }).cart;
-    // const { product } = JSON.parse(request.requestBody);
-    // userCart.push({
-    //   ...product,
-    //   createdAt: formatDate(),
-    //   updatedAt: formatDate(),
-    //   qty: 1,
-    // });
+
     this.db.users.update({ _id: userId }, { cart: [] });
     return new Response(201, {}, { cart: [] });
   } catch (error) {

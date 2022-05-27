@@ -4,7 +4,6 @@ import { checkoutDetails, removeAllCart } from "../../utilities/cart-utils";
 import { useOrders } from "../../contexts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const CartPriceDetails = ({ selectedAddress }) => {
   const { cart, setCart } = useCart();
@@ -14,7 +13,6 @@ const CartPriceDetails = ({ selectedAddress }) => {
     return <h2>No items in cart</h2>;
   }
   const { totalAmount, price, discountPrice } = checkoutDetails(cart);
-  console.log(setUserOrders);
 
   function loadScript(src) {
     return new Promise((resolve) => {

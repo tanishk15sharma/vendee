@@ -1,15 +1,17 @@
 import "./CartPriceDetails.css";
 import { useCart } from "../../contexts/cart-context";
 import { checkoutDetails } from "../../utilities/cart-utils";
+import { useOrders } from "../../contexts";
+import { v4 as uuidv4 } from "uuid";
 
-const CartPriceDetails = () => {
+const CartPriceDetails = ({ selectedAddress }) => {
   const { cart } = useCart();
-
+  const { setUserOrders } = useOrders();
   if (cart.length === 0) {
     return <h2>No items in cart</h2>;
   }
   const { totalAmount, price, discountPrice } = checkoutDetails(cart);
-
+  console.log(setUserOrders);
   function loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -49,6 +51,22 @@ const CartPriceDetails = () => {
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
         };
+        if (response.razorpay_payment_id) {
+          setUserOrders((preVal) => [
+            ...preVal,
+            {
+              orderId: uuidv4(),
+              total: totalAmount,
+              price: price,
+              totalDiscount: discountPrice,
+              orderItems: cart,
+              orderData: Date.now(),
+              orderAddress: selectedAddress,
+            },
+          ]);
+        } else {
+          alert("Payment error , Enter valid Account");
+        }
         console.log(response.razorpay_payment_id);
         // const result = await axios.post(
         //   "http://localhost:5000/payment/success",

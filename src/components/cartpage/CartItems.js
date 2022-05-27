@@ -6,13 +6,18 @@ import { useWishlist } from "../../contexts/wishlist-context";
 
 import SelectAddress from "./SelectAddress";
 
-const CartItems = () => {
+const CartItems = ({ selectedAddress, setSelectedAddress }) => {
   const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
 
   return (
     <div className="items-container">
-      {cart.length !== 0 && <SelectAddress />}
+      {cart.length !== 0 && (
+        <SelectAddress
+          selectedAddress={selectedAddress}
+          setSelectedAddress={setSelectedAddress}
+        />
+      )}
       {cart.map((product) => (
         <div className="cart-item" key={product._id}>
           <div className="cover-img">

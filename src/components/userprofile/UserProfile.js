@@ -33,7 +33,7 @@ const UserProfile = ({ userDetails }) => {
       >
         <Link to="/settings">Settings</Link>
         <Link to="/address">Address</Link>
-        <Link to="/help">Help</Link>
+        <Link to="/orders">Orders</Link>
         <button onClick={logOutHandler} className="logout-btn">
           logout
         </button>

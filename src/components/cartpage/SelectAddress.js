@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useAddress } from "../../contexts";
+
 import AddressesModal from "./AddressesModal";
 import "./SelectAddress.css";
-const SelectAddress = () => {
-  const { addressState } = useAddress();
-  const [selectedAddress, setSelectedAddress] = useState(addressState[0]);
+const SelectAddress = ({ selectedAddress, setSelectedAddress }) => {
   const [addressModal, setAddressModal] = useState(false);
 
   return (

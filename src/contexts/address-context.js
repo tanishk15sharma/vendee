@@ -32,7 +32,7 @@ const AddressContextProvider = ({ children }) => {
           payload: authState.user.address,
         })
       : "";
-  }, []);
+  }, [authState]);
   return (
     <addressContext.Provider
       value={{ addressState, addressDispatch, addressData, setAddressData }}

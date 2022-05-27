@@ -65,6 +65,39 @@ export const addItemToCartHandler = function (schema, request) {
   }
 };
 
+export const removeAllFromCartHandler = function (schema, request) {
+  const userId = requiresAuth.call(this, request);
+  try {
+    if (!userId) {
+      new Response(
+        404,
+        {},
+        {
+          errors: ["The email you entered is not Registered. Not Found error"],
+        }
+      );
+    }
+    // const userCart = schema.users.findBy({ _id: userId }).cart;
+    // const { product } = JSON.parse(request.requestBody);
+    // userCart.push({
+    //   ...product,
+    //   createdAt: formatDate(),
+    //   updatedAt: formatDate(),
+    //   qty: 1,
+    // });
+    this.db.users.update({ _id: userId }, { cart: [] });
+    return new Response(201, {}, { cart: [] });
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};
+
 /**
  * This handler handles removing items to user's cart.
  * send DELETE Request at /api/user/cart/:productId

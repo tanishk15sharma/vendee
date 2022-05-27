@@ -36,6 +36,18 @@ const removeFromCart = async (id, setCart) => {
   }
 };
 
+const removeAllCart = async () => {
+  try {
+    await axios.delete("/api/user/cart/removeAll", {
+      headers: {
+        authorization: getToken(),
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const ChangeCartQty = async (id, setCart, actionType) => {
   try {
     const { data } = await axios.post(
@@ -73,4 +85,10 @@ const checkoutDetails = (cart) => {
   return { totalAmount, price, discountPrice };
 };
 
-export { addToCart, removeFromCart, ChangeCartQty, checkoutDetails };
+export {
+  addToCart,
+  removeFromCart,
+  ChangeCartQty,
+  checkoutDetails,
+  removeAllCart,
+};

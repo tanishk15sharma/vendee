@@ -1,9 +1,10 @@
 import "./CartPriceDetails.css";
 import { useCart } from "../../contexts/cart-context";
-import { checkoutDetails } from "../../utilities/cart-utils";
+import { checkoutDetails, removeAllCart } from "../../utilities/cart-utils";
 import { useOrders } from "../../contexts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CartPriceDetails = ({ selectedAddress }) => {
   const { cart, setCart } = useCart();
@@ -14,6 +15,7 @@ const CartPriceDetails = ({ selectedAddress }) => {
   }
   const { totalAmount, price, discountPrice } = checkoutDetails(cart);
   console.log(setUserOrders);
+
   function loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -67,6 +69,7 @@ const CartPriceDetails = ({ selectedAddress }) => {
             },
           ]);
           setCart([]);
+          removeAllCart();
           navigate("/orders");
         } else {
           alert("Payment error , Enter valid Account");

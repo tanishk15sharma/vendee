@@ -5,7 +5,7 @@ import { useOrders } from "../../contexts";
 import { v4 as uuidv4 } from "uuid";
 
 const CartPriceDetails = ({ selectedAddress }) => {
-  const { cart } = useCart();
+  const { cart, setCart } = useCart();
   const { setUserOrders } = useOrders();
   if (cart.length === 0) {
     return <h2>No items in cart</h2>;
@@ -60,7 +60,7 @@ const CartPriceDetails = ({ selectedAddress }) => {
               price: price,
               totalDiscount: discountPrice,
               orderItems: cart,
-              orderData: Date.now(),
+              orderDate: Date.now(),
               orderAddress: selectedAddress,
             },
           ]);

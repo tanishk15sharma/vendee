@@ -56,6 +56,7 @@ const AddressForm = () => {
             onChange={changeHandler}
             value={addressData.name}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -64,6 +65,7 @@ const AddressForm = () => {
             onChange={changeHandler}
             value={addressData.address}
             className="addressInput"
+            required
           />
           <input
             type="number"
@@ -72,6 +74,7 @@ const AddressForm = () => {
             onChange={changeHandler}
             value={addressData.pincode}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -80,6 +83,7 @@ const AddressForm = () => {
             onChange={changeHandler}
             value={addressData.city}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -88,6 +92,7 @@ const AddressForm = () => {
             onChange={changeHandler}
             value={addressData.state}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -96,6 +101,7 @@ const AddressForm = () => {
             onChange={changeHandler}
             value={addressData.number}
             className="addressInput"
+            required
           />
           <div>
             <input

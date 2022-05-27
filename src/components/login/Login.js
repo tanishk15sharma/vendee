@@ -52,9 +52,10 @@ const UserLogin = () => {
     e.preventDefault();
 
     setLoginData({
-      email: "adarshbalak@gmail.com",
-      password: "adarshBalaki123",
+      email: "Tanishk@gmail.com",
+      password: "Tanishk123",
     });
+    handleSubmit();
   };
 
   return (
@@ -111,7 +112,7 @@ const UserLogin = () => {
           {authState.loading && "loading"} Login
         </button>
         <button className="test-btn" onClick={testLoginHandler}>
-          {authState.loading && "loading"} Test Login
+          Test Login
         </button>
         <Link to="/signup">
           Don't have an account ?<span className="action-color"> Signup</span>

@@ -1,21 +1,31 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import loginIcon from "../../assets/nav-icons/user-plus.svg";
-import { useAuth, useCart, useWishlist } from "../../contexts";
-
+import { useNavigate, Link } from "react-router-dom";
 import "./UserProfile.css";
+import loginIcon from "../../assets/nav-icons/user-plus.svg";
+import {
+  useAuth,
+  useCart,
+  useWishlist,
+  useOrders,
+  useAddress,
+} from "../../contexts";
+
 const UserProfile = ({ userDetails }) => {
   const [toggleUserProfile, setToggleUserProfile] = useState(false);
   const { setCart } = useCart();
   const { setWishList } = useWishlist();
   const { authDispatch } = useAuth();
-
+  const { setUserOrders } = useOrders();
+  const { addressDispatch } = useAddress();
+  const navigate = useNavigate();
   const logOutHandler = () => {
     localStorage.clear();
     authDispatch({ type: "USER_LOGOUT" });
     setWishList([]);
     setCart([]);
+    setUserOrders([]);
+    navigate("/products");
+    addressDispatch({ type: "EMPTY_ADDRESS" });
   };
 
   return (

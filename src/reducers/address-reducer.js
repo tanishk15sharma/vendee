@@ -13,6 +13,9 @@ const addressReducer = (state, action) => {
     case "ADD_TEST_ADDRESS": {
       return [...state, action.payload];
     }
+    case "EMPTY_ADDRESS": {
+      return [];
+    }
     default:
       return state;
   }

@@ -3,14 +3,21 @@ import { useCart } from "../../contexts/cart-context";
 import { removeFromCart, ChangeCartQty } from "../../utilities/cart-utils";
 import { addToWishlist } from "../../utilities/wishlist-utils";
 import { useWishlist } from "../../contexts/wishlist-context";
-import { useAddress } from "../../contexts/address-context";
 
-const CartItems = () => {
+import SelectAddress from "./SelectAddress";
+
+const CartItems = ({ selectedAddress, setSelectedAddress }) => {
   const { cart, setCart } = useCart();
   const { wishList, setWishList } = useWishlist();
 
   return (
-    <div className="items">
+    <div className="items-container">
+      {cart.length !== 0 && (
+        <SelectAddress
+          selectedAddress={selectedAddress}
+          setSelectedAddress={setSelectedAddress}
+        />
+      )}
       {cart.map((product) => (
         <div className="cart-item" key={product._id}>
           <div className="cover-img">

@@ -1,8 +1,10 @@
+.items-container {
+  margin: 1rem;
+}
+
 .cart-item {
   display: flex;
   gap: 1rem;
-  /* border: 1px solid red; */
-  margin: 1rem;
   border: 1px solid #e5e7eb;
 }
 
@@ -15,6 +17,7 @@ h2 {
 }
 .card-title {
   padding-top: 0;
+  font-weight: 400;
 }
 .cart-item-img {
   width: 100%;

@@ -6,6 +6,7 @@ import {
   useEffect,
 } from "react";
 import { addressReducer } from "../reducers/address-reducer";
+import { getToken } from "../utilities/wishlist-utils";
 import { useAuth } from "./auth-context";
 
 const addressContext = createContext(null);
@@ -22,13 +23,16 @@ const AddressContextProvider = ({ children }) => {
     number: "",
     option: "",
     edit: false,
+    addressFormModal: false,
   });
   useEffect(() => {
-    addressDispatch({
-      type: "ADD_TEST_ADDRESS",
-      payload: authState.user.address,
-    });
-  }, []);
+    getToken()
+      ? addressDispatch({
+          type: "ADD_TEST_ADDRESS",
+          payload: authState.user.address,
+        })
+      : "";
+  }, [authState]);
   return (
     <addressContext.Provider
       value={{ addressState, addressDispatch, addressData, setAddressData }}

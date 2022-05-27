@@ -24,14 +24,17 @@ const AddressCard = (props) => {
       <p>
         <span className="sub-txt">Phone Number :</span>
         {number}
-        <span className="small-txt">{option}</span>
+        <span className="small-block-txt">{option}</span>
       </p>
 
       <button
         className="edit-btn"
         onClick={() => {
-          props.toggleForm((preVal) => !preVal);
           editHandler(id);
+          setAddressData((preValue) => ({
+            ...preValue,
+            addressFormModal: true,
+          }));
         }}
       >
         EDIT

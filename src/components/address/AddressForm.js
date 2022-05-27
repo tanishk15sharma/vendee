@@ -3,7 +3,7 @@ import { useAddress } from "../../contexts";
 import "./AddressForm.css";
 import { v4 as uuidv4 } from "uuid";
 
-const AddressForm = ({ toggleForm }) => {
+const AddressForm = () => {
   const { addressDispatch, addressData, setAddressData } = useAddress();
 
   const changeHandler = (e) => {
@@ -32,12 +32,16 @@ const AddressForm = ({ toggleForm }) => {
       option: "",
       edit: false,
     });
-    toggleForm(false);
   };
   return (
     <main
       className="addressForm-main"
-      onClick={() => toggleForm((preVal) => !preVal)}
+      onClick={() =>
+        setAddressData((preValue) => ({
+          ...preValue,
+          addressFormModal: false,
+        }))
+      }
     >
       <form
         className="addAddress-container"
@@ -52,6 +56,7 @@ const AddressForm = ({ toggleForm }) => {
             onChange={changeHandler}
             value={addressData.name}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -60,6 +65,7 @@ const AddressForm = ({ toggleForm }) => {
             onChange={changeHandler}
             value={addressData.address}
             className="addressInput"
+            required
           />
           <input
             type="number"
@@ -68,6 +74,7 @@ const AddressForm = ({ toggleForm }) => {
             onChange={changeHandler}
             value={addressData.pincode}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -76,6 +83,7 @@ const AddressForm = ({ toggleForm }) => {
             onChange={changeHandler}
             value={addressData.city}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -84,6 +92,7 @@ const AddressForm = ({ toggleForm }) => {
             onChange={changeHandler}
             value={addressData.state}
             className="addressInput"
+            required
           />
           <input
             type="text"
@@ -92,6 +101,7 @@ const AddressForm = ({ toggleForm }) => {
             onChange={changeHandler}
             value={addressData.number}
             className="addressInput"
+            required
           />
           <div>
             <input

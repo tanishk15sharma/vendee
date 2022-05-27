@@ -16,12 +16,12 @@ const AddressPage = () => {
         </p>
         <button
           className="edit-btn"
-          onClick={() =>
+          onClick={() => {
             setAddressData((preValue) => ({
               ...preValue,
               addressFormModal: !preValue.addressFormModal,
-            }))
-          }
+            }));
+          }}
         >
           <i className="fa-solid fa-plus"></i>
           Add New Address

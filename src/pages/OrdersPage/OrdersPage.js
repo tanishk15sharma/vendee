@@ -9,9 +9,13 @@ const OrdersPage = () => {
     <>
       <Nav />
       <section className="orders-container">
+        <p className="title-name">
+          <span className="logo-v">My</span>Orders
+        </p>
+
         {userOrders.map((order) => {
           return (
-            <div>
+            <div className="order-div">
               <h2 className="success-txt">ORDER CONFIRMED</h2>
               <span className="sub-txt">
                 {new Date(order.orderDate).toDateString()}
@@ -28,9 +32,18 @@ const OrdersPage = () => {
                     </div>
                     <div className="order-itemInfo">
                       <h3>{name}</h3>
-                      <span className="sub-txt">{actualPrice}</span>
-                      <span className="sub-txt">SIZE: {size} </span>
-                      <span className="sub-txt">Oty : {qty}</span>
+                      <span>
+                        <span className="sub-txt">Item Price: </span>&#8377;{" "}
+                        {actualPrice}
+                      </span>
+                      <span>
+                        <span className="sub-txt">SIZE: </span>
+                        {size}
+                      </span>
+                      <span>
+                        <span className="sub-txt">Oty: </span>
+                        {qty}
+                      </span>
                       <span>
                         {fastDelivery ? "Fast delivery" : "Modrate delivery"}{" "}
                       </span>

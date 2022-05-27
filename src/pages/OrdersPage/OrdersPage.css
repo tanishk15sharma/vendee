@@ -1,0 +1,17 @@
+.orders-container {
+  margin: 2rem auto;
+  width: 50%;
+  background-color: #fdf4f3;
+  padding: 2rem;
+}
+.success-txt {
+  color: green;
+}
+.order-itemImg {
+  width: 80px;
+  height: 80px;
+}
+.order-itemInfo {
+  display: flex;
+  flex-direction: column;
+}

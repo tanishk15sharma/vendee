@@ -3,9 +3,11 @@ import { useCart } from "../../contexts/cart-context";
 import { checkoutDetails } from "../../utilities/cart-utils";
 import { useOrders } from "../../contexts";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 const CartPriceDetails = ({ selectedAddress }) => {
   const { cart, setCart } = useCart();
+  const navigate = useNavigate();
   const { setUserOrders } = useOrders();
   if (cart.length === 0) {
     return <h2>No items in cart</h2>;
@@ -64,6 +66,8 @@ const CartPriceDetails = ({ selectedAddress }) => {
               orderAddress: selectedAddress,
             },
           ]);
+          setCart([]);
+          navigate("/orders");
         } else {
           alert("Payment error , Enter valid Account");
         }

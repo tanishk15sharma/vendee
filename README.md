@@ -1,6 +1,6 @@
 
 ### About
-Bookscape is an eCommerce store for books.
+Vendee is an eCommerce store for one who is extremely or excessively fond of shopping with user friendly UI for better understanding.
 
 ### Preview
 

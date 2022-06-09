@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import slide1 from "../../assets/carousel-images/Carousel1.webp";
 import slide2 from "../../assets/carousel-images/carousle2.jpg";
 import slide3 from "../../assets/carousel-images/carousel5.webp";
 import "./Carousel.css";
 const Carousel = () => {
+  let counter = 1;
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      document.getElementById("radio" + counter).checked = true;
+      counter++;
+      if (counter > 3) {
+        counter = 1;
+      }
+    }, 3000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [counter]);
+
   return (
     <main>
       <div className="slider">
@@ -11,7 +26,6 @@ const Carousel = () => {
           <input type="radio" name="radio-btn" id="radio1" />
           <input type="radio" name="radio-btn" id="radio2" />
           <input type="radio" name="radio-btn" id="radio3" />
-          {/* slide image */}
           <div className="slide first">
             <img src={slide1} alt="carousel image" />
           </div>
@@ -21,7 +35,6 @@ const Carousel = () => {
           <div className="slide">
             <img src={slide3} alt="carousel image" />
           </div>
-          {/* slide image  END*/}
           <div className="navigation-auto">
             <div className="auto-btn1"></div>
             <div className="auto-btn2"></div>

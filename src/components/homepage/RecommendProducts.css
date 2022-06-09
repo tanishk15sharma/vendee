@@ -56,7 +56,7 @@
   font-size: 3.5rem;
 }
 
-.banner-detail button {
+.banner-btn {
   margin-top: 1rem;
   padding: 0.5rem 2rem;
   background-color: var(--background-color);
@@ -67,8 +67,9 @@
   transition: all 0.2s ease;
 }
 
-.banner-detail button:hover {
+.banner-btn:hover {
   opacity: 0.9;
+  transform: scale(0.9);
 }
 
 .fa-right-long {
@@ -77,4 +78,13 @@
 }
 .display-hide {
   display: none;
+}
+
+@media (max-width: 500px) {
+  .banner-detail span {
+    font-size: 1.5rem;
+  }
+  .banner-btn {
+    margin-bottom: 1rem;
+  }
 }

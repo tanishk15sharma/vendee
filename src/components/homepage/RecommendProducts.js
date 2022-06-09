@@ -73,7 +73,7 @@ const RecommendProducts = () => {
           <span>EVERYDAY</span>
           <span>ESSENTIALS</span>
           <Link to="/products">
-            <button>
+            <button className="banner-btn">
               SHOP NOW
               <i className="fa-solid fa-right-long"></i>
             </button>

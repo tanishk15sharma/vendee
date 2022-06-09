@@ -181,8 +181,8 @@ nav {
     gap: 1.4rem;
     padding: 1rem 2rem;
     width: 30%;
-    height: calc(100vh - 4.5rem);
-    top: 4rem;
+    height: calc(100vh - 3.8rem);
+    top: 3.8rem;
     left: 0;
     z-index: 3;
     background-color: var(--primary-color);

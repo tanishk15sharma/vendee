@@ -40,6 +40,59 @@ nav {
   z-index: 3;
 }
 
+.nav-categories {
+  position: absolute;
+  background-color: #f9f3f2;
+  width: 10rem;
+  padding: 1rem;
+  left: 3.5rem;
+  padding-bottom: 1.5rem;
+  z-index: 15;
+  display: none;
+  transition: all 1s ease-in;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.nav-categories li {
+  padding-top: 8px;
+  font-weight: 300;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.category-icon {
+  color: var(--action-color);
+  font-size: 12px;
+  margin-left: 6px;
+  visibility: hidden;
+}
+
+.nav-categories li:hover .category-icon {
+  color: var(--action-color);
+  visibility: visible;
+}
+.nav-categories li:hover {
+  color: var(--action-color);
+  font-weight: 400;
+}
+.categoryBtn {
+  border: none;
+  background: none;
+  color: var(--secondary-color);
+  transition: all 0.2s;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.categoryBtn:hover {
+  color: var(--action-color);
+}
+.navcategory-div {
+  display: inline;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.navcategory-div:hover .nav-categories {
+  display: block;
+}
 .foot-icon {
   margin-left: 8.3rem;
   padding-top: 0.4rem;

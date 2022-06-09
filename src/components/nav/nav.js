@@ -25,7 +25,7 @@ const Nav = () => {
   return (
     <nav>
       <div
-        className="nav-menu"
+        className="nav-menu relative"
         style={{
           transform: toggleHamburger && "translateX(0)",
         }}
@@ -33,10 +33,69 @@ const Nav = () => {
         <Link to="/" className="nav-text">
           Home
         </Link>
-
-        <Link to="/products" className="nav-text">
-          Products
-        </Link>
+        <div className="navcategory-div">
+          <button className="categoryBtn">Products</button>
+          <ul className="nav-categories">
+            <Link
+              to="/products"
+              className="recommendation-img"
+              onClick={() => dispatch({ type: "ADD_CATEGORY", payload: "men" })}
+            >
+              <li>
+                Men{" "}
+                <i className="fa-solid fa-square-arrow-up-right category-icon"></i>{" "}
+              </li>
+            </Link>
+            <Link
+              to="/products"
+              className="recommendation-img"
+              onClick={() =>
+                dispatch({ type: "ADD_CATEGORY", payload: "women" })
+              }
+            >
+              <li>
+                Women{" "}
+                <i className="fa-solid fa-square-arrow-up-right category-icon"></i>{" "}
+              </li>
+            </Link>
+            <Link
+              to="/products"
+              className="recommendation-img"
+              onClick={() =>
+                dispatch({ type: "ADD_CATEGORY", payload: "footwear" })
+              }
+            >
+              <li>
+                Footwear{" "}
+                <i className="fa-solid fa-square-arrow-up-right category-icon"></i>{" "}
+              </li>
+            </Link>
+            <Link
+              to="/products"
+              className="recommendation-img"
+              onClick={() =>
+                dispatch({ type: "ADD_CATEGORY", payload: "jewellery" })
+              }
+            >
+              <li>
+                Jewellery{" "}
+                <i className="fa-solid fa-square-arrow-up-right category-icon"></i>{" "}
+              </li>
+            </Link>
+            <Link
+              to="/products"
+              className="recommendation-img"
+              onClick={() =>
+                dispatch({ type: "ADD_CATEGORY", payload: "homedecor" })
+              }
+            >
+              <li>
+                Home Decor{" "}
+                <i className="fa-solid fa-square-arrow-up-right category-icon"></i>{" "}
+              </li>
+            </Link>
+          </ul>
+        </div>
       </div>
       <div className="logo-div">
         <i
@@ -50,7 +109,7 @@ const Nav = () => {
         <i className="fa-solid fa-shoe-prints"></i>
       </div>
       <div className="nav-icons-div">
-        <div className="nav-icon-div">
+        {/* <div className="nav-icon-div">
           <img
             src={searchIcon}
             className="high-index"
@@ -68,7 +127,7 @@ const Nav = () => {
               dispatch({ type: "SEARCH_PRODUCT", payload: e.target.value })
             }
           />
-        </div>
+        </div> */}
         {!getToken() ? (
           <Link to="/login">
             <div className="nav-icon-div">

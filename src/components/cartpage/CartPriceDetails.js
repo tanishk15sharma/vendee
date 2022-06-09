@@ -125,7 +125,7 @@ const CartPriceDetails = ({ selectedAddress }) => {
       ) : (
         <Link to="/address">
           <button className="primary-btn-color btn-pd w-full">
-            PLACE ORDER
+            Add Address
           </button>
         </Link>
       )}

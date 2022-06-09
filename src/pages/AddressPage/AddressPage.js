@@ -27,7 +27,7 @@ const AddressPage = () => {
           Add New Address
         </button>
         {addressState?.map((address) => (
-          <AddressCard address={address} key={address.id} />
+          <AddressCard address={address} key={address?.id} />
         ))}
 
         {addressData.addressFormModal ? <AddressForm /> : ""}

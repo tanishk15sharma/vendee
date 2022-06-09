@@ -4,7 +4,7 @@ import "./AddressCard.css";
 const AddressCard = (props) => {
   const { addressDispatch, addressState, setAddressData } = useAddress();
   const { id, name, address, city, state, number, pincode, option } =
-    props.address;
+    props?.address;
 
   const editHandler = (addressId) => {
     const editAddress = addressState.find(({ id }) => id === addressId);

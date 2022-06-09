@@ -7,20 +7,26 @@ const SelectAddress = ({ selectedAddress, setSelectedAddress }) => {
 
   return (
     <section className="selectedAddress-section">
-      <div>
-        <p className="addresser-name">
-          <span className="sub-txt">Deliver to: </span>
-          {selectedAddress?.name} , {selectedAddress?.pincode}
-          <span className="small-block-txt">{selectedAddress?.option}</span>
-        </p>
-        <p className="selected-place"> {selectedAddress?.address}</p>
-      </div>
-      <button
-        className="primary-btn-color btn-pd"
-        onClick={() => setAddressModal((preVal) => !preVal)}
-      >
-        CHANGE
-      </button>
+      {selectedAddress ? (
+        <>
+          <div>
+            <p className="addresser-name">
+              <span className="sub-txt">Deliver to: </span>
+              {selectedAddress?.name} , {selectedAddress?.pincode}
+              <span className="small-block-txt">{selectedAddress?.option}</span>
+            </p>
+            <p className="selected-place"> {selectedAddress?.address}</p>
+          </div>
+          <button
+            className="primary-btn-color btn-pd"
+            onClick={() => setAddressModal((preVal) => !preVal)}
+          >
+            CHANGE
+          </button>
+        </>
+      ) : (
+        <h2>No Address available</h2>
+      )}
       {addressModal && (
         <AddressesModal
           setAddressModal={setAddressModal}

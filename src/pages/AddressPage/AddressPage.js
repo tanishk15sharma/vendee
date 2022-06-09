@@ -6,7 +6,7 @@ import { useAddress } from "../../contexts";
 import "./AddressPage.css";
 const AddressPage = () => {
   const { addressState, addressData, setAddressData } = useAddress();
-
+  console.log(addressState);
   return (
     <div>
       <Nav />

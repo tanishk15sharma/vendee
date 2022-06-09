@@ -2,10 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth-context";
 import { validSignUp } from "../../utilities/auth";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const { authState, authDispatch } = useAuth();
   const [passwordType, setPasswordType] = useState(true);
+  const navigate = useNavigate();
 
   const [signUpData, setSignUpData] = useState({
     firstName: "",
@@ -41,7 +43,6 @@ const SignUp = () => {
     }));
   };
 
-  console.log(signUpData);
   const postSignUpDetails = async (e) => {
     try {
       e.preventDefault();
@@ -53,7 +54,7 @@ const SignUp = () => {
       authDispatch({ type: "USER_LOAD" });
       const { data } = await axios.post("/api/auth/signup", signUpData);
       authDispatch({ type: "USER_LOAD_SUCCESS", payload: data.createdUser });
-      console.log(data);
+      navigate("/");
       localStorage.setItem("token", data.encodedToken);
     } catch (err) {
       console.log(err);
@@ -130,11 +131,11 @@ const SignUp = () => {
             name="password"
             value={signUpData.password}
             onChange={inputHandler}
-            className="input-reset"
+            className="input-reset "
           />
           <i
             class="fa-solid fa-eye"
-            onClick={() => setPasswordType(!passwordType)}
+            onClick={() => setPasswordType((preVal) => !preVal)}
           ></i>
         </div>
         {signUpErrors.password && (
@@ -145,7 +146,7 @@ const SignUp = () => {
         )}
         <div className="auth-input-div">
           <input
-            type="text"
+            type={passwordType ? "password" : "text"}
             placeholder="Confirm Password"
             name="confirmPassword"
             value={signUpData.confirmPassword}
@@ -154,7 +155,7 @@ const SignUp = () => {
           />
           <i
             class="fa-solid fa-eye"
-            onClick={() => setPasswordType(!passwordType)}
+            onClick={() => setPasswordType((preVal) => !preVal)}
           ></i>
         </div>
         {signUpErrors.confirmPassword && (

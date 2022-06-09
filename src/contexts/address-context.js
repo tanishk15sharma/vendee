@@ -29,7 +29,7 @@ const AddressContextProvider = ({ children }) => {
     getToken()
       ? addressDispatch({
           type: "ADD_TEST_ADDRESS",
-          payload: authState.user.address,
+          payload: authState.user?.address,
         })
       : "";
   }, [authState]);

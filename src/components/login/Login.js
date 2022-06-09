@@ -50,12 +50,7 @@ const UserLogin = () => {
 
   const testLoginHandler = (e) => {
     e.preventDefault();
-
-    setLoginData({
-      email: "Tanishk@gmail.com",
-      password: "Tanishk123",
-    });
-    handleSubmit();
+    postLoginDetails("Tanishk@gmail.com", "Tanishk123");
   };
 
   return (

@@ -4,7 +4,7 @@ import { Nav } from "../../components/nav/nav";
 import { useOrders } from "../../contexts";
 const OrdersPage = () => {
   const { userOrders } = useOrders();
-  console.log(userOrders);
+
   return (
     <>
       <Nav />
@@ -12,6 +12,7 @@ const OrdersPage = () => {
         <p className="title-name">
           <span className="logo-v">My</span>Orders
         </p>
+        {userOrders.length === 0 ? <h1>No orders are done by you.</h1> : ""}
 
         {userOrders.map((order) => {
           return (

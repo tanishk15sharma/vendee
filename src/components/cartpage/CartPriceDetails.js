@@ -1,14 +1,16 @@
 import "./CartPriceDetails.css";
 import { useCart } from "../../contexts/cart-context";
 import { checkoutDetails, removeAllCart } from "../../utilities/cart-utils";
-import { useOrders } from "../../contexts";
+import { useAddress, useOrders } from "../../contexts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const CartPriceDetails = ({ selectedAddress }) => {
   const { cart, setCart } = useCart();
   const navigate = useNavigate();
   const { setUserOrders } = useOrders();
+  const { addressState } = useAddress();
+
   if (cart.length === 0) {
     return <h2>No items in cart</h2>;
   }
@@ -72,13 +74,6 @@ const CartPriceDetails = ({ selectedAddress }) => {
         } else {
           alert("Payment error , Enter valid Account");
         }
-        console.log(response.razorpay_payment_id);
-        // const result = await axios.post(
-        //   "http://localhost:5000/payment/success",
-        //   data
-        // );
-
-        // alert(result.data.msg);
       },
       prefill: {
         name: "Tanishk",
@@ -117,10 +112,23 @@ const CartPriceDetails = ({ selectedAddress }) => {
         </li>
         <hr />
       </ul>
-      <p className="discount-txt">You will save &#8377; 1000 on this order</p>
-      <button className="primary-btn-color btn-pd" onClick={displayRazorpay}>
-        PLACE ORDER
-      </button>
+      <p className="discount-txt">
+        You will save {discountPrice}% on this order
+      </p>
+      {addressState.length !== 0 ? (
+        <button
+          className="primary-btn-color btn-pd w-full"
+          onClick={displayRazorpay}
+        >
+          PLACE ORDER
+        </button>
+      ) : (
+        <Link to="/address">
+          <button className="primary-btn-color btn-pd w-full">
+            PLACE ORDER
+          </button>
+        </Link>
+      )}
     </div>
   );
 };

@@ -145,7 +145,7 @@ export const products = [
     discount: 20,
     inStock: false,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 1.5,
     size: "L",
   },
   {
@@ -159,7 +159,7 @@ export const products = [
     discount: 40,
     inStock: false,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 2.5,
     size: "L",
   },
   {
@@ -201,7 +201,7 @@ export const products = [
     discount: 50,
     inStock: false,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 2.5,
     size: "L",
   },
   {
@@ -229,7 +229,7 @@ export const products = [
     discount: 50,
     inStock: false,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 1.5,
     size: "L",
   },
   {
@@ -285,7 +285,7 @@ export const products = [
     discount: 50,
     inStock: true,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 2.5,
     size: "L",
   },
 ];

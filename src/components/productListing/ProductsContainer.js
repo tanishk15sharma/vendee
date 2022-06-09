@@ -4,7 +4,7 @@ import {
   getSortedProducts,
   getFilteredProducts,
 } from "../../utilities/filters-utils";
-import loaderGif from "../../assets/loaderg.gif";
+import emptyCart from "../../assets/empty_cart.png";
 import { useProducts, useProductsFilters } from "../../contexts";
 import { ProductCard } from "./ProductCard";
 
@@ -37,9 +37,9 @@ const ProductsContainer = () => {
 
   return (
     <div className="product-wrapper">
-      {!products ? (
-        <div className="loading-img">
-          <img src={loaderGif} alt="loading gif" />
+      {filteredProducts.length === 0 ? (
+        <div className="img-center">
+          <img src={emptyCart} />
         </div>
       ) : (
         filteredProducts.map((product) => (

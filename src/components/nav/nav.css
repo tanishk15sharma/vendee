@@ -88,7 +88,6 @@ nav {
 }
 .navcategory-div {
   display: inline;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 .navcategory-div:hover .nav-categories {
   display: block;
@@ -140,7 +139,7 @@ nav {
 }
 .search-bar {
   position: absolute;
-  right: 13rem;
+  right: 15rem;
   bottom: 0.8rem;
   padding: 0.8rem 0;
   width: 0%;
@@ -160,6 +159,7 @@ nav {
   }
   nav {
     padding: 1rem 2rem 0.5rem 2rem;
+    align-items: center;
   }
 
   .logo-div .fa-bars {
@@ -210,6 +210,19 @@ nav {
 
 @media (max-width: 460px) {
   .nav-icons-div {
-    gap: 1.2rem;
+    gap: 10px;
+  }
+  .nav-menu {
+    padding: 1rem;
+    width: 50%;
+  }
+}
+/* smallest size */
+@media (max-width: 370px) {
+  .logo-name {
+    display: none;
+  }
+  .fa-shoe-prints {
+    display: none;
   }
 }

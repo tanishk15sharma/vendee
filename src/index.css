@@ -14,16 +14,17 @@
 }
 :root {
   --primary-color: #fff;
-
   --secondary-color: #3e4152;
   /* --action-color: #f26430;confused */
   --action-color: #ff715b;
-
   --background-color: #171717;
 }
-
+.img-center {
+  margin: auto;
+  width: 50rem;
+  padding-left: 14rem;
+}
 html {
-  /* font-size: 50%; */
   font-family: "Roboto", sans-serif;
 }
 

@@ -41,7 +41,6 @@ const UserProfile = ({ userDetails }) => {
         className="flex-cl user-modal"
         style={{ display: toggleUserProfile ? "flex" : "none" }}
       >
-        <Link to="/settings">Settings</Link>
         <Link to="/address">Address</Link>
         <Link to="/orders">Orders</Link>
         <button onClick={logOutHandler} className="logout-btn">

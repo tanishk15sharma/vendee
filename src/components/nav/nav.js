@@ -1,4 +1,3 @@
-import searchIcon from "../../assets/nav-icons/search.svg";
 import likeIcon from "../../assets/nav-icons/heart.svg";
 import loginIcon from "../../assets/nav-icons/user-plus.svg";
 import cartIcon from "../../assets/nav-icons/shopping-cart.svg";
@@ -16,7 +15,6 @@ import { UserProfile } from "../userprofile/UserProfile";
 
 const Nav = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
-  const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const { wishList } = useWishlist();
   const { cart } = useCart();
   const { dispatch } = useProductsFilters();
@@ -34,7 +32,15 @@ const Nav = () => {
           Home
         </Link>
         <div className="navcategory-div">
-          <button className="categoryBtn">Products</button>
+          {toggleHamburger ? (
+            <Link to="/products" className="nav-text">
+              Products
+            </Link>
+          ) : (
+            <Link to="/products">
+              <button className="categoryBtn">Products</button>
+            </Link>
+          )}
           <ul className="nav-categories">
             <Link
               to="/products"
@@ -109,25 +115,6 @@ const Nav = () => {
         <i className="fa-solid fa-shoe-prints"></i>
       </div>
       <div className="nav-icons-div">
-        {/* <div className="nav-icon-div">
-          <img
-            src={searchIcon}
-            className="high-index"
-            onClick={() => setToggleSearchBar((val) => !val)}
-          />
-          <span className="relative high-index">Search</span>
-          <input
-            className="search-bar"
-            placeholder="Search"
-            style={{
-              width: toggleSearchBar && "20%",
-              padding: toggleSearchBar && "0.8rem",
-            }}
-            onChange={(e) =>
-              dispatch({ type: "SEARCH_PRODUCT", payload: e.target.value })
-            }
-          />
-        </div> */}
         {!getToken() ? (
           <Link to="/login">
             <div className="nav-icon-div">

@@ -6,13 +6,12 @@
 .user-modal {
   position: fixed;
   background-color: var(--primary-color);
-
   padding: 1rem;
-  right: 9%;
-  top: 10%;
-  width: 10%;
-
-  /* border: 2px solid red; */
+  padding-right: 2rem;
+  right: 120px;
+  top: 60px;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .logout-btn {
   border: none;
@@ -24,4 +23,11 @@
 }
 .logout-btn:hover {
   border-bottom: 3px solid var(--secondary-color);
+}
+
+@media (max-width: 645px) {
+  .user-modal {
+    right: 80px;
+    top: 50px;
+  }
 }

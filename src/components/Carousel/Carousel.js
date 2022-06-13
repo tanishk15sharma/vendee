@@ -3,6 +3,7 @@ import slide1 from "../../assets/carousel-images/Carousel1.webp";
 import slide2 from "../../assets/carousel-images/carousle2.jpg";
 import slide3 from "../../assets/carousel-images/carousel5.webp";
 import "./Carousel.css";
+import { Link } from "react-router-dom";
 const Carousel = () => {
   let counter = 1;
   useEffect(() => {
@@ -12,7 +13,7 @@ const Carousel = () => {
       if (counter > 3) {
         counter = 1;
       }
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearInterval(intervalId);
@@ -25,13 +26,19 @@ const Carousel = () => {
       <input type="radio" name="radio-btn" id="radio2" />
       <input type="radio" name="radio-btn" id="radio3" />
       <div className="slide first">
-        <img src={slide1} alt="carousel image" />
+        <Link to="/products">
+          <img src={slide1} alt="carousel image" />
+        </Link>
       </div>
       <div className="slide">
-        <img src={slide2} alt="carousel image" />
+        <Link to="/products">
+          <img src={slide2} alt="carousel image" />
+        </Link>
       </div>{" "}
       <div className="slide">
-        <img src={slide3} alt="carousel image" />
+        <Link to="/products">
+          <img src={slide3} alt="carousel image" />
+        </Link>
       </div>
       <div className="navigation-auto">
         <div className="auto-btn1"></div>

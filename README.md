@@ -3,7 +3,7 @@
 Vendee is an eCommerce store for one who is extremely or excessively fond of shopping with user friendly UI for better understanding.
 
 ### Preview
-
+https://vendee.vercel.app/
 
 ### Tech Stack
 React, Vanilla CSS, Fubrish UI(own component library), React Router v6, jsonwebtoken and bcrypt.
